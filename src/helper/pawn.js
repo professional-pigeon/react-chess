@@ -1,9 +1,14 @@
 export function pawnMovesWhite(pos, tile) {
   let bool = false
-  if (tile.piece === "empty" && (tile.position[0] - pos[0]) === 1) {
+  let shiftRow = tile.position[0] - pos[0]
+  let shiftLeft = tile.position[1] - pos[1]
+  if (tile.piece === "empty" && shiftRow === 1) {
     bool = true
   }
-  if ((tile.position[0] - pos[0]) === 2 && pos[0] === 2 && tile.piece === "empty") {
+  if (shiftRow === 2 && pos[0] === 2 && tile.piece === "empty") {
+    bool = true
+  }
+  if (shiftRow === 1 && tile.piece != "empty" && shiftLeft === 1) {
     bool = true
   }
   return bool

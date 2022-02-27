@@ -38,5 +38,8 @@ describe('pawnMoves', () => {
   test('pawn will return false if it cannot move one space ahead', () => {
     expect(pawnMovesWhite([2, 0], tileBlockedTwo)).toEqual(false)
   })
+  test('pawn can take an opponents piece one space up and to the right or left', () => {
+    expect(pawnMovesWhite([2, 0], canTakeTile)).toEqual(true)
+  })
 
 })

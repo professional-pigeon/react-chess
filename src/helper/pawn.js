@@ -1,3 +1,5 @@
-export function pawnMoves(row, col) {
-  return row, col
+export function pawnMoves(position, tile) {
+  if (tile.piece === "empty") {
+    
+  }
 }

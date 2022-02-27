@@ -3,7 +3,7 @@ export function pawnMovesWhite(pos, tile) {
   if (tile.piece === "empty" && (tile.position[0] - pos[0]) === 1) {
     bool = true
   }
-  if ((tile.position[0] - pos[0]) === 2 && pos[0] === 2) {
+  if ((tile.position[0] - pos[0]) === 2 && pos[0] === 2 && tile.piece === "empty") {
     bool = true
   }
   return bool

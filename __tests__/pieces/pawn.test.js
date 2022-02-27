@@ -1,9 +1,14 @@
-import { pawnMoves } from "../../src/helper/pawn";
+import { pawnMovesWhite } from "../../src/helper/pawn";
 
 describe('pawnMoves', () => {
   const tileEmpty = {
     piece: "empty",
     position: [1, 0]
+  }
+
+  const tileEmptyTwo = {
+    piece: "empty",
+    position: [2, 0]
   }
 
   const tileBlocked = {
@@ -17,8 +22,10 @@ describe('pawnMoves', () => {
   }
 
   test('pawn can move one space forward if position is empty', () => {
-
-    expect(pawnMoves([0, 0], tileEmpty)).toEqual(true)
+    expect(pawnMovesWhite([0, 0], tileEmpty)).toEqual(true)
+  })
+  test('pawn can move two spaces forward if position is empty and on starting position', () => {
+    expect(pawnMovesWhite([0, 0], tileEmptyTwo)).toEqual(true)
   })
 
 })

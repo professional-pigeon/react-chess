@@ -1,11 +1,31 @@
-export function pawnMoves(pos, tile) {
+export function pawnMovesWhite(pos, tile) {
+  console.log(tile.position[0] - pos[0])
   if (tile.piece != "empty") {
     return false
   }
-  if(tile.position[0] - pos[0] > 1) {
+  if ((tile.position[0] - pos[0]) !== 1) {
+    console.log((tile.position[0] - pos[0]) == 1) //evals to true...
     return false
   }
   return true
 }
 
-// a piece needs to know if a tile is empty, has a piece, color of the piece and size of the board
+const tileEmpty = {
+  piece: "empty",
+  position: [1, 0]
+}
+
+const tileEmptyTwo = {
+  piece: "empty",
+  position: [2, 0]
+}
+
+const tileBlocked = {
+  piece: "piece",
+  position: [1, 0]
+}
+
+const canTakeTile = {
+  piece: "piece",
+  position: [1, 1]
+}

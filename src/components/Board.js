@@ -1,8 +1,13 @@
 import React from "react";
 
 function Board() {
+
+  console.log("in board")
+  
   return (
-    <p>Board to go here</p>
+    <div>
+      <p>Board to go here</p>
+    </div>
   )
 }
 

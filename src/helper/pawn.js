@@ -1,13 +1,12 @@
 export function pawnMovesWhite(pos, tile) {
-  console.log(tile.position[0] - pos[0])
-  if (tile.piece != "empty") {
-    return false
+  let bool = false
+  if (tile.piece === "empty" && (tile.position[0] - pos[0]) === 1) {
+    bool = true
   }
-  if ((tile.position[0] - pos[0]) < 1 || (tile.position[0] - pos[0]) > 2) {
-    console.log((tile.position[0] - pos[0]) == 1) //evals to true...
-    return false
+  if ((tile.position[0] - pos[0]) === 2 && pos[0] === 2) {
+    bool = true
   }
-  return true
+  return bool
 }
 
 const tileEmpty = {

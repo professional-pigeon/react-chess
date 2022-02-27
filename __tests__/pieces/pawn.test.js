@@ -25,7 +25,7 @@ describe('pawnMoves', () => {
     expect(pawnMovesWhite([0, 0], tileEmpty)).toEqual(true)
   })
   test('pawn can move two spaces forward if position is empty and on starting position', () => {
-    expect(pawnMovesWhite([0, 0], tileEmptyTwo)).toEqual(true)
+    expect(pawnMovesWhite([2, 0], tileEmptyTwo)).toEqual(true)
   })
 
 })

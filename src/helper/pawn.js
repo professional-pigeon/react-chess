@@ -1,9 +1,14 @@
-export function pawnMovesWhite(pos, tile) {
+function pawnMovesWhite(pos, tile) {
   let bool = false
   let shiftRow = tile.position[0] - pos[0]
-  let shiftLeft = tile.position[1] - pos[1]
-  if (tile.piece === "empty" && shiftRow === 1) {
-    bool = true
+  let shiftCol = tile.position[1] - pos[1]
+  if (tile.piece === "empty") {
+    if (shiftRow === 1 && shiftCol === 0) {
+      bool = true
+    }
+    if (shiftRow === 2) {
+      bool = true
+    }
   }
   if (shiftRow === 2 && pos[0] === 2 && tile.piece === "empty") {
     bool = true
@@ -33,3 +38,10 @@ const canTakeTile = {
   piece: "piece",
   position: [1, 1]
 }
+
+function pawnOne(pos) {
+  pos[0]++
+  return pos
+}
+
+console.log(pawnOne([0,0]))

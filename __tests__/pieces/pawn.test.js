@@ -16,6 +16,11 @@ describe('pawnMoves', () => {
     position: [3, 0]
   }
 
+  const tileBlockedTwo = {
+    piece: "piece",
+    position: [4, 0]
+  }
+
   const canTakeTile = {
     piece: "piece",
     position: [3, 1]
@@ -28,7 +33,10 @@ describe('pawnMoves', () => {
     expect(pawnMovesWhite([2, 0], tileBlocked)).toEqual(false)
   })
   test('pawn can move two spaces forward if position is empty and on starting position', () => {
-    expect(pawnMovesWhite([2, 1], tileEmptyTwo)).toEqual(true)
+    expect(pawnMovesWhite([2, 0], tileEmptyTwo)).toEqual(true)
+  })
+  test('pawn will return false if it cannot move one space ahead', () => {
+    expect(pawnMovesWhite([2, 0], tileBlockedTwo)).toEqual(false)
   })
 
 })

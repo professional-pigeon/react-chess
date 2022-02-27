@@ -18,7 +18,7 @@ describe('pawnMoves', () => {
 
   test('pawn can move one space forward if position is empty', () => {
 
-    expect(pawnMoves([0, 0], tile)).toEqual(true)
+    expect(pawnMoves([0, 0], tileEmpty)).toEqual(true)
   })
 
 })

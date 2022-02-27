@@ -44,4 +44,5 @@ function pawnOne(pos) {
   return pos
 }
 
+
 console.log(pawnOne([0,0]))

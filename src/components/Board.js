@@ -6,14 +6,24 @@ function Board() {
   for (let i = 1; i < 9; i ++) {
     grid.push([])
     for (let j = 1; j < 9; j ++) {
-      grid[i - 1].push([i, j])
+      grid[i - 1].push(
+        <div key={i + " "+ j} id="tile"><p>{i + " " + j}</p></div>
+      )
     }
+  }
+
+  function print(grid) {
+    let retArr = []
+    grid.forEach(function(arr, key) {
+    retArr.push(<div key={key} className="boardRow">{arr}</div>)
+    })
+    return retArr
   }
   
   console.log(grid)
   return (
     <div>
-      <p>Board to go here</p>
+      {print(grid)}
     </div>
   )
 }

@@ -40,3 +40,8 @@
 .boardRow {
   display: flex;
 }
+
+#tile {
+  margin: 5px;
+  background-color: #61dafb;
+}

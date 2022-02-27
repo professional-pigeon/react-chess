@@ -3,7 +3,7 @@ export function pawnMovesWhite(pos, tile) {
   if (tile.piece != "empty") {
     return false
   }
-  if ((tile.position[0] - pos[0]) !== 1) {
+  if ((tile.position[0] - pos[0]) < 1 || (tile.position[0] - pos[0]) > 2) {
     console.log((tile.position[0] - pos[0]) == 1) //evals to true...
     return false
   }

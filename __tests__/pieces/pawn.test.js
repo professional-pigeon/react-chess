@@ -1,4 +1,4 @@
-import { pawnMovesWhite } from "../../src/helper/pawn";
+import { pawnMovesWhite } from "../../src/helper/Pawn";
 
 describe('pawnMoves', () => {
   const tileEmpty = {

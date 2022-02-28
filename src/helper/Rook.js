@@ -1,13 +1,17 @@
-function RookOrthogonal(pos, board) {
+function RookOrthogonal(pos, color, board) {
   let coordinates = pos.split("")
   let moves = []
   for (let i = 1; i <= 8; i++) {
     let piece = board[coordinates[0].toString() + i.toString()]
     if (piece === "empty") {
-      console.log(board[coordinates[0].toString() + i.toString()])
+      moves.push(coordinates[0].toString() + i.toString())
+    }
+    if (piece.includes("Black") && color === "White") {
+      moves.push(coordinates[0].toString() + i.toString())
+      break
     }
   }
-  return coordinates
+  return moves
 }
 
 const boardState = {
@@ -77,4 +81,4 @@ const boardState = {
   88: "empty",
 }
 
-console.log(RookOrthogonal("11", boardState))
+console.log(RookOrthogonal("11", "White", boardState))

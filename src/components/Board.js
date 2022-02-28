@@ -7,7 +7,7 @@ function Board() {
     grid.push([])
     for (let j = 1; j < 9; j ++) {
       grid[i - 1].push(
-        <div key={i + " "+ j} id="tile"><p>{i + " " + j}</p></div>
+        <div key={i.toString() + j.toString()} id="tile"><p>{i.toString() + j.toString()}</p></div>
       )
     }
   }

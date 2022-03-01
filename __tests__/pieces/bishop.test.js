@@ -146,7 +146,11 @@ describe('bishopMinPos', () => {
     expect(bishopMinPos("53", "Black", boardState)).toEqual(["44", "35", "26", "17"])
   })
 
-  test('bishoMinPos should return an empty array if starting at the lowest row number (1)', () => {
+  test('bishopMinPos should return an empty array if starting at the lowest row number (1)', () => {
     expect(bishopMinPos("15", "Black", boardState)).toEqual([])
+  })
+
+  test('bishopMinPos should return an empty array if starting at the highest col number', () => {
+    expect(bishopMinPos("58", "Black", boardState)).toEqual([])
   })
 })

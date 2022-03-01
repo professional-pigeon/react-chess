@@ -117,4 +117,8 @@ describe('rookRight', () => {
   test('rookRight will move through empty spaces and stop after encountering a piece of the opposing color', ()=> {
     expect(rookRight("85", "Black", boardState)).toEqual(["86", "87"])
   })
+
+  test('rookRight will return an empty array if it starts on the furthest right position (8th)', () => {
+    expect(rookright("18", "Black", boardState)).toEqual(["thing"])
+  })
 })

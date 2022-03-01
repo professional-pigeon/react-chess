@@ -133,6 +133,6 @@ describe('rookLeft', () => {
   })
 
   test('rookLeft will return an empty array if starting at furthest left column (1st)', () => {
-    expect(rookLeft('11', "White", boardState)).toEqual(["thing"])
+    expect(rookLeft('11', "White", boardState)).toEqual([])
   })
 })

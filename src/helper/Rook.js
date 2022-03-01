@@ -73,11 +73,11 @@ function rookWhiteRight(pos, color, board) {
     if (piece === "empty") {
       moves.push(coordinates[0].toString() + i.toString())
     }
-    if (piece.includes("Black") && color === "White") {
+    if (piece.includes("Black") && color === "White" || piece.includes("White") && color === "Black") {
       moves.push(coordinates[0].toString() + i.toString())
       break
     }
-    if (piece.includes("White") && color === "White") {
+    if (piece.includes("White") && color === "White" || piece.includes("Black") && color === "Black") {
       break
     }
   }
@@ -93,11 +93,11 @@ function rookWhiteLeft(pos, color, board) {
     if (piece === "empty") {
       moves.push(coordinates[0].toString() + i.toString())
     }
-    if (piece.includes("Black") && color === "White") {
+    if (piece.includes("Black") && color === "White" || piece.includes("White") && color === "Black") {
       moves.push(coordinates[0].toString() + i.toString())
       break
     }
-    if (piece.includes("White") && color === "White") {
+    if (piece.includes("White") && color === "White" || piece.includes("Black") && color === "Black") {
       break
     }
   }
@@ -113,11 +113,11 @@ function rookWhiteDown(pos, color, board) {
     if (piece === "empty") {
       moves.push(i.toString() + coordinates[1].toString())
     }
-    if (piece.includes("Black") && color === "White") {
+    if (piece.includes("Black") && color === "White" || piece.includes("White") && color === "Black") {
       moves.push(i.toString() + coordinates[1].toString())
       break
     }
-    if (piece.includes("White") && color === "White") {
+    if (piece.includes("White") && color === "White" || piece.includes("Black") && color === "Black") {
       break
     }
   }
@@ -132,41 +132,22 @@ function rookWhiteUp(pos, color, board) {
     if (piece === "empty") {
       moves.push(i.toString() + coordinates[1].toString())
     }
-    if (piece.includes("Black") && color === "White") {
+    if (piece.includes("Black") && color === "White" || piece.includes("White") && color === "Black") {
       moves.push(i.toString() + coordinates[1].toString())
       break
     }
-    if (piece.includes("White") && color === "White") {
+    if (piece.includes("White") && color === "White" || piece.includes("Black") && color === "Black") {
       break
     }
   }
   return moves
 }
 
-function whiteRookMoves(pos, color, board) {
+function rookMoves(pos, color, board) {
   let arr = []
   arr.push(rookWhitelUp(pos, color, board))
   arr.push(rookWhiteLeft(pos, color, board))
   arr.push(rookWhiteRight(pos, color, board))
   arr.push(rookWhiteDown(pos, color, board))
   return arr
-}
-
-function rookBlackRight(pos, color, board) {
-  let coordinates = pos.split("")
-  let moves = []
-  for (let i = Number(coordinates[1]) + 1; i <= 8; i++) {
-    let piece = board[coordinates[0].toString() + i.toString()]
-    if (piece === "empty") {
-      moves.push(coordinates[0].toString() + i.toString())
-    }
-    if (piece.includes("White") && color === "Black") {
-      moves.push(coordinates[0].toString() + i.toString())
-      break
-    }
-    if (piece.includes("Black") && color === "Black") {
-      break
-    }
-  }
-  return moves
 }

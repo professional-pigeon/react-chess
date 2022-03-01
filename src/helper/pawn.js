@@ -1,5 +1,10 @@
 function pawnForward(pos, color, board) {
+  let coordinates = pos.split("")
+  let x = Number(coordinates[0])
   let moves = []
+  if (board[(x + 1).toString() + coordinates[1]] === "empty") {
+    moves.push((x + 1).toString() + coordinates[1])
+  }
   return moves
 }
 

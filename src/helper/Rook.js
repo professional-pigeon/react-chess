@@ -151,3 +151,11 @@ function rookMoves(pos, color, board) {
   arr.push(rookDown(pos, color, board))
   return arr
 }
+
+export {
+  rookMoves,
+  rookDown,
+  rookLeft,
+  rookRight,
+  rookUp
+}

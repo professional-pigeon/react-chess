@@ -99,4 +99,8 @@ describe('rookDown', () => {
   test('rookDown will move down row positions if empty and stop after seeing a piece of the opposite color', () => {
     expect(rookDown("34", "White", boardState)).toEqual(["24", "14"])
   })
+
+  test('confirm rookDown will work for both colors', () => {
+    expect(rookDown("47", "Black", boardState)).toEqual([])
+  })
 })

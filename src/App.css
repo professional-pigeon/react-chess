@@ -41,7 +41,11 @@
   display: flex;
 }
 
-#tile {
+.tile {
   margin: 5px;
   background-color: #61dafb;
+}
+
+#highlight {
+  background-color: red;
 }

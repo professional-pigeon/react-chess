@@ -1,5 +1,6 @@
 import React from "react";
 import Piece from "./Piece"
+import { useState } from "react";
 
 function Board() {
   const boardState = {
@@ -69,14 +70,19 @@ function Board() {
     88: "empty",
   }
 
+  const [moves, setMoves] = useState([])
+  const [chosenPiece, setPiece] = useState("empty")
   let grid = []
+
+  console.log(moves, setPiece, "this is the moves and the chose piecce")
+
   for (let i = 1; i < 9; i ++) {
     grid.push([])
     for (let j = 1; j < 9; j ++) {
       let boardKey = i.toString() + j.toString()
       console.log(boardKey, boardState[boardKey])
       grid[i - 1].push(
-        <Piece key={boardKey} boardState={boardState} position={i.toString() + j.toString()} pieceType={boardState[boardKey]} />
+        <Piece posMoves={moves} key={boardKey} boardState={boardState} position={boardKey} pieceType={boardState[boardKey]} setMoves={setMoves} setPiece={setPiece}/>
       )
     }
   }

@@ -73,6 +73,6 @@ describe('knightMoves', () => {
   })
 
   test('knightMoves will return spaces around itself', () => {
-    expect(knightMoves("34", "Black", boardState)).toEqual(["55", "13", "15", "46", "26", "42", "22"])
+    expect(knightMoves("34", "Black", boardState)).toEqual(["55", "15", "46", "26", "42", "22"])
   })
 })

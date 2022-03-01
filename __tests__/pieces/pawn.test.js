@@ -36,11 +36,11 @@ const boardState = {
   48: "empty",
   51: "Pawn White",
   52: "empty",
-  53: "empty",
+  53: "Pawn White",
   54: "empty",
-  55: "empty",
+  55: "Pawn Black",
   56: "empty",
-  57: "empty",
+  57: "Pawn Black",
   58: "empty",
   61: "empty",
   62: "empty",
@@ -89,5 +89,11 @@ describe("pawnForward", () => {
 
   test('pawnForward will let black pieces move two spaces forward if on starting position and spaces are empty', () => {
     expect(pawnForward('62', 'Black', boardState)).toEqual(['52', '42'])
+  })
+})
+
+describe('pawnTakes', () => {
+  test('pawnTakes will allow a white piece to take a piece (+, -) or (+, +) ahead of it in the opposing color', () => {
+    expect(pawnTakes('44', 'White', boardState)).toEqual(['55', '53'])
   })
 })

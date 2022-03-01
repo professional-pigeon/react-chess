@@ -1,4 +1,4 @@
-function RookOrthogonalRight(pos, color, board) {
+function RookWhiteRight(pos, color, board) {
   let coordinates = pos.split("")
   let range = [1, 2, 3, 4, 5, 6, 7, 8]
   let moves = []
@@ -18,7 +18,7 @@ function RookOrthogonalRight(pos, color, board) {
   return moves
 }
 
-function RookOrthogonalLeft(pos, color, board) {
+function RookWhiteLeft(pos, color, board) {
   let coordinates = pos.split("")
   let range = [1, 2, 3, 4, 5, 6, 7, 8]
   let moves = []
@@ -40,7 +40,7 @@ function RookOrthogonalLeft(pos, color, board) {
 
 }
 
-function RookOrthogonalDown(pos, color, board) {
+function RookWhiteDown(pos, color, board) {
   let coordinates = pos.split("")
   let range = [1, 2, 3, 4, 5, 6, 7, 8]
   let moves = []
@@ -60,7 +60,7 @@ function RookOrthogonalDown(pos, color, board) {
   return moves
 }
 
-function RookOrthogonalUp(pos, color, board) {
+function RookWhiteUp(pos, color, board) {
   let coordinates = pos.split("")
   let range = [1, 2, 3, 4, 5, 6, 7, 8]
   let moves = []

@@ -127,4 +127,8 @@ describe('bishopPosMin', () => {
   test('bishopPosMin should return an empty array if row is starting at 8th pos', () => {
     expect(bishopPosMin("85", "White", boardState)).toEqual([])
   })
+
+  test('bishopPosMin should return an empty array if col is starting at 1st pos', () => {
+    expect(bishopPosMin("51", "White", boardState)).toEqual([])
+  })
 })

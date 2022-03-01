@@ -119,6 +119,6 @@ describe('rookRight', () => {
   })
 
   test('rookRight will return an empty array if it starts on the furthest right position (8th)', () => {
-    expect(rookright("18", "Black", boardState)).toEqual(["thing"])
+    expect(rookright("18", "Black", boardState)).toEqual([])
   })
 })

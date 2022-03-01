@@ -35,7 +35,7 @@ const boardState = {
   48: "empty",
   51: "empty",
   52: "empty",
-  53: "empty",
+  53: "Knight Black",
   54: "empty",
   55: "empty",
   56: "empty",
@@ -70,5 +70,9 @@ const boardState = {
 describe('knightMoves', () => {
   test('knightMoves will return spaces around itself', () => {
     expect(knightMoves("33", "Black", boardState)).toEqual(["52", "54", "12", "14", "45", "25", "41", "21"])
+  })
+
+  test('knightMoves will return spaces around itself', () => {
+    expect(knightMoves("34", "Black", boardState)).toEqual(["55", "13", "15", "46", "26", "42", "22"])
   })
 })

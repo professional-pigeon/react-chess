@@ -127,4 +127,8 @@ describe('rookLeft', () => {
   test('rookLeft will move in a negative direction until encountering a piece of the same color', () => {
     expect(rookLeft("17", "Black", boardState)).toEqual(["16", "15"])
   })
+
+  test('rookLeft will move in a negative direction and stop after encountering a piece of an opposing color', () => {
+    expect(rookLeft("17", "White", boardState)).toEqual(["16", "15"])
+  })
 })

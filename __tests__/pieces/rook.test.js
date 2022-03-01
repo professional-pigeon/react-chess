@@ -83,7 +83,10 @@ describe('rookUp', () => {
 
   test('confirm rookUp will work for black pieces same as above', () => {
     expect(rookUp("14", "Black", boardState)).toEqual(["24", "34"])
+  })
 
+  test('confirm rookUp will not run if piece is starting in the 8th row', () => {
+    expect(rookUp("84", "Black", boardState)).toEqual(["24", "34"])
   })
 
 })

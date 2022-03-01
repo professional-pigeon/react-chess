@@ -45,7 +45,26 @@ function RookOrthogonalDown(pos, color, board) {
   let range = [1, 2, 3, 4, 5, 6, 7, 8]
   let moves = []
   for (let i = Number(coordinates[0]) - 1; i >= 1; i--) {
-    console.log(i.toString() + coordinates[1].toString())
+    let piece = board[i.toString() + coordinates[1].toString()]
+    if (piece === "empty") {
+      moves.push(i.toString() + coordinates[1].toString())
+    }
+    if (piece.includes("Black") && color === "White") {
+      moves.push(i.toString() + coordinates[1].toString())
+      break
+    }
+    if (piece.includes("White") && color === "White") {
+      break
+    }
+  }
+  return moves
+}
+
+function RookOrthogonalUp(pos, color, board) {
+  let coordinates = pos.split("")
+  let range = [1, 2, 3, 4, 5, 6, 7, 8]
+  let moves = []
+  for (let i = Number(coordinates[0]) + 1; i <= 8; i++) {
     let piece = board[i.toString() + coordinates[1].toString()]
     if (piece === "empty") {
       moves.push(i.toString() + coordinates[1].toString())
@@ -129,4 +148,4 @@ const boardState = {
   88: "empty",
 }
 
-console.log(RookOrthogonalDown("88", "White", boardState))
+console.log(RookOrthogonalUp("18", "White", boardState))

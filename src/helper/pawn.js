@@ -29,8 +29,15 @@ function pawnTakes(pos, color, board) {
     if (board[(x + 1).toString() + (y - 1).toString()].includes("Black")) {
       moves.push((x + 1).toString() + (y - 1).toString())
     }
-    if(board[(x + 1).toString() + (y + 1).toString()].includes("Black")) {
+    if (board[(x + 1).toString() + (y + 1).toString()].includes("Black")) {
       moves.push((x + 1).toString() + (y + 1).toString())
+    }
+  } else {
+    if (board[(x - 1).toString() + (y - 1).toString()].includes("White")) {
+      moves.push((x - 1).toString() + (y - 1).toString())
+    }
+    if (board[(x - 1).toString() + (y + 1).toString()].includes("White")) {
+      moves.push((x - 1).toString() + (y + 1).toString())
     }
   }
   return moves

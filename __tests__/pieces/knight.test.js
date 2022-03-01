@@ -72,11 +72,15 @@ describe('knightMoves', () => {
     expect(knightMoves("33", "Black", boardState)).toEqual(["52", "54", "12", "14", "45", "25", "41", "21"])
   })
 
-  test('knightMoves will return spaces around itself', () => {
+  test('knightMoves will not return spaces that have pieces of the same color', () => {
     expect(knightMoves("34", "Black", boardState)).toEqual(["55", "15", "46", "26", "42", "22"])
   })
 
-  test('knightMoves will return spaces around itself', () => {
+  test('knightMoves will return spaces that contain an opponents piece', () => {
     expect(knightMoves("34", "White", boardState)).toEqual(["53", "55", "13", "15", "46", "26", "22"])
+  })
+
+  test('knightMoves will not return illegal coordinates', () => {
+    expect(knightMoves("14", "Black", boardState)).toEqual(["33", "35", "26", "22"])
   })
 })

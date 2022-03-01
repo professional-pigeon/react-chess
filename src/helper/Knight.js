@@ -10,14 +10,6 @@ function knightMoves(pos, color, board) {
       arr.push(tile)
     }
   })
-  // board[(x + 2).toString() + (y + 1).toString()]
-  // board[(x + 2).toString() + (y - 1).toString()]
-  // board[(x - 2).toString() + (y + 1).toString()]
-  // board[(x - 2).toString() + (y - 1).toString()]
-  // board[(x + 1).toString() + (y + 2).toString()]
-  // board[(x - 1).toString() + (y + 2).toString()]
-  // board[(x + 1).toString() + (y - 2).toString()]
-  // board[(x - 1).toString() + (y - 2).toString()]
   console.log(arr)
   return arr
 }

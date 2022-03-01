@@ -85,7 +85,7 @@ describe('rookUp', () => {
     expect(rookUp("14", "Black", boardState)).toEqual(["24", "34"])
   })
 
-  test('confirm rookUp will not run if piece is starting in the 8th row', () => {
+  test('confirm rookUp will return an empty array if piece is starting in the 8th row', () => {
     expect(rookUp("84", "Black", boardState)).toEqual([])
   })
 
@@ -102,5 +102,9 @@ describe('rookDown', () => {
 
   test('confirm rookDown will work for both colors', () => {
     expect(rookDown("47", "Black", boardState)).toEqual(["37", "27", "17"])
+  })
+
+  test('confirm rookDown will return an empty array if already starting at the lowest row (1st)', () => {
+    expect(rookDown("11", "Black", boardState)).toEqual(["thing"])
   })
 })

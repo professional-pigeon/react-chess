@@ -1,4 +1,4 @@
-import { bishopMinPos, bishopMinMin, bishopPosPos, bishopPosMin } from "../../src/helper/Bishop"
+import { bishopMoves, bishopMinPos, bishopMinMin, bishopPosPos, bishopPosMin } from "../../src/helper/Bishop"
 
 const boardState = {
   11: "Bishop Black",
@@ -152,5 +152,11 @@ describe('bishopMinPos', () => {
 
   test('bishopMinPos should return an empty array if starting at the highest col number', () => {
     expect(bishopMinPos("58", "Black", boardState)).toEqual([])
+  })
+})
+
+describe('bishopMoves', () => {
+  test('bishopMoves should return all moves in each 4 direction, combines 4 above functions', () => {
+    expect(bishopMoves("53", "White", boardState)).toEqual(["64", "75", "86", "44", "35", "24", "62", "71", "42", "41"])
   })
 })

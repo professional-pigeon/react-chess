@@ -1,5 +1,5 @@
 import pieceMoves from "../helper/Pieces"
-function Piece({ position, pieceType, boardState, posMoves, setMoves, setPiece }) {
+function Piece({ position, pieceType, boardState, posMoves, setMoves, setPiece, chosenPiece }) {
   let piece = ""
   let color = ""
   let moveFunc = ""
@@ -8,19 +8,20 @@ function Piece({ position, pieceType, boardState, posMoves, setMoves, setPiece }
     let arr = pieceType.split(" ")
     piece = arr[0]
     color = arr[1]
-    console.log(piece, color, "these are split")
     moveFunc = pieceMoves[piece]
   }
-  if (posMoves.includes(position)) {
-  highlight = "highlight"
+  if (posMoves.includes(position) && pieceType !== "empty") {
+    highlight = "takes"
+  } else if (posMoves.includes(position)) {
+    highlight = "highlight"
+  } else {
   }
-
-  function bigClick(position, color, board) {
-    setMoves(moveFunc(position, color, boardState))
+  if(chosenPiece === position) {
+    highlight = "chosen"
   }
 
   return (
-    <div className="tile" id={highlight} onClick={() => setMoves(moveFunc(position, color, boardState))}>
+    <div className="tile" id={highlight} onClick={() => (setMoves(moveFunc(position, color, boardState)), setPiece(position))}>
       {position + " " +  piece + " " + color}
     </div>
   )

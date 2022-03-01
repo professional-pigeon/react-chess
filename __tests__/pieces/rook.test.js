@@ -136,3 +136,9 @@ describe('rookLeft', () => {
     expect(rookLeft('11', "White", boardState)).toEqual([])
   })
 })
+
+describe('rookMoves', () => {
+  test('rookMoves shoud return all moves in all directions in one array, combination of previous 4 functions', () => {
+    expect(rookMoves("45", "Black", boardState)).toEqual([])
+  })
+})

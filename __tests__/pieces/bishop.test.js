@@ -79,4 +79,8 @@ describe('bishopPosPos', () => {
   test('bishopPosPos should stop after a piece of the opposing color', () => {
     expect(bishopPosPos("34", "White", boardState)).toEqual(["45", "56"])
   })
+
+  test('bishopPosPos should return an empty array if already at an 8th positiong in col or row', () => {
+    expect(bishopPosPos("18", "White", boardState)).toEqual([])
+  })
 })

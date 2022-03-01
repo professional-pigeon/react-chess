@@ -71,7 +71,6 @@ function bishopPosPos(pos, color, board) {
   let y = Number(coordinates[1])
   let moves = []
   let high = x >= y ? x : y
-  let stop = 0
   for (let i = 1; high < 8; i++) {
     let tile = (x + i).toString() + (y + i).toString()
     if (board[tile].includes("White") && color === "White" || board[tile].includes("Black") && color === "Black") {

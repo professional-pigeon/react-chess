@@ -78,11 +78,11 @@ describe('rookUp', () => {
   })
 
   test('rookUp will move up row positions and stop at and return a piece if it a different color', () => {
-    expect(rookUp("17", "White", boardState)).toEqual(["27", "37", "47", "51", "61", "71"])
+    expect(rookUp("17", "White", boardState)).toEqual(["27", "37", "47"])
   })
 
   test('confirm rookUp will work for black pieces same as above', () => {
-    expect(rookUp("14", "Black", boardState)).toEqual(["27", "37", "47", "51", "61", "71"])
+    expect(rookUp("14", "Black", boardState)).toEqual(["24", "34"])
 
   })
 

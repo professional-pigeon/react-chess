@@ -156,7 +156,7 @@ describe('bishopMinPos', () => {
 })
 
 describe('bishopMoves', () => {
-  test('bishopMoves should return all moves in each 4 direction, combines 4 above functions', () => {
-    expect(bishopMoves("53", "White", boardState)).toEqual(["64", "75", "86", "44", "35", "24", "62", "71", "42", "41"])
+  test('bishopMoves should return all moves in each 4 direction, combines 4 above functions', () => { // 53 bishopMinPos error "26", 31 bishopMinMin error
+    expect(bishopMoves("53", "White", boardState)).toEqual(["64", "75", "86", "44", "35", "26", "62", "71", "42", "31"])
   })
 })

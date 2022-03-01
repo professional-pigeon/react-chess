@@ -148,10 +148,10 @@ function bishopMinPos(pos, color, board) {
 
 function bishopMoves(pos, color, board) {
   let arr = []
-  // arr.push(bishopPosPos(pos, color, board))
-  // arr.push(bishopMinPos(pos, color, board))
-  // arr.push(bishopPosMin(pos, color, board))
-  // arr.push(bishopMinMin(pos, color, board))
-  return arr
+  arr.push(bishopPosPos(pos, color, board))
+  arr.push(bishopMinPos(pos, color, board))
+  arr.push(bishopPosMin(pos, color, board))
+  arr.push(bishopMinMin(pos, color, board))
+  return arr.flat()
 }
 export { bishopMoves, bishopPosPos, bishopMinMin, bishopPosMin, bishopMinPos }

@@ -86,4 +86,8 @@ describe("pawnForward", () => {
   test('pawnForward will let a white piece move two squares forward if it is on its starting position and the spaces ahead of it are empty', () => {
     expect(pawnForward('21', 'White', boardState)).toEqual(['31', '41'])
   })
+
+  test('pawnForward will let black pieces move two spaces forward if on starting position and spaces are empty', () => {
+    expect(pawnForward('62', 'Black', boardState)).toEqual(['52', '42'])
+  })
 })

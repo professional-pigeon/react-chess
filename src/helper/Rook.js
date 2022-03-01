@@ -1,85 +1,3 @@
-function RookWhiteRight(pos, color, board) {
-  let coordinates = pos.split("")
-  let range = [1, 2, 3, 4, 5, 6, 7, 8]
-  let moves = []
-  for (let i = Number(coordinates[1]) + 1; i <= 8; i++) {
-    let piece = board[coordinates[0].toString() + i.toString()]
-    if (piece === "empty") {
-      moves.push(coordinates[0].toString() + i.toString())
-    }
-    if (piece.includes("Black") && color === "White") {
-      moves.push(coordinates[0].toString() + i.toString())
-      break
-    }
-    if (piece.includes("White") && color === "White") {
-      break
-    }
-  }
-  return moves
-}
-
-function RookWhiteLeft(pos, color, board) {
-  let coordinates = pos.split("")
-  let range = [1, 2, 3, 4, 5, 6, 7, 8]
-  let moves = []
-  for (let i = Number(coordinates[1]) - 1; i >= 1; i--) {
-    console.log(i)
-    let piece = board[coordinates[0].toString() + i.toString()]
-    if (piece === "empty") {
-      moves.push(coordinates[0].toString() + i.toString())
-    }
-    if (piece.includes("Black") && color === "White") {
-      moves.push(coordinates[0].toString() + i.toString())
-      break
-    }
-    if (piece.includes("White") && color === "White") {
-      break
-    }
-  }
-  return moves
-
-}
-
-function RookWhiteDown(pos, color, board) {
-  let coordinates = pos.split("")
-  let range = [1, 2, 3, 4, 5, 6, 7, 8]
-  let moves = []
-  for (let i = Number(coordinates[0]) - 1; i >= 1; i--) {
-    let piece = board[i.toString() + coordinates[1].toString()]
-    if (piece === "empty") {
-      moves.push(i.toString() + coordinates[1].toString())
-    }
-    if (piece.includes("Black") && color === "White") {
-      moves.push(i.toString() + coordinates[1].toString())
-      break
-    }
-    if (piece.includes("White") && color === "White") {
-      break
-    }
-  }
-  return moves
-}
-
-function RookWhiteUp(pos, color, board) {
-  let coordinates = pos.split("")
-  let range = [1, 2, 3, 4, 5, 6, 7, 8]
-  let moves = []
-  for (let i = Number(coordinates[0]) + 1; i <= 8; i++) {
-    let piece = board[i.toString() + coordinates[1].toString()]
-    if (piece === "empty") {
-      moves.push(i.toString() + coordinates[1].toString())
-    }
-    if (piece.includes("Black") && color === "White") {
-      moves.push(i.toString() + coordinates[1].toString())
-      break
-    }
-    if (piece.includes("White") && color === "White") {
-      break
-    }
-  }
-  return moves
-}
-
 const boardState = {
   11: "Rook White",
   12: "empty",
@@ -147,11 +65,93 @@ const boardState = {
   88: "empty",
 }
 
+function rookWhiteRight(pos, color, board) {
+  let coordinates = pos.split("")
+  let range = [1, 2, 3, 4, 5, 6, 7, 8]
+  let moves = []
+  for (let i = Number(coordinates[1]) + 1; i <= 8; i++) {
+    let piece = board[coordinates[0].toString() + i.toString()]
+    if (piece === "empty") {
+      moves.push(coordinates[0].toString() + i.toString())
+    }
+    if (piece.includes("Black") && color === "White") {
+      moves.push(coordinates[0].toString() + i.toString())
+      break
+    }
+    if (piece.includes("White") && color === "White") {
+      break
+    }
+  }
+  return moves
+}
+
+function rookWhiteLeft(pos, color, board) {
+  let coordinates = pos.split("")
+  let range = [1, 2, 3, 4, 5, 6, 7, 8]
+  let moves = []
+  for (let i = Number(coordinates[1]) - 1; i >= 1; i--) {
+    console.log(i)
+    let piece = board[coordinates[0].toString() + i.toString()]
+    if (piece === "empty") {
+      moves.push(coordinates[0].toString() + i.toString())
+    }
+    if (piece.includes("Black") && color === "White") {
+      moves.push(coordinates[0].toString() + i.toString())
+      break
+    }
+    if (piece.includes("White") && color === "White") {
+      break
+    }
+  }
+  return moves
+
+}
+
+function rookWhiteDown(pos, color, board) {
+  let coordinates = pos.split("")
+  let range = [1, 2, 3, 4, 5, 6, 7, 8]
+  let moves = []
+  for (let i = Number(coordinates[0]) - 1; i >= 1; i--) {
+    let piece = board[i.toString() + coordinates[1].toString()]
+    if (piece === "empty") {
+      moves.push(i.toString() + coordinates[1].toString())
+    }
+    if (piece.includes("Black") && color === "White") {
+      moves.push(i.toString() + coordinates[1].toString())
+      break
+    }
+    if (piece.includes("White") && color === "White") {
+      break
+    }
+  }
+  return moves
+}
+
+function rookWhiteUp(pos, color, board) {
+  let coordinates = pos.split("")
+  let range = [1, 2, 3, 4, 5, 6, 7, 8]
+  let moves = []
+  for (let i = Number(coordinates[0]) + 1; i <= 8; i++) {
+    let piece = board[i.toString() + coordinates[1].toString()]
+    if (piece === "empty") {
+      moves.push(i.toString() + coordinates[1].toString())
+    }
+    if (piece.includes("Black") && color === "White") {
+      moves.push(i.toString() + coordinates[1].toString())
+      break
+    }
+    if (piece.includes("White") && color === "White") {
+      break
+    }
+  }
+  return moves
+}
+
 function whiteRookMoves(pos, color, board) {
   let arr = []
-  arr.push(RookOrthogonalUp(pos, color, board))
-  arr.push(RookOrthogonalLeft(pos, color, board))
-  arr.push(RookOrthogonalRight(pos, color, board))
-  arr.push(RookOrthogonalDown(pos, color, board))
+  arr.push(rookWhitelUp(pos, color, board))
+  arr.push(rookWhiteLeft(pos, color, board))
+  arr.push(rookWhiteRight(pos, color, board))
+  arr.push(rookWhiteDown(pos, color, board))
   return arr
 }

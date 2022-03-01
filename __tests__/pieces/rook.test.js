@@ -108,3 +108,9 @@ describe('rookDown', () => {
     expect(rookDown("11", "Black", boardState)).toEqual([])
   })
 })
+
+describe('rookRight', () => {
+  test('rookright will move in a positive direction until encountering a piece of the same color', () => {
+    expect(rookRight("31", "White", boardState)).toEqual([])
+  })
+})

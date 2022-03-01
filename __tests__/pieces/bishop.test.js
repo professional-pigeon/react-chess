@@ -101,4 +101,8 @@ describe('bishopMinMin', () => {
   test('bishopMinMin should stop after it encounters a piece of an opposing color', () => {
     expect(bishopMinMin("78", "White", boardState)).toEqual(["67", "56"])
   })
+
+  test('bishopMinMin should return an empty array if the starting row is already at the lowest value', () => {
+    expect(bishopMinMin("18", "Black", boardState)).toEqual([])
+  })
 })

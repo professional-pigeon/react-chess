@@ -74,7 +74,7 @@ function Board() {
   const [chosenPiece, setPiece] = useState("empty")
   let grid = []
 
-  console.log(moves, chosenPiece, "this is the moves and the chose piecce")
+  console.log(moves, chosenPiece, "this is the moves and the chose piece position")
 
   for (let i = 1; i < 9; i ++) {
     grid.push([])

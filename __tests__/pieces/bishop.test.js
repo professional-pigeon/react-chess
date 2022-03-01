@@ -115,4 +115,8 @@ describe('bishopPosMin', () => {
   test('bishopPosMin should return empty positions in a (+, -) direction', () => {
     expect(bishopPosMin("55", "White", boardState)).toEqual(["64", "73", "82"])
   })
+
+  test('bishopPosMin should stop when encountering a piece of the same color', () => {
+    expect(bishopPosMin("38", "Black", boardState)).toEqual(["47"])
+  })
 })

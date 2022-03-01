@@ -111,8 +111,11 @@ function bishopPosMin(pos, color, board) {
   let x = Number(coordinates[0])
   let y = Number(coordinates[1])
   let moves = []
-  let loopN = (8 - x) <= y ? (8 - x) : y
-  console.log(loopN)
+  let loopN = (8 - x) <= (y -1) ? (8 - x) : (y -1)
+  for(let i = 1; i <= loopN; i++) {
+    let tile = (x + i).toString() + (y - i).toString()
+    moves.push(tile)
+  }
   return moves
 }
 

@@ -72,10 +72,9 @@ function bishopPosPos(pos, color, board) {
   let moves = []
   let high = x >= y ? x : y
   let stop = 0
-  console.log(x, y, high, stop)
-  for (let i = 1; stop <= 8; i++) {
+  for (let i = 1; high < 8; i++) {
     moves.push((x + i).toString() + (y + i).toString())
-    stop = Number(high) + i 
+    high++ 
   }
   return moves
 }

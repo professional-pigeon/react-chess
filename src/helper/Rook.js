@@ -21,7 +21,6 @@ function rookLeft(pos, color, board) {
   let coordinates = pos.split("")
   let moves = []
   for (let i = Number(coordinates[1]) - 1; i >= 1; i--) {
-    console.log(i)
     let piece = board[coordinates[0].toString() + i.toString()]
     if (piece === "empty") {
       moves.push(coordinates[0].toString() + i.toString())

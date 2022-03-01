@@ -105,4 +105,8 @@ describe('bishopMinMin', () => {
   test('bishopMinMin should return an empty array if the starting row is already at the lowest value', () => {
     expect(bishopMinMin("18", "Black", boardState)).toEqual([])
   })
+
+  test('bishopMinMin should return an empty array if the starting row is already at the lowest value', () => {
+    expect(bishopMinMin("81", "Black", boardState)).toEqual([])
+  })
 })

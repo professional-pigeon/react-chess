@@ -73,12 +73,16 @@ function bishopPosPos(pos, color, board) {
   let high = x >= y ? x : y
   let stop = 0
   for (let i = 1; high < 8; i++) {
-    moves.push((x + i).toString() + (y + i).toString())
+    let tile = (x + i).toString() + (y + i).toString()
+    if (board[tile].includes("White") && color === "White" || board[tile].includes("Black") && color === "Black") {
+      break
+    }
+    moves.push(tile)
     high++ 
   }
   return moves
 }
 
-console.log(bishopPosPos("45", "White", boardState))
+console.log(bishopPosPos("55", "Black", boardState))
 
 export { bishopPosPos }

@@ -1,5 +1,6 @@
 function RookOrthogonal(pos, color, board) {
   let coordinates = pos.split("")
+  let range = [1, 2, 3, 4, 5, 6, 7, 8]
   let moves = []
   for (let i = 1; i <= 8; i++) {
     if (i.toString() === coordinates[0]) {
@@ -14,7 +15,6 @@ function RookOrthogonal(pos, color, board) {
       break
     }
     if (piece.includes("White") && color === "White") {
-      moves.push(coordinates[0].toString() + i.toString())
       break
     }
   }
@@ -28,7 +28,7 @@ const boardState = {
   14: "empty",
   15: "empty",
   16: "empty",
-  17: "Rook Black",
+  17: "Rook White",
   18: "empty",
   21: "empty",
   22: "empty",

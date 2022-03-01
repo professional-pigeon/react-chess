@@ -91,9 +91,15 @@ function bishopMinMin(pos, color, board) {
   let x = Number(coordinates[0])
   let y = Number(coordinates[1])
   let moves = []
-  let high = x >= y ? x : y
+  let low = x <= y ? x : y
+  for (let i = 1; low > 1; i++) {
+    let tile = (x - i).toString() + (y - i).toString()
+    moves.push(tile)
+    low--
+  }
+  return moves
 }
 
-console.log(bishopPosPos("55", "Black", boardState))
+console.log(bishopPosPos("45", "Black", boardState))
 
 export { bishopPosPos, bishopMinMin }

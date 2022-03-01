@@ -1,4 +1,5 @@
 import React from "react";
+import Piece from "./Piece"
 
 function Board() {
   const boardState = {
@@ -73,8 +74,10 @@ function Board() {
   for (let i = 1; i < 9; i ++) {
     grid.push([])
     for (let j = 1; j < 9; j ++) {
+      let boardKey = i.toString() + j.toString()
+      console.log(boardKey, boardState[boardKey])
       grid[i - 1].push(
-        <div key={i.toString() + j.toString()} id={tile + " " + i.toString() + j.toString()}><p>{i.toString() + j.toString()}</p></div>
+        <div key={boardKey} id={boardKey}><Piece position={i.toString() + j.toString()} pieceType={boardState[boardKey]} color="unknown" /></div>
       )
     }
   }

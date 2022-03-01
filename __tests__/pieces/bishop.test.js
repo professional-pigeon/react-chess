@@ -1,4 +1,4 @@
-import { bishopMinMin, bishopPosPos, bishopMinPos } from "../../src/helper/Bishop"
+import { bishopMinMin, bishopPosPos, bishopPosMin } from "../../src/helper/Bishop"
 
 const boardState = {
   11: "Bishop Black",
@@ -113,6 +113,6 @@ describe('bishopMinMin', () => {
 
 describe('bishopPosMin', () => {
   test('bishopPosMin should return empty positions in a (+, -) direction', () => {
-    expect(bishopMinPos("55", "White", boardState)).toEqual(["64", "73", "82"])
+    expect(bishopPosMin("55", "White", boardState)).toEqual(["64", "73", "82"])
   })
 })

@@ -106,8 +106,13 @@ function bishopMinMin(pos, color, board) {
   return moves
 }
 
-function bishopPosMin(position, color, board) {
+function bishopPosMin(pos, color, board) {
+  let coordinates = pos.split("")
+  let x = Number(coordinates[0])
+  let y = Number(coordinates[1])
   let moves = []
+  let loopN = (8 - x) <= y ? (8 - x) : y
+  console.log(loopN)
   return moves
 }
 

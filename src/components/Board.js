@@ -77,7 +77,7 @@ function Board() {
       let boardKey = i.toString() + j.toString()
       console.log(boardKey, boardState[boardKey])
       grid[i - 1].push(
-        <div key={boardKey} id={boardKey}><Piece position={i.toString() + j.toString()} pieceType={boardState[boardKey]} color="unknown" /></div>
+        <div key={boardKey} id={boardKey}><Piece boardState={boardState} position={i.toString() + j.toString()} pieceType={boardState[boardKey]} /></div>
       )
     }
   }

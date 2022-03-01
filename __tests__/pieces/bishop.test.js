@@ -123,4 +123,8 @@ describe('bishopPosMin', () => {
   test('bishopPosMin should stop after encountering a piece of the opposing color', () => {
     expect(bishopPosMin("38", "White", boardState)).toEqual(["47", "56"])
   })
+
+  test('bishopPosMin should return an empty array if row is starting at 8th pos', () => {
+    expect(bishopPosMin("85", "White", boardState)).toEqual([])
+  })
 })

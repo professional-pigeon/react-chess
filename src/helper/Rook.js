@@ -22,7 +22,8 @@ function RookOrthogonalLeft(pos, color, board) {
   let coordinates = pos.split("")
   let range = [1, 2, 3, 4, 5, 6, 7, 8]
   let moves = []
-  for (let i = Number(coordinates[0]) - 1; i <= 8; i--) {
+  for (let i = Number(coordinates[1]) - 1; i >= 1; i--) {
+    console.log(i)
     let piece = board[coordinates[0].toString() + i.toString()]
     if (piece === "empty") {
       moves.push(coordinates[0].toString() + i.toString())
@@ -106,4 +107,4 @@ const boardState = {
   88: "empty",
 }
 
-console.log(RookOrthogonalRight("11", "White", boardState))
+console.log(RookOrthogonalLeft("11", "White", boardState))

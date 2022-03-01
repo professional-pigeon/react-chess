@@ -117,6 +117,10 @@ function bishopPosMin(pos, color, board) {
     if (board[tile].includes(color)) {
       break
     }
+    // if (board[tile].includes("White") && color === "Black" || board[tile].includes("White") && color === "White") {
+    //   moves.push(tile)
+    //   break
+    // }
     moves.push(tile)
   }
   return moves

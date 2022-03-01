@@ -38,7 +38,7 @@ const boardState = {
   53: "empty",
   54: "empty",
   55: "empty",
-  56: "empty",
+  56: "Bishop Black",
   57: "empty",
   58: "empty",
   61: "empty",
@@ -74,6 +74,9 @@ describe('bishopPosPos', () => {
 
   test('bishopPosPos should stop at a piece of the same color', () => {
     expect(bishopPosPos("55", "Black", boardState)).toEqual(["66", "77"])
+  })
 
+  test('bishopPosPos should stop after a piece of the opposing color', () => {
+    expect(bishopPosPos("34", "White", boardState)).toEqual(["45", "56"])
   })
 })

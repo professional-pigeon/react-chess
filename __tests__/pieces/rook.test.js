@@ -131,4 +131,8 @@ describe('rookLeft', () => {
   test('rookLeft will move in a negative direction and stop after encountering a piece of an opposing color', () => {
     expect(rookLeft("17", "White", boardState)).toEqual(["16", "15", "14"])
   })
+
+  test('rookLeft will return an empty array if starting at furthest left column (1st)', () => {
+    expect(rookLeft('11', "White", boardState)).toEqual(["thing"])
+  })
 })

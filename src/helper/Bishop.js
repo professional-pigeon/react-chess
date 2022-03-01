@@ -92,10 +92,9 @@ function bishopMinMin(pos, color, board) {
   let y = Number(coordinates[1])
   let moves = []
   let low = x <= y ? x : y
-  for (let i = 1; low > 1; i++) {
+  for (let i = 1; i < low; i++) {
     let tile = (x - i).toString() + (y - i).toString()
     moves.push(tile)
-    low--
   }
   return moves
 }

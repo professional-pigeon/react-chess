@@ -80,7 +80,11 @@ describe('bishopPosPos', () => {
     expect(bishopPosPos("34", "White", boardState)).toEqual(["45", "56"])
   })
 
-  test('bishopPosPos should return an empty array if already at an 8th positiong in col or row', () => {
+  test('bishopPosPos should return an empty array if already at an 8th positiong in col', () => {
     expect(bishopPosPos("18", "White", boardState)).toEqual([])
+  })
+
+  test('bishopPosPos should return an empty array if already at an 8th positiong in row', () => {
+    expect(bishopPosPos("81", "White", boardState)).toEqual([])
   })
 })

@@ -157,7 +157,16 @@ function up(pos, color, board) {
 }
 
 function queenMoves(pos, color, board) {
-
+  let arr = []
+  arr.push(up(pos, color, board))
+  arr.push(down(pos, color, board))
+  arr.push(right(pos, color, board))
+  arr.push(left(pos, color, board))
+  arr.push(plusPlus(pos, color, board))
+  arr.push(minusPlus(pos, color, board))
+  arr.push(minusMinus(pos, color, board))
+  arr.push(plusMinus(pos, color, board))
+  return arr.flat()
 }
 
 export { queenMoves }

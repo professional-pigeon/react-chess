@@ -1,3 +1,5 @@
+import { bishopPosPos } from "../../src/helper/Bishop"
+
 const boardState = {
   11: "Bishop White",
   12: "empty",
@@ -62,5 +64,5 @@ const boardState = {
   85: "empty",
   86: "empty",
   87: "empty",
-  88: "Bishop Black",
+  88: "empty",
 }

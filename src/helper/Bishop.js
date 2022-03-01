@@ -106,6 +106,9 @@ function bishopMinMin(pos, color, board) {
   return moves
 }
 
-console.log(bishopPosPos("45", "Black", boardState))
+function bishopPosMin(position, color, board) {
+  let moves = []
+  return moves
+}
 
-export { bishopPosPos, bishopMinMin }
+export { bishopPosPos, bishopMinMin, bishopPosMin }

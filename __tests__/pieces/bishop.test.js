@@ -1,4 +1,4 @@
-import { bishopMinMin, bishopPosPos } from "../../src/helper/Bishop"
+import { bishopMinMin, bishopPosPos, bishopMinPos } from "../../src/helper/Bishop"
 
 const boardState = {
   11: "Bishop Black",
@@ -108,5 +108,11 @@ describe('bishopMinMin', () => {
 
   test('bishopMinMin should return an empty array if the starting row is already at the lowest value', () => {
     expect(bishopMinMin("81", "Black", boardState)).toEqual([])
+  })
+})
+
+describe('bishopPosMin', () => {
+  test('bishopPosMin should return empty positions in a (+, -) direction', () => {
+    expect(bishopMinPos("55", "White", boardState)).toEqual(["64", "73", "82"])
   })
 })

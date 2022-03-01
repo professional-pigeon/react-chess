@@ -1,13 +1,13 @@
 import { bishopPosPos } from "../../src/helper/Bishop"
 
 const boardState = {
-  11: "Bishop White",
+  11: "Bishop Black",
   12: "empty",
   13: "empty",
   14: "empty",
   15: "empty",
   16: "empty",
-  17: "Bishop Black",
+  17: "Bishop White",
   18: "empty",
   21: "empty",
   22: "empty",
@@ -64,5 +64,11 @@ const boardState = {
   85: "empty",
   86: "empty",
   87: "empty",
-  88: "empty",
+  88: "Bishop Black",
 }
+
+describe('bishopPosPos', () => {
+  test('bishopPosPos should move in through rows and columns as long as the space is empty', () => {
+    expect(bishopPosPos("11", "Black", boardState)).toEqual(["22", "33", "44", "55", "66", "77"])
+  })
+})

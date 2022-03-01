@@ -93,4 +93,8 @@ describe('bishopMinMin', () => {
   test('bishopMinMin should return all empty spaces while moving in a (-, -) direction', () => {
     expect(bishopMinMin("37", "Black", boardState)).toEqual(["26", "15"])
   })
+
+  test('bishopMinMin should stop when it encounters a piece of the same color', () => {
+    expect(bishopMinMin("78", "Black", boardState)).toEqual(["67", "56"])
+  })
 })

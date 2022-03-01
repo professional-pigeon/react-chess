@@ -149,7 +149,7 @@ function rookMoves(pos, color, board) {
   arr.push(rookLeft(pos, color, board))
   arr.push(rookRight(pos, color, board))
   arr.push(rookDown(pos, color, board))
-  return arr
+  return arr.flat()
 }
 
 export {

@@ -14,7 +14,7 @@ function Piece({ position, pieceType, boardState }) {
   console.log(moves)
 
   return (
-    <div id="tile" onClick={() => console.log(moves(position, piece, color))}>
+    <div id="tile" onClick={() => console.log(moves(position, color, boardState))}>
       {position + " " +  piece + " " + color}
     </div>
   )

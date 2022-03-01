@@ -114,6 +114,9 @@ function bishopPosMin(pos, color, board) {
   let loopN = (8 - x) <= (y -1) ? (8 - x) : (y -1)
   for(let i = 1; i <= loopN; i++) {
     let tile = (x + i).toString() + (y - i).toString()
+    if (board[tile].includes(color)) {
+      break
+    }
     moves.push(tile)
   }
   return moves

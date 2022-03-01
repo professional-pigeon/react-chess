@@ -86,6 +86,14 @@ function bishopPosPos(pos, color, board) {
   return moves
 }
 
+function bishopMinMin(pos, color, board) {
+  let coordinates = pos.split("")
+  let x = Number(coordinates[0])
+  let y = Number(coordinates[1])
+  let moves = []
+  let high = x >= y ? x : y
+}
+
 console.log(bishopPosPos("55", "Black", boardState))
 
-export { bishopPosPos }
+export { bishopPosPos, bishopMinMin }

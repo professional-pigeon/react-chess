@@ -94,6 +94,6 @@ describe("pawnForward", () => {
 
 describe('pawnTakes', () => {
   test('pawnTakes will allow a white piece to take a piece (+, -) or (+, +) ahead of it in the opposing color', () => {
-    expect(pawnTakes('44', 'White', boardState)).toEqual(['55', '53'])
+    expect(pawnTakes('46', 'White', boardState)).toEqual(['55', '57'])
   })
 })

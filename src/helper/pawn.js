@@ -21,7 +21,18 @@ function pawnForward(pos, color, board) {
 }
 
 function pawnTakes(pos, color, board) {
+  let coordinates = pos.split("")
+  let x = Number(coordinates[0])
+  let y = Number(coordinates[1])
   let moves = []
+  if (color === "White") {
+    if (board[(x + 1).toString() + (y - 1).toString()].includes("Black")) {
+      moves.push((x + 1).toString() + (y - 1).toString())
+    }
+    if(board[(x + 1).toString() + (y + 1).toString()].includes("Black")) {
+      moves.push((x + 1).toString() + (y + 1).toString())
+    }
+  }
   return moves
 }
 

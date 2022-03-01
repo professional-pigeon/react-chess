@@ -23,7 +23,7 @@ const boardState = {
   31: "empty",
   32: "empty",
   33: "empty",
-  34: "empty",
+  34: "Rook White",
   35: "empty",
   36: "empty",
   37: "empty",
@@ -79,6 +79,11 @@ describe('rookUp', () => {
 
   test('rookUp will move up row positions and stop at and return a piece if it a different color', () => {
     expect(rookUp("17", "White", boardState)).toEqual(["27", "37", "47", "51", "61", "71"])
+  })
+
+  test('confirm rookUp will work for black pieces same as above', () => {
+    expect(rookUp("14", "Black", boardState)).toEqual(["27", "37", "47", "51", "61", "71"])
+
   })
 
 })

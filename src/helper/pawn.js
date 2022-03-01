@@ -12,7 +12,7 @@ function pawnForward(pos, color, board) {
   } else {
     if (board[(x - 1).toString() + coordinates[1]] === "empty") {
       moves.push((x - 1).toString() + coordinates[1])
-      if(x === 6 && board[(x - 2).toString() + coordinates[1]] === "empty") {
+      if(x === 7 && board[(x - 2).toString() + coordinates[1]] === "empty") {
         moves.push((x - 2).toString() + coordinates[1])
       }
     }
@@ -44,6 +44,8 @@ function pawnTakes(pos, color, board) {
 }
 
 function enPassant(pos, color, board) {
+  // only if opposing pawn has moved two spaces in the last turn"
+  // will need move history
   let moves = []
   return moves
 }

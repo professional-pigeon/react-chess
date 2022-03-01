@@ -66,6 +66,7 @@ const boardState = {
   86: "empty",
   87: "empty",
   88: "empty",
+  previousMove: [[7, 8], [5, 8]]
 }
 
 
@@ -88,7 +89,7 @@ describe("pawnForward", () => {
   })
 
   test('pawnForward will let black pieces move two spaces forward if on starting position and spaces are empty', () => {
-    expect(pawnForward('62', 'Black', boardState)).toEqual(['52', '42'])
+    expect(pawnForward('72', 'Black', boardState)).toEqual(['62', '52'])
   })
 })
 

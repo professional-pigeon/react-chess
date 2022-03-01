@@ -12,7 +12,9 @@ function pawnForward(pos, color, board) {
   } else {
     if (board[(x - 1).toString() + coordinates[1]] === "empty") {
       moves.push((x - 1).toString() + coordinates[1])
-
+      if(x === 6 && board[(x - 2).toString() + coordinates[1]] === "empty") {
+        moves.push((x - 2).toString() + coordinates[1])
+      }
     }
   }
   return moves

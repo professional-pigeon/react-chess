@@ -65,7 +65,7 @@ const boardState = {
   88: "empty",
 }
 
-function rookWhiteRight(pos, color, board) {
+function rookRight(pos, color, board) {
   let coordinates = pos.split("")
   let moves = []
   for (let i = Number(coordinates[1]) + 1; i <= 8; i++) {
@@ -84,7 +84,7 @@ function rookWhiteRight(pos, color, board) {
   return moves
 }
 
-function rookWhiteLeft(pos, color, board) {
+function rookLeft(pos, color, board) {
   let coordinates = pos.split("")
   let moves = []
   for (let i = Number(coordinates[1]) - 1; i >= 1; i--) {
@@ -105,7 +105,7 @@ function rookWhiteLeft(pos, color, board) {
 
 }
 
-function rookWhiteDown(pos, color, board) {
+function rookDown(pos, color, board) {
   let coordinates = pos.split("")
   let moves = []
   for (let i = Number(coordinates[0]) - 1; i >= 1; i--) {
@@ -124,7 +124,7 @@ function rookWhiteDown(pos, color, board) {
   return moves
 }
 
-function rookWhiteUp(pos, color, board) {
+function rookUp(pos, color, board) {
   let coordinates = pos.split("")
   let moves = []
   for (let i = Number(coordinates[0]) + 1; i <= 8; i++) {
@@ -145,9 +145,9 @@ function rookWhiteUp(pos, color, board) {
 
 function rookMoves(pos, color, board) {
   let arr = []
-  arr.push(rookWhitelUp(pos, color, board))
-  arr.push(rookWhiteLeft(pos, color, board))
-  arr.push(rookWhiteRight(pos, color, board))
-  arr.push(rookWhiteDown(pos, color, board))
+  arr.push(rookUp(pos, color, board))
+  arr.push(rookLeft(pos, color, board))
+  arr.push(rookRight(pos, color, board))
+  arr.push(rookDown(pos, color, board))
   return arr
 }

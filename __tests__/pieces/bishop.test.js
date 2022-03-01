@@ -71,4 +71,9 @@ describe('bishopPosPos', () => {
   test('bishopPosPos should move in through rows and columns as long as the space is empty', () => {
     expect(bishopPosPos("16", "Black", boardState)).toEqual(["27", "38"])
   })
+
+  test('bishopPosPos should stop at a piece of the same color', () => {
+    expect(bishopPosPos("55", "Black", boardState)).toEqual(["66", "77"])
+
+  })
 })

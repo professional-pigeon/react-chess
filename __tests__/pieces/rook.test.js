@@ -1,8 +1,5 @@
 import { rookRight, rookLeft, rookDown, rookUp, rookMoves } from "../../src/helper/Rook";
 
-// use 11, 17, 81, 87 for rook white
-// use 14, 47 for rook black
-
 const boardState = {
   11: "Rook White",
   12: "empty",

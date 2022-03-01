@@ -149,11 +149,9 @@ const boardState = {
 
 function whiteRookMoves(pos, color, board) {
   let arr = []
-  arr.push(RookOrthogonalUp(pos, color, boardState))
-  arr.push(RookOrthogonalLeft(pos, color, boardState))
-  arr.push(RookOrthogonalRight(pos, color, boardState))
-  arr.push(RookOrthogonalDown(pos, color, boardState))
+  arr.push(RookOrthogonalUp(pos, color, board))
+  arr.push(RookOrthogonalLeft(pos, color, board))
+  arr.push(RookOrthogonalRight(pos, color, board))
+  arr.push(RookOrthogonalDown(pos, color, board))
   return arr
 }
-
-console.log(whiteRookMoves("44", "White", boardState))

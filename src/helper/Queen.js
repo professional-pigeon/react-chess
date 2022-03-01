@@ -169,4 +169,4 @@ function queenMoves(pos, color, board) {
   return arr.flat()
 }
 
-export { queenMoves }
+export default queenMoves

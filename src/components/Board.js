@@ -3,13 +3,13 @@ import Piece from "./Piece"
 
 function Board() {
   const boardState = {
-    11: "empty",
+    11: "Rook White",
     12: "empty",
     13: "empty",
     14: "empty",
     15: "empty",
     16: "empty",
-    17: "empty",
+    17: "Rook White",
     18: "empty",
     21: "empty",
     22: "empty",
@@ -69,7 +69,6 @@ function Board() {
     88: "empty",
   }
 
-
   let grid = []
   for (let i = 1; i < 9; i ++) {
     grid.push([])
@@ -77,7 +76,7 @@ function Board() {
       let boardKey = i.toString() + j.toString()
       console.log(boardKey, boardState[boardKey])
       grid[i - 1].push(
-        <div key={boardKey} id={boardKey}><Piece boardState={boardState} position={i.toString() + j.toString()} pieceType={boardState[boardKey]} /></div>
+        <Piece key={boardKey} boardState={boardState} position={i.toString() + j.toString()} pieceType={boardState[boardKey]} />
       )
     }
   }

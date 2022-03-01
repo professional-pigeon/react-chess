@@ -1,13 +1,23 @@
 import pieceMoves from "../helper/Pieces"
 function Piece({ position, pieceType, boardState }) {
-  let moves = pieceMoves.Rook
-  console.log(moves("44", "White", boardState))
+  let piece = ""
+  let color = ""
+  let moves = ""
+  if (pieceType !== "empty") {
+    let arr = pieceType.split(" ")
+    piece = arr[0]
+    color = arr[1]
+    console.log(piece, color, "these are split")
+    moves = pieceMoves[piece]
+  }
+
+  console.log(moves)
+
   return (
-    <div>
-      {position + " " +  pieceType + " " + color}
+    <div id="tile" onClick={() => console.log(moves(position, piece, color))}>
+      {position + " " +  piece + " " + color}
     </div>
   )
-
 }
 
 export default Piece

@@ -126,4 +126,12 @@ function bishopPosMin(pos, color, board) {
   return moves
 }
 
-export { bishopPosPos, bishopMinMin, bishopPosMin }
+function bishopMinPos(pos, color, board) {
+  let coordinates = pos.split("")
+  let x = Number(coordinates[0])
+  let y = Number(coordinates[1])
+  let moves = []
+  return moves
+}
+
+export { bishopPosPos, bishopMinMin, bishopPosMin, bishopMinPos }

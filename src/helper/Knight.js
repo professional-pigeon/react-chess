@@ -12,8 +12,7 @@ function knightMoves(pos, color, board) {
       }
     }
   })
-  console.log(arr)
   return arr
 }
 
-export { knightMoves }
+export default knightMoves

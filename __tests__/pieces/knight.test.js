@@ -1,4 +1,4 @@
-import { knightMoves } from "../../src/helper/Knight"
+import knightMoves from "../../src/helper/Knight"
 
 const boardState = {
   11: "empty",

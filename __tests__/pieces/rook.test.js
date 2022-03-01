@@ -101,6 +101,6 @@ describe('rookDown', () => {
   })
 
   test('confirm rookDown will work for both colors', () => {
-    expect(rookDown("47", "Black", boardState)).toEqual([])
+    expect(rookDown("47", "Black", boardState)).toEqual(["37", "27", "17"])
   })
 })

@@ -94,6 +94,9 @@ function bishopMinMin(pos, color, board) {
   let low = x <= y ? x : y
   for (let i = 1; i < low; i++) {
     let tile = (x - i).toString() + (y - i).toString()
+    if (board[tile].includes("White") && color === "White" || board[tile].includes("Black") && color === "Black") {
+      break
+    }
     moves.push(tile)
   }
   return moves

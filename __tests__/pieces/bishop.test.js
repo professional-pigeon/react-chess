@@ -95,6 +95,6 @@ describe('bishopMinMin', () => {
   })
 
   test('bishopMinMin should stop when it encounters a piece of the same color', () => {
-    expect(bishopMinMin("78", "Black", boardState)).toEqual(["67", "56"])
+    expect(bishopMinMin("78", "Black", boardState)).toEqual(["67"])
   })
 })

@@ -105,6 +105,6 @@ describe('rookDown', () => {
   })
 
   test('confirm rookDown will return an empty array if already starting at the lowest row (1st)', () => {
-    expect(rookDown("11", "Black", boardState)).toEqual(["thing"])
+    expect(rookDown("11", "Black", boardState)).toEqual([])
   })
 })

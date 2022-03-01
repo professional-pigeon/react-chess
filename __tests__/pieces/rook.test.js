@@ -110,7 +110,7 @@ describe('rookDown', () => {
 })
 
 describe('rookRight', () => {
-  test('rookright will move in a positive direction until encountering a piece of the same color', () => {
+  test('rookRight will move in a positive direction until encountering a piece of the same color', () => {
     expect(rookRight("31", "White", boardState)).toEqual(["32", "33"])
   })
 
@@ -119,6 +119,12 @@ describe('rookRight', () => {
   })
 
   test('rookRight will return an empty array if it starts on the furthest right position (8th)', () => {
-    expect(rookright("18", "Black", boardState)).toEqual([])
+    expect(rookRight("18", "Black", boardState)).toEqual([])
+  })
+})
+
+describe('rookLeft', () => {
+  test('rookLeft will move in a negative direction until encountering a piece of the same color', () => {
+    expect(rookLeft("17", "Black", boardState)).toEqual(["16", "15"])
   })
 })

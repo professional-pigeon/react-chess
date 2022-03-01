@@ -73,4 +73,8 @@ describe("pawnForward", () => {
   test('pawnForward will return the space ahead of it if it is empty and can be moved into', () => {
     expect(pawnForward('51', 'White', boardState)).toEqual(['61'])
   })
+
+    test('pawnForward will return the space ahead of it if it is empty and can be moved into for Black', () => {
+    expect(pawnForward('51', 'Black', boardState)).toEqual(['41'])
+  })
 })

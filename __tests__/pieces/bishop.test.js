@@ -69,6 +69,6 @@ const boardState = {
 
 describe('bishopPosPos', () => {
   test('bishopPosPos should move in through rows and columns as long as the space is empty', () => {
-    expect(bishopPosPos("11", "Black", boardState)).toEqual(["22", "33", "44", "55", "66", "77"])
+    expect(bishopPosPos("16", "Black", boardState)).toEqual(["27", "38"])
   })
 })

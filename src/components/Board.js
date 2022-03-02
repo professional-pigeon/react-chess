@@ -68,16 +68,16 @@ function Board() {
     86: "empty",
     87: "empty",
     88: "empty",
-  }
+  };
 
-  const [moves, setMoves] = useState([])
-  const [chosenPiece, setPiece] = useState("empty")
-  let grid = []
+  const [moves, setMoves] = useState([]);
+  const [chosenPiece, setPiece] = useState("empty");
+  let grid = [];
 
-  console.log(moves, chosenPiece, "this is the moves and the chose piece position")
+  console.log(moves, chosenPiece, "this is the moves and the chose piece position");
 
   for (let i = 1; i < 9; i ++) {
-    grid.push([])
+    grid.push([]);
     for (let j = 1; j < 9; j ++) {
       let boardKey = i.toString() + j.toString()
       grid[i - 1].push(
@@ -87,10 +87,10 @@ function Board() {
   }
 
   function print(grid) {
-    let retArr = []
+    let retArr = [];
     grid.forEach(function(arr, key) {
-    retArr.push(<div key={key} className="boardRow">{arr}</div>)
-    })
+      retArr.push(<div key={key} className="boardRow">{arr}</div>);
+    });
     return retArr
   }
   

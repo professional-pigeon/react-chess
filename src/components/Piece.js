@@ -2,23 +2,23 @@ import pieceMoves from "../helper/Pieces"
 function Piece({ position, pieceType, boardState, posMoves, setMoves, setPiece, chosenPiece }) {
   let piece = ""
   let color = ""
-  let moveFunc = ""
+  let moveFunc = undefined
   let highlight = ""
   if (pieceType !== "empty") {
-    let arr = pieceType.split(" ")
-    piece = arr[0]
-    color = arr[1]
-    moveFunc = pieceMoves[piece]
+    let arr = pieceType.split(" ");
+    piece = arr[0];
+    color = arr[1];
+    moveFunc = pieceMoves[piece];
   }
   if (posMoves.includes(position) && pieceType !== "empty") {
-    highlight = "takes"
+    highlight = "takes";
   } else if (posMoves.includes(position)) {
-    highlight = "highlight"
+    highlight = "highlight";
   } else {
-  }
+  };
   if(chosenPiece === position) {
-    highlight = "chosen"
-  }
+    highlight = "chosen";
+  };
 
   return (
     <div className="tile" id={highlight} onClick={() => (setMoves(moveFunc(position, color, boardState)), setPiece(position))}>

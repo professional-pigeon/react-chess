@@ -1,4 +1,4 @@
-import { bishopMoves, bishopMinPos, bishopMinMin, bishopPosPos, bishopPosMin } from "../../src/helper/Bishop"
+import { bishopMoves, plusPlus, minusMinus, plusMinus, minusPlus } from "../../src/helper/Bishop";
 
 const boardState = {
   11: "Bishop Black",
@@ -67,96 +67,96 @@ const boardState = {
   88: "Bishop Black",
 }
 
-describe('bishopPosPos', () => {
-  test('bishopPosPos should move in through rows and columns as long as the space is empty', () => {
-    expect(bishopPosPos("16", "Black", boardState)).toEqual(["27", "38"])
-  })
+describe('plusPlus', () => {
+  test('plusPlus should move in through rows and columns as long as the space is empty', () => {
+    expect(plusPlus("16", "Black", boardState)).toEqual(["27", "38"]);
+  });
 
-  test('bishopPosPos should stop at a piece of the same color', () => {
-    expect(bishopPosPos("55", "Black", boardState)).toEqual(["66", "77"])
-  })
+  test('plusPlus should stop at a piece of the same color', () => {
+    expect(plusPlus("55", "Black", boardState)).toEqual(["66", "77"]);
+  });
 
-  test('bishopPosPos should stop after a piece of the opposing color', () => {
-    expect(bishopPosPos("34", "White", boardState)).toEqual(["45", "56"])
-  })
+  test('plusPlus should stop after a piece of the opposing color', () => {
+    expect(plusPlus("34", "White", boardState)).toEqual(["45", "56"]);
+  });
 
-  test('bishopPosPos should return an empty array if already at an 8th positiong in col', () => {
-    expect(bishopPosPos("18", "White", boardState)).toEqual([])
-  })
+  test('plusPlus should return an empty array if already at an 8th positiong in col', () => {
+    expect(plusPlus("18", "White", boardState)).toEqual([]);
+  });
 
-  test('bishopPosPos should return an empty array if already at an 8th positiong in row', () => {
-    expect(bishopPosPos("81", "White", boardState)).toEqual([])
-  })
-})
+  test('plusPlus should return an empty array if already at an 8th positiong in row', () => {
+    expect(plusPlus("81", "White", boardState)).toEqual([]);
+  });
+});
 
-describe('bishopMinMin', () => {
-  test('bishopMinMin should return all empty spaces while moving in a (-, -) direction', () => {
-    expect(bishopMinMin("37", "Black", boardState)).toEqual(["26", "15"])
-  })
+describe('minusMinus', () => {
+  test('minusMinus should return all empty spaces while moving in a (-, -) direction', () => {
+    expect(minusMinus("37", "Black", boardState)).toEqual(["26", "15"]);
+  });
 
-  test('bishopMinMin should stop when it encounters a piece of the same color', () => {
-    expect(bishopMinMin("78", "Black", boardState)).toEqual(["67"])
-  })
+  test('minusMinus should stop when it encounters a piece of the same color', () => {
+    expect(minusMinus("78", "Black", boardState)).toEqual(["67"]);
+  });
 
-  test('bishopMinMin should stop after it encounters a piece of an opposing color', () => {
-    expect(bishopMinMin("78", "White", boardState)).toEqual(["67", "56"])
-  })
+  test('minusMinus should stop after it encounters a piece of an opposing color', () => {
+    expect(minusMinus("78", "White", boardState)).toEqual(["67", "56"]);
+  });
 
-  test('bishopMinMin should return an empty array if the starting row is already at the lowest value', () => {
-    expect(bishopMinMin("18", "Black", boardState)).toEqual([])
-  })
+  test('minusMinus should return an empty array if the starting row is already at the lowest value', () => {
+    expect(minusMinus("18", "Black", boardState)).toEqual([]);
+  });
 
-  test('bishopMinMin should return an empty array if the starting row is already at the lowest value', () => {
-    expect(bishopMinMin("81", "Black", boardState)).toEqual([])
-  })
-})
+  test('minusMinus should return an empty array if the starting row is already at the lowest value', () => {
+    expect(minusMinus("81", "Black", boardState)).toEqual([]);
+  });
+});
 
-describe('bishopPosMin', () => {
-  test('bishopPosMin should return empty positions in a (+, -) direction', () => {
-    expect(bishopPosMin("55", "White", boardState)).toEqual(["64", "73", "82"])
-  })
+describe('plusMinus', () => {
+  test('plusMinus should return empty positions in a (+, -) direction', () => {
+    expect(plusMinus("55", "White", boardState)).toEqual(["64", "73", "82"]);
+  });
 
-  test('bishopPosMin should stop when encountering a piece of the same color', () => {
-    expect(bishopPosMin("38", "Black", boardState)).toEqual(["47"])
-  })
+  test('plusMinus should stop when encountering a piece of the same color', () => {
+    expect(plusMinus("38", "Black", boardState)).toEqual(["47"]);
+  });
 
-  test('bishopPosMin should stop after encountering a piece of the opposing color', () => {
-    expect(bishopPosMin("38", "White", boardState)).toEqual(["47", "56"])
-  })
+  test('plusMinus should stop after encountering a piece of the opposing color', () => {
+    expect(plusMinus("38", "White", boardState)).toEqual(["47", "56"]);
+  });
 
-  test('bishopPosMin should return an empty array if row is starting at 8th pos', () => {
-    expect(bishopPosMin("85", "White", boardState)).toEqual([])
-  })
+  test('plusMinus should return an empty array if row is starting at 8th pos', () => {
+    expect(plusMinus("85", "White", boardState)).toEqual([]);
+  });
 
-  test('bishopPosMin should return an empty array if col is starting at 1st pos', () => {
-    expect(bishopPosMin("51", "White", boardState)).toEqual([])
-  })
-})
+  test('plusMinus should return an empty array if col is starting at 1st pos', () => {
+    expect(plusMinus("51", "White", boardState)).toEqual([]);
+  });
+});
 
-describe('bishopMinPos', () => {
-  test('bishopMinPos should return empty positions in a (-, +) direction', () => {
-    expect(bishopMinPos("54", "White", boardState)).toEqual(["45", "36", "27", "18"])
-  })
+describe('minusPlus', () => {
+  test('minusPlus should return empty positions in a (-, +) direction', () => {
+    expect(minusPlus("54", "White", boardState)).toEqual(["45", "36", "27", "18"]);
+  });
 
-  test('bishopMinPos should stop when hitting a piece of the same color', () => {
-    expect(bishopMinPos("53", "White", boardState)).toEqual(["44", "35", "26"])
-  })
+  test('minusPlus should stop when hitting a piece of the same color', () => {
+    expect(minusPlus("53", "White", boardState)).toEqual(["44", "35", "26"]);
+  });
 
-  test('bishopMinPos should stop after hitting a piece of the same color', () => {
-    expect(bishopMinPos("53", "Black", boardState)).toEqual(["44", "35", "26", "17"])
-  })
+  test('minusPlus should stop after hitting a piece of the same color', () => {
+    expect(minusPlus("53", "Black", boardState)).toEqual(["44", "35", "26", "17"]);
+  });
 
-  test('bishopMinPos should return an empty array if starting at the lowest row number (1)', () => {
-    expect(bishopMinPos("15", "Black", boardState)).toEqual([])
-  })
+  test('minusPlus should return an empty array if starting at the lowest row number (1)', () => {
+    expect(minusPlus("15", "Black", boardState)).toEqual([]);
+  });
 
-  test('bishopMinPos should return an empty array if starting at the highest col number', () => {
-    expect(bishopMinPos("58", "Black", boardState)).toEqual([])
-  })
-})
+  test('minusPlus should return an empty array if starting at the highest col number', () => {
+    expect(minusPlus("58", "Black", boardState)).toEqual([]);
+  });
+});
 
 describe('bishopMoves', () => {
-  test('bishopMoves should return all moves in each 4 direction, combines 4 above functions', () => { // 53 bishopMinPos error "26", 31 bishopMinMin error
-    expect(bishopMoves("53", "White", boardState)).toEqual(["64", "75", "86", "44", "35", "26", "62", "71", "42", "31"])
-  })
-})
+  test('bishopMoves should return all moves in each 4 direction, combines 4 above functions', () => { 
+    expect(bishopMoves("53", "White", boardState)).toEqual(["64", "75", "86", "44", "35", "26", "62", "71", "42", "31"]);
+  });
+});

@@ -72,33 +72,33 @@ const boardState = {
 
 describe("pawnForward", () => {
   test('pawnForward will return the space ahead of it if it is empty and can be moved into', () => {
-    expect(pawnForward('51', 'White', boardState)).toEqual(['61'])
-  })
+    expect(pawnForward('51', 'White', boardState)).toEqual(['61']);
+  });
 
   test('pawnForward will return the space ahead of it if it is empty and can be moved into for Black', () => {
-    expect(pawnForward('51', 'Black', boardState)).toEqual(['41'])
-  })
+    expect(pawnForward('51', 'Black', boardState)).toEqual(['41']);
+  });
 
   test('pawnForward will not let a piece move into an occupied space of either color', () => {
     expect(pawnForward('41', 'White', boardState)).toEqual([]);
     expect(pawnForward('61', 'Black', boardState)).toEqual([]);
-  })
+  });
 
   test('pawnForward will let a white piece move two squares forward if it is on its starting position and the spaces ahead of it are empty', () => {
-    expect(pawnForward('21', 'White', boardState)).toEqual(['31', '41'])
-  })
+    expect(pawnForward('21', 'White', boardState)).toEqual(['31', '41']);
+  });
 
   test('pawnForward will let black pieces move two spaces forward if on starting position and spaces are empty', () => {
-    expect(pawnForward('72', 'Black', boardState)).toEqual(['62', '52'])
-  })
-})
+    expect(pawnForward('72', 'Black', boardState)).toEqual(['62', '52']);
+  });
+});
 
 describe('pawnTakes', () => {
   test('pawnTakes will allow a white piece to take a piece (+, -) or (+, +) ahead of it in the opposing color', () => {
-    expect(pawnTakes('46', 'White', boardState)).toEqual(['55', '57'])
-  })
+    expect(pawnTakes('46', 'White', boardState)).toEqual(['55', '57']);
+  });
 
   test('pawnTakes will allow a black piece to take a piece (+, -) or (+, +) ahead of it in the opposing color', () => {
-    expect(pawnTakes('62', 'Black', boardState)).toEqual(['51', '53'])
-  })
-})
+    expect(pawnTakes('62', 'Black', boardState)).toEqual(['51', '53']);
+  });
+});

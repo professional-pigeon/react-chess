@@ -69,73 +69,71 @@ const boardState = {
 
 
 describe('rookUp', () => {
-
   test('rookUp will move up row positions if empty and stop at a piece of the same color', () => {
-    expect(rookUp("11", "White", boardState)).toEqual(["21", "31", "41", "51", "61", "71"])
-  })
+    expect(rookUp("11", "White", boardState)).toEqual(["21", "31", "41", "51", "61", "71"]);
+  });
 
   test('rookUp will move up row positions and stop at and return a piece if it a different color', () => {
-    expect(rookUp("17", "White", boardState)).toEqual(["27", "37", "47"])
-  })
+    expect(rookUp("17", "White", boardState)).toEqual(["27", "37", "47"]);
+  });
 
   test('confirm rookUp will work for black pieces same as above', () => {
-    expect(rookUp("14", "Black", boardState)).toEqual(["24", "34"])
-  })
+    expect(rookUp("14", "Black", boardState)).toEqual(["24", "34"]);
+  });
 
   test('confirm rookUp will return an empty array if piece is starting in the 8th row', () => {
-    expect(rookUp("84", "Black", boardState)).toEqual([])
-  })
-
-})
+    expect(rookUp("84", "Black", boardState)).toEqual([]);
+  });
+});
 
 describe('rookDown', () => {
   test('rookDown will move down row positions if empty and stop at a piece of the same color', () => {
-    expect(rookDown("71", "White", boardState)).toEqual(["61", "51", "41", "31", "21"])
-  })
+    expect(rookDown("71", "White", boardState)).toEqual(["61", "51", "41", "31", "21"]);
+  });
 
   test('rookDown will move down row positions if empty and stop after seeing a piece of the opposite color', () => {
-    expect(rookDown("34", "White", boardState)).toEqual(["24", "14"])
-  })
+    expect(rookDown("34", "White", boardState)).toEqual(["24", "14"]);
+  });
 
   test('confirm rookDown will work for both colors', () => {
-    expect(rookDown("47", "Black", boardState)).toEqual(["37", "27", "17"])
-  })
+    expect(rookDown("47", "Black", boardState)).toEqual(["37", "27", "17"]);
+  });
 
   test('confirm rookDown will return an empty array if already starting at the lowest row (1st)', () => {
-    expect(rookDown("11", "Black", boardState)).toEqual([])
-  })
-})
+    expect(rookDown("11", "Black", boardState)).toEqual([]);
+  });
+});
 
 describe('rookRight', () => {
   test('rookRight will move in a positive direction until encountering a piece of the same color', () => {
-    expect(rookRight("31", "White", boardState)).toEqual(["32", "33"])
-  })
+    expect(rookRight("31", "White", boardState)).toEqual(["32", "33"]);
+  });
 
   test('rookRight will move through empty spaces and stop after encountering a piece of the opposing color', ()=> {
-    expect(rookRight("85", "Black", boardState)).toEqual(["86", "87"])
-  })
+    expect(rookRight("85", "Black", boardState)).toEqual(["86", "87"]);
+  });
 
   test('rookRight will return an empty array if it starts on the furthest right position (8th)', () => {
-    expect(rookRight("18", "Black", boardState)).toEqual([])
-  })
-})
+    expect(rookRight("18", "Black", boardState)).toEqual([]);
+  });
+});
 
 describe('rookLeft', () => {
   test('rookLeft will move in a negative direction until encountering a piece of the same color', () => {
-    expect(rookLeft("17", "Black", boardState)).toEqual(["16", "15"])
-  })
+    expect(rookLeft("17", "Black", boardState)).toEqual(["16", "15"]);
+  });
 
   test('rookLeft will move in a negative direction and stop after encountering a piece of an opposing color', () => {
-    expect(rookLeft("17", "White", boardState)).toEqual(["16", "15", "14"])
-  })
+    expect(rookLeft("17", "White", boardState)).toEqual(["16", "15", "14"]);
+  });
 
   test('rookLeft will return an empty array if starting at furthest left column (1st)', () => {
-    expect(rookLeft('11', "White", boardState)).toEqual([])
-  })
-})
+    expect(rookLeft('11', "White", boardState)).toEqual([]);
+  });
+});
 
 describe('rookMoves', () => {
   test('rookMoves shoud return all moves in all directions in one array, combination of previous 4 functions', () => {
-    expect(rookMoves("45", "Black", boardState)).toEqual(["55", "65", "75", "85", "44", "43", "42", "41", "46", "35", "25", "15"])
-  })
-})
+    expect(rookMoves("45", "Black", boardState)).toEqual(["55", "65", "75", "85", "44", "43", "42", "41", "46", "35", "25", "15"]);
+  });
+});

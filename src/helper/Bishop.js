@@ -65,7 +65,7 @@ const boardState = {
   88: "Bishop Black",
 }
 
-function bishopPosPos(pos, color, board) {
+function plusPlus(pos, color, board) {
   let coordinates = pos.split("")
   let x = Number(coordinates[0])
   let y = Number(coordinates[1])
@@ -86,7 +86,7 @@ function bishopPosPos(pos, color, board) {
   return moves
 }
 
-function bishopMinMin(pos, color, board) {
+function minusMinus(pos, color, board) {
   let coordinates = pos.split("")
   let x = Number(coordinates[0])
   let y = Number(coordinates[1])
@@ -106,7 +106,7 @@ function bishopMinMin(pos, color, board) {
   return moves
 }
 
-function bishopPosMin(pos, color, board) {
+function plusMinus(pos, color, board) {
   let coordinates = pos.split("")
   let x = Number(coordinates[0])
   let y = Number(coordinates[1])
@@ -126,7 +126,7 @@ function bishopPosMin(pos, color, board) {
   return moves
 }
 
-function bishopMinPos(pos, color, board) {
+function minusPlus(pos, color, board) {
   let coordinates = pos.split("")
   let x = Number(coordinates[0])
   let y = Number(coordinates[1])
@@ -148,10 +148,10 @@ function bishopMinPos(pos, color, board) {
 
 function bishopMoves(pos, color, board) {
   let arr = []
-  arr.push(bishopPosPos(pos, color, board))
-  arr.push(bishopMinPos(pos, color, board))
-  arr.push(bishopPosMin(pos, color, board))
-  arr.push(bishopMinMin(pos, color, board))
+  arr.push(plusPlus(pos, color, board))
+  arr.push(minusPlus(pos, color, board))
+  arr.push(plusMinus(pos, color, board))
+  arr.push(minusMinus(pos, color, board))
   return arr.flat()
 }
-export { bishopMoves, bishopPosPos, bishopMinMin, bishopPosMin, bishopMinPos }
+export { bishopMoves, plusPlus, minusMinus, plusMinus, minusPlus }

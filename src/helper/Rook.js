@@ -77,10 +77,10 @@ function up(pos, color, board) {
 
 function rookMoves(pos, color, board) {
   let arr = [];
-  arr.push(rookUp(pos, color, board));
-  arr.push(rookLeft(pos, color, board));
-  arr.push(rookRight(pos, color, board));
-  arr.push(rookDown(pos, color, board));
+  arr.push(up(pos, color, board));
+  arr.push(left(pos, color, board));
+  arr.push(right(pos, color, board));
+  arr.push(down(pos, color, board));
   return arr.flat();
 }
 

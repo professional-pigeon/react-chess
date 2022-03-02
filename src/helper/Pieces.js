@@ -1,5 +1,5 @@
-import { rookMoves } from "./Rook";
-import { bishopMoves } from "./Bishop";
+import rookMoves from "./Rook";
+import bishopMoves from "./Bishop";
 import knightMoves from "./Knight";
 import queenMoves from "./Queen";
 

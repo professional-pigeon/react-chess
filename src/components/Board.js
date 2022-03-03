@@ -5,36 +5,36 @@ import { useState } from "react";
 function Board() {
   const boardState = {
     11: "Rook White",
-    12: "empty",
-    13: "empty",
-    14: "empty",
-    15: "empty",
-    16: "empty",
-    17: "Rook White",
-    18: "empty",
-    21: "empty",
-    22: "empty",
-    23: "empty",
-    24: "empty",
-    25: "empty",
-    26: "empty",
-    27: "empty",
-    28: "empty",
+    12: "Knight White",
+    13: "Bishop White",
+    14: "Queen White",
+    15: "King White",
+    16: "Bishop White",
+    17: "Knight White",
+    18: "Rook White",
+    21: "Pawn White",
+    22: "Pawn White",
+    23: "Pawn White",
+    24: "Pawn White",
+    25: "Pawn White",
+    26: "Pawn White",
+    27: "Pawn White",
+    28: "Pawn White",
     31: "empty",
     32: "empty",
-    33: "Queen Black",
-    34: "Bishop White",
+    33: "empty",
+    34: "empty",
     35: "empty",
     36: "empty",
     37: "empty",
     38: "empty",
     41: "empty",
-    42: "Knight Black",
+    42: "empty",
     43: "empty",
     44: "empty",
     45: "empty",
     46: "empty",
-    47: "Rook Black",
+    47: "empty",
     48: "empty",
     51: "empty",
     52: "empty",
@@ -52,30 +52,35 @@ function Board() {
     66: "empty",
     67: "empty",
     68: "empty",
-    71: "empty",
-    72: "empty",
-    73: "empty",
-    74: "empty",
-    75: "empty",
-    76: "empty",
-    77: "empty",
-    78: "empty",
-    81: "empty",
-    82: "empty",
-    83: "empty",
-    84: "empty",
-    85: "empty",
-    86: "empty",
-    87: "empty",
-    88: "empty",
+    71: "Pawn Black",
+    72: "Pawn Black",
+    73: "Pawn Black",
+    74: "Pawn Black",
+    75: "Pawn Black",
+    76: "Pawn Black",
+    77: "Pawn Black",
+    78: "Pawn Black",
+    81: "Rook Black",
+    82: "Knight Black",
+    83: "Bishop Black",
+    84: "King Black",
+    85: "Queen Black",
+    86: "Bishop Black",
+    87: "Knight Black",
+    88: "Rook White",
   };
 
   const [moves, setMoves] = useState([]);
   const [chosenPiece, setPiece] = useState("empty");
   let grid = [];
 
-  console.log(moves, chosenPiece, "this is the moves and the chose piece position");
+  function moveTake(position, chosenPiece, boardState) {
+    let movePiece = boardState[chosenPiece]
+    boardState[position] = movePiece
+    boardState[chosenPiece] = "empty"
+  }
 
+  console.log(boardState)
   for (let i = 1; i < 9; i ++) {
     grid.push([]);
     for (let j = 1; j < 9; j ++) {

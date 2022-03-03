@@ -70,8 +70,8 @@ function enPassant(pos, color, board) {
 }
 
 function switchPiece(pos, color, board, newPiece) {
-  let thing = ""
-  return thing
+  board[pos] = newPiece + " " + color
+  return 
 }
 
 function pawnMoves(pos, color, board) {

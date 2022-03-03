@@ -1,7 +1,7 @@
 import { pawnForward, pawnTakes, enPassant, switchPiece, pawnMoves } from "../../src/helper/pawn";
 
 
-const boardState = {
+let boardState = {
   11: "empty",
   12: "empty",
   13: "empty",
@@ -106,6 +106,12 @@ describe('pawnTakes', () => {
 describe('enPassant', () => {
   test('enPassant will allow you take an pawn that has moved adjacent to you after moving twice', () => {
     expect(enPassant("56", "White", boardState)).toEqual(["65"])
+  })
+
+  test('enPassant will allow you take an pawn that has moved adjacent to you after moving twice: confirm for Black pieces', () => {
+    boardState["moveHistory"] = [{ piece: "Pawn White", move: [[2, 1], [4, 1]] } ]
+    boardState["41"] = "Pawn White"
+    expect(enPassant("42", "Black", boardState)).toEqual(["31"])
   })
 })
 

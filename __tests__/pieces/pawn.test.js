@@ -66,7 +66,7 @@ const boardState = {
   86: "empty",
   87: "empty",
   88: "empty",
-  previousMove: [[7, 8], [5, 8]]
+  moveHistory: [[7, 5], [5, 5]]
 }
 
 
@@ -102,3 +102,7 @@ describe('pawnTakes', () => {
     expect(pawnTakes('62', 'Black', boardState)).toEqual(['51', '53']);
   });
 });
+
+describe('enPassant', () => {
+  expect(enPassant("54", "White", boardState)).toEqual(["55"])
+})

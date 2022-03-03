@@ -104,5 +104,7 @@ describe('pawnTakes', () => {
 });
 
 describe('enPassant', () => {
-  expect(enPassant("54", "White", boardState)).toEqual(["55"])
+  test('enPassant will allow you take an pawn that has moved adjacent to you after moving twice', () => {
+    expect(enPassant("56", "White", boardState)).toEqual(["65"])
+  })
 })

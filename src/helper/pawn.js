@@ -44,9 +44,28 @@ function pawnTakes(pos, color, board) {
 }
 
 function enPassant(pos, color, board) {
-  // only if opposing pawn has moved two spaces in the last turn"
-  // will need move history
+  let coordinates = pos.split("")
+  let x = Number(coordinates[0])
+  let y = Number(coordinates[1])
   let moves = []
+  let left = coordinates[0] + (y - 1).toString()
+  let right = coordinates[0] + (y + 1).toString()
+  let lastMove = board.moveHistory[board.moveHistory.length -1].move
+  if (lastMove[0][1] === (y - 1)) {
+    if (board[left].includes('Pawn') && board[left].includes(color) === false) {
+      if ((lastMove[0][0] - lastMove[1][0]) === 2 || (lastMove[0][0] + lastMove[1][0]) === 2) {
+        moves.push((x + 1).toString() + (y - 1).toString())
+      }
+    }
+  }
+  if (lastMove[0][1] === (y + 1)) {
+    if (board[right].includes('Pawn') && board[right].includes(color) === false) {
+      let lastMove = board.moveHistory[board.moveHistory.length -1].move
+      if ((lastMove[0][0] - lastMove[1][0]) === 2 || (lastMove[0][0] + lastMove[1][0]) === 2) {
+        moves.push((x + 1).toString() + (y + 1).toString())
+      }
+    }
+  }
   return moves
 }
 

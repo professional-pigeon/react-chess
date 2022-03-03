@@ -66,7 +66,7 @@ const boardState = {
   86: "empty",
   87: "empty",
   88: "empty",
-  moveHistory: [[7, 5], [5, 5]]
+  moveHistory: [ { piece: "Pawn Black", move: [[7, 5], [5, 5]] }]
 }
 
 

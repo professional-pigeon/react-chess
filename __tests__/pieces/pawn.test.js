@@ -108,3 +108,10 @@ describe('enPassant', () => {
     expect(enPassant("56", "White", boardState)).toEqual(["65"])
   })
 })
+
+describe('switchPiece', () => {
+  test('switchPiece will change a pawn on the board into a new piece', () => {
+    switchPiece("81", "White", boardState, "Queen")
+    expect(board[pos]).toEqual("Queen White")
+  })
+})

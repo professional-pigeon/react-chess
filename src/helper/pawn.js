@@ -69,7 +69,7 @@ function enPassant(pos, color, board) {
   return moves
 }
 
-function switchPiece(pos, color, board) {
+function switchPiece(pos, color, board, newPiece) {
   let thing = ""
   return thing
 }

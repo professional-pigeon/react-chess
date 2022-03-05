@@ -81,12 +81,12 @@ function Board() {
     boardState[chosenPiece] = "empty"
   }
 
-  console.log(boardState, moves, chosenPiece)
   for (let i = 1; i < 9; i ++) {
     grid.push([]);
     for (let j = 1; j < 9; j ++) {
       let boardKey = i.toString() + j.toString()
-      let highlight = ''
+      let highlight = 'none'
+      console.log(moves, boardKey, moves.includes(boardKey))
       if (moves.includes(boardKey) && boardState[chosenPiece] !== "empty") {
         highlight = "takes";
       } else if (moves.includes(boardKey)) {
@@ -94,8 +94,8 @@ function Board() {
       } else if (chosenPiece === boardKey) {
         highlight = "chosen";
       } else {
-        highlight = "none"
       }
+      console.log(highlight, boardKey)
       grid[i - 1].push(
         <div className="tile" id={highlight} key={boardKey}><Piece posMoves={moves} chosenPiece={chosenPiece} boardState={boardState} position={boardKey} pieceType={boardState[boardKey]} setMoves={setMoves} setPiece={setPiece}/></div>
       )

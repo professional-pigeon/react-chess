@@ -86,7 +86,7 @@ function pawnMoves(pos, color, board) {
   arr.push(pawnForward(pos, color, board));
   arr.push(pawnTakes(pos, color, board));
   arr.push(enPassant(pos, color, board));
-  return arr
+  return arr.flat()
 }
 
 export { pawnForward, pawnTakes, enPassant, switchPiece, pawnMoves }

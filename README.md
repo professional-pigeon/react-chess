@@ -12,3 +12,8 @@ Game state: {
 
 it'll know turn based on the length of the movehistory
 
+Non state things to do:
+
+Make board look more like a chess board
+add piece shapes to board
+css cleanup and style choices

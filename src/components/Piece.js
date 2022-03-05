@@ -11,18 +11,10 @@ function Piece({ position, pieceType, boardState, posMoves, setMoves, setPiece, 
     color = arr[1];
     moveFunc = pieceMoves[piece];
   }
-  if (posMoves.includes(position) && pieceType !== "empty") {
-    highlight = "takes";
-  } else if (posMoves.includes(position)) {
-    highlight = "highlight";
-  } else if (chosenPiece === position) {
-    highlight = "chosen";
-  } else {
-    highlight = "none"
-  }
+
 
   return (
-    <div className="tile" id={highlight} onClick={() => (setMoves(moveFunc(position, color, boardState)), setPiece(position))}>
+    <div className={piece + " " + color} id={highlight} onClick={() => (setMoves(moveFunc(position, color, boardState)), setPiece(position))}>
       {position + " " +  piece + " " + color}
     </div>
   )

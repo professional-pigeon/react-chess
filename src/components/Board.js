@@ -67,7 +67,8 @@ function Board() {
     85: "Queen Black",
     86: "Bishop Black",
     87: "Knight Black",
-    88: "Rook White",
+    88: "Rook Black",
+    moveHistory: []
   };
 
   const [moves, setMoves] = useState([]);
@@ -80,13 +81,23 @@ function Board() {
     boardState[chosenPiece] = "empty"
   }
 
-  console.log(boardState)
+  console.log(boardState, moves, chosenPiece)
   for (let i = 1; i < 9; i ++) {
     grid.push([]);
     for (let j = 1; j < 9; j ++) {
       let boardKey = i.toString() + j.toString()
+      let highlight = ''
+      if (moves.includes(boardKey) && boardState[chosenPiece] !== "empty") {
+        highlight = "takes";
+      } else if (moves.includes(boardKey)) {
+        highlight = "highlight";
+      } else if (chosenPiece === boardKey) {
+        highlight = "chosen";
+      } else {
+        highlight = "none"
+      }
       grid[i - 1].push(
-        <Piece posMoves={moves} key={boardKey} chosenPiece={chosenPiece} boardState={boardState} position={boardKey} pieceType={boardState[boardKey]} setMoves={setMoves} setPiece={setPiece}/>
+        <div className="tile" id={highlight} key={boardKey}><Piece posMoves={moves} chosenPiece={chosenPiece} boardState={boardState} position={boardKey} pieceType={boardState[boardKey]} setMoves={setMoves} setPiece={setPiece}/></div>
       )
     }
   }

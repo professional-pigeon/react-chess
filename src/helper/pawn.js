@@ -50,24 +50,26 @@ function enPassant(pos, color, board) {
   let moves = [];
   let left = coordinates[0] + (y - 1).toString();
   let right = coordinates[0] + (y + 1).toString();
-  let lastMove = board.moveHistory[board.moveHistory.length -1].move;
-  if (lastMove[0][1] === (y - 1)) {
-    if (board[left].includes('Pawn') && board[left].includes(color) === false) {
-      if ((lastMove[0][0] - lastMove[1][0]) === 2) {
-        moves.push((x + 1).toString() + (y - 1).toString());
-      }
-      if ((lastMove[0][0] - lastMove[1][0]) === -2) {
-        moves.push((x - 1).toString() + (y - 1).toString());
+  if (board.moveHistory.length > 0) {
+    let lastMove = board.moveHistory[board.moveHistory.length -1].move;
+    if (lastMove[0][1] === (y - 1)) {
+      if (board[left].includes('Pawn') && board[left].includes(color) === false) {
+        if ((lastMove[0][0] - lastMove[1][0]) === 2) {
+          moves.push((x + 1).toString() + (y - 1).toString());
+        }
+        if ((lastMove[0][0] - lastMove[1][0]) === -2) {
+          moves.push((x - 1).toString() + (y - 1).toString());
+        }
       }
     }
-  }
-  if (lastMove[0][1] === (y + 1)) {
-    if (board[right].includes('Pawn') && board[right].includes(color) === false) {
-      if ((lastMove[0][0] - lastMove[1][0]) === 2) {
-        moves.push((x + 1).toString() + (y + 1).toString());
-      }
-      if ((lastMove[0][0] - lastMove[1][0]) === -2) {
-        moves.push((x - 1).toString() + (y + 1).toString());
+    if (lastMove[0][1] === (y + 1)) {
+      if (board[right].includes('Pawn') && board[right].includes(color) === false) {
+        if ((lastMove[0][0] - lastMove[1][0]) === 2) {
+          moves.push((x + 1).toString() + (y + 1).toString());
+        }
+        if ((lastMove[0][0] - lastMove[1][0]) === -2) {
+          moves.push((x - 1).toString() + (y + 1).toString());
+        }
       }
     }
   }

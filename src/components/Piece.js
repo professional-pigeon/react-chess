@@ -1,4 +1,5 @@
 import pieceMoves from "../helper/Pieces";
+import piecePortraits from "../helper/PiecePortraits"
 import PropTypes from "prop-types";
 
 function Piece(props) {
@@ -22,7 +23,8 @@ function Piece(props) {
 
   return (
     <div className={piece + " " + color} id={highlight} onClick={() => clickFunctions(props.position, color, props.boardState)}>
-      {props.position + " " +  piece + " " + color }
+      {"\u2654"}
+      {/* {props.position + " " + piece + " " + color } */}
     </div>
   )
 }

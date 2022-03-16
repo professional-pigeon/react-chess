@@ -44,25 +44,25 @@
 .board > div:nth-child(even) > div:nth-child(even) {
   height: 100px;
   width: 100px;
-  background-color: #61dafb;
+  background-color: beige;
 }
 
 .board > div:nth-child(even) > div:nth-child(odd) {
   height: 100px;
   width: 100px;
-  background-color: green;
+  background-color: rgba(84, 179, 52, 0.695);
 }
 
 .board > div:nth-child(odd) > div:nth-child(odd) {
   height: 100px;
   width: 100px;
-  background-color: #61dafb;
+  background-color: beige;
 }
 
 .board > div:nth-child(odd) > div:nth-child(even) {
   height: 100px;
   width: 100px;
-  background-color: green;
+  background-color: rgba(84, 179, 52, 0.695);
 }
 
 #highlight {

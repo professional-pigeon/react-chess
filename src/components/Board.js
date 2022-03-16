@@ -1,8 +1,22 @@
-import React from "react";
-import Piece from "./Piece"
-import { useState } from "react";
+import React, { useState, useEffect  } from "react";
+import Piece from "./Piece";
+import db from '../firebase';
+import { async } from "@firebase/util";
 
 function Board() {
+
+
+  useEffect(() => {
+    fetchGames();
+  }, [])
+  
+  async function fetchGames() {
+    const response = db.collection('games');
+    const data = await response.get()
+    setGames(data)
+    console.log(data.docs)
+  }
+
   let boardState = {
     11: "Rook White",
     12: "Knight White",
@@ -71,6 +85,7 @@ function Board() {
     moveHistory: []
   };
 
+  const [games, setGames] = useState({})
   const [moves, setMoves] = useState([]);
   const [chosenPiece, setPiece] = useState("empty");
   let grid = [];

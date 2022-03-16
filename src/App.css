@@ -65,18 +65,12 @@
   background-color: green;
 }
 
-/* .tile {
-  height: 100px;
-  width: 100px;
-  background-color: #61dafb;
-} */
-
 #highlight {
   background-color: pink;
 }
 
 #chosen {
-  background-color: green;
+  background-color: yellow;
 }
 
 #takes {

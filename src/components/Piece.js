@@ -1,4 +1,5 @@
-import pieceMoves from "../helper/Pieces"
+import pieceMoves from "../helper/Pieces";
+import PropTypes from "prop-types";
 
 function Piece(props) {
   let piece = ""
@@ -11,12 +12,6 @@ function Piece(props) {
     piece = arr[0];
     color = arr[1];
     moveFunc = pieceMoves[piece];
-  }
-
-  function highlightSquare(moves, pos, color) {
-    if (moves.includes(pos)) {
-      console.log("yea")
-    }
   }
 
   function clickFunctions(pos, color, board) {
@@ -32,11 +27,14 @@ function Piece(props) {
   )
 }
 
-// Piece.PropTypes = {
-//   position: PropTypes.string,
-//   setMoves: PropTypes.func,
-//   setPiece: PropTypes.func,
-//   boardState: PropTypes.object,
-// }
+Piece.propTypes = {
+  pieceType: PropTypes.string,
+  chosenPiece: PropTypes.string,
+  posMoves: PropTypes.array,
+  position: PropTypes.string,
+  setMoves: PropTypes.func,
+  setPiece: PropTypes.func,
+  boardState: PropTypes.object,
+}
 
 export default Piece

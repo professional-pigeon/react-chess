@@ -16,7 +16,6 @@ function Piece(props) {
   }
 
   function clickFunctions(pos, color, board) {
-    console.log(pos, color, board)
     props.setMoves(moveFunc(pos, color, board))
     props.setPiece(pos)
   }

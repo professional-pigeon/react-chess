@@ -111,7 +111,7 @@ function Board() {
   }
   
   return (
-    <div>
+    <div className="board">
       {print(grid)}
     </div>
   )

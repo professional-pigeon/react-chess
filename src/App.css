@@ -39,15 +39,37 @@
 
 .boardRow {
   display: flex;
-  justify-content: space-between;
 }
 
-.tile {
-  margin: 5px;
-  height: 50px;
-  width: 50px;
+.board > div:nth-child(even) > div:nth-child(even) {
+  height: 100px;
+  width: 100px;
   background-color: #61dafb;
 }
+
+.board > div:nth-child(even) > div:nth-child(odd) {
+  height: 100px;
+  width: 100px;
+  background-color: green;
+}
+
+.board > div:nth-child(odd) > div:nth-child(odd) {
+  height: 100px;
+  width: 100px;
+  background-color: #61dafb;
+}
+
+.board > div:nth-child(odd) > div:nth-child(even) {
+  height: 100px;
+  width: 100px;
+  background-color: green;
+}
+
+/* .tile {
+  height: 100px;
+  width: 100px;
+  background-color: #61dafb;
+} */
 
 #highlight {
   background-color: pink;

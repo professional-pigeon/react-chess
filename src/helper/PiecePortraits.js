@@ -1,16 +1,16 @@
 const piecePortraits = {
-  "King White": "\2654",
-  "Queen White": "\2655",
-  "Rook White": "\2656",
-  "Bishop White": "\2657",
-  "Knight White": "\2658",
-  "Pawn White": "\2675",
-  "King Black": "\265A",
-  "Queen Black": "\265B",
-  "Rook Black": "\265C",
-  "Bishop Black": "\265D",
-  "Knight Black": "\265E",
-  "Pawn Black": "\265F"
+  "King White": "\u2654",
+  "Queen White": "\u2655",
+  "Rook White": "\u2656",
+  "Bishop White": "\u2657",
+  "Knight White": "\u2658",
+  "Pawn White": "\u2659",
+  "King Black": "\u265A",
+  "Queen Black": "\u265B",
+  "Rook Black": "\u265C",
+  "Bishop Black": "\u265D",
+  "Knight Black": "\u265E",
+  "Pawn Black": "\u265F"
 }
 
 export default piecePortraits

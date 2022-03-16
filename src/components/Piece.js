@@ -22,9 +22,8 @@ function Piece(props) {
   }
 
   return (
-    <div className={piece + " " + color} id={highlight} onClick={() => clickFunctions(props.position, color, props.boardState)}>
-      {"\u2654"}
-      {/* {props.position + " " + piece + " " + color } */}
+    <div className={piece + " " + color} id={"piece-size"} onClick={() => clickFunctions(props.position, color, props.boardState)}>
+      {piecePortraits[props.pieceType]}
     </div>
   )
 }

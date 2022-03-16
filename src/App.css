@@ -76,3 +76,7 @@
 #takes {
   background-color: red;
 }
+
+#piece-size {
+  font-size: 100px;
+}

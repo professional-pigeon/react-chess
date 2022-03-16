@@ -3,7 +3,7 @@ import Piece from "./Piece"
 import { useState } from "react";
 
 function Board() {
-  const boardState = {
+  let boardState = {
     11: "Rook White",
     12: "Knight White",
     13: "Bishop White",
@@ -80,8 +80,6 @@ function Board() {
     boardState[position] = movePiece
     boardState[chosenPiece] = "empty"
   }
-
-  console.log(boardState[chosenPiece])
 
   for (let i = 1; i < 9; i ++) {
     grid.push([]);

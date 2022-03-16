@@ -1,5 +1,4 @@
 import pieceMoves from "../helper/Pieces"
-import { propTypes } from "react-bootstrap/esm/Image"
 
 function Piece(props) {
   let piece = ""
@@ -32,5 +31,12 @@ function Piece(props) {
     </div>
   )
 }
+
+// Piece.PropTypes = {
+//   position: PropTypes.string,
+//   setMoves: PropTypes.func,
+//   setPiece: PropTypes.func,
+//   boardState: PropTypes.object,
+// }
 
 export default Piece

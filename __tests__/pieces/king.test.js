@@ -1,4 +1,4 @@
-import { kingOne, kingCheck, kingMoves, kingTakes } from '../../src/helper/King'
+import { kingOne, kingCheck, kingMoves } from '../../src/helper/King'
 
 const boardState = {
   11: "Bishop Black",
@@ -85,5 +85,11 @@ describe('kingOne', () => {
 
   test('will allow the king to take a piece of the opposing color. Test for White pieces on take', () => {
     expect(kingOne('12', 'White', boardState)).toEqual(['21', '22', '23', '11', '13'])
+  })
+})
+
+describe('kingCheck', () => {
+  test('will check available moves to see if any moves will put the king into check by a bishop and remove that possible move', () => {
+    expect(kingCheck(kingOne('87', 'White', boardState))).toEqual(['76', '78'])
   })
 })

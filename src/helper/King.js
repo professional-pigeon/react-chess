@@ -32,21 +32,16 @@ function kingOne(pos, color, board) {
   return moves
 }
 
-function kingCheck() {
-  return "not working"
+function kingCheck(moves) {
+  return moves
 }
 
 function kingMoves() {
   return "not working"
 }
 
-function kingTakes() {
-  return "not working"
-}
-
 export {
   kingOne,
   kingCheck,
-  kingMoves,
-  kingTakes,
+  kingMoves
 }

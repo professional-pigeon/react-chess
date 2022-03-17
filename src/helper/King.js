@@ -102,7 +102,37 @@ function kingCheckDiagonals(moves, color, board) {
 }
 
 function kingCheckOrthogonal(moves, color, board) {
-  return "not working"
+  let cuts = [];
+  moves.forEach(function(move) {
+    let coordinates = move.split("")
+    let x = Number(coordinates[0])
+    let y = Number(coordinates[1])
+    for (let i = 1; i <= 8; i++) {
+      let tile = (x + i).toString() + y.toString()
+      console.log(move, tile)
+      if (board[tile] !== "empty" && board[tile] !== undefined) {
+        if (board[tile].includes("Rook") && board[tile].includes(color) === false) {
+          cuts.push(move)
+          break
+        }
+      }
+    }
+  })
+  let filteredMoves = moves.filter(function(move, index) {
+    if(cuts.includes(move) === false) {
+      return move
+    }
+  })
+  return filteredMoves
+}
+
+function kingCheckKnight(moves, color, board) {
+  let cuts = [];
+  let filteredMoves = moves.filter(function(move, index) {
+    if(cuts.includes(move) === false) {
+      return move
+    }
+  })
 }
 
 function kingMoves() {
@@ -113,5 +143,6 @@ export {
   kingOne,
   kingCheckDiagonals,
   kingCheckOrthogonal,
+  kingCheckKnight,
   kingMoves
 }

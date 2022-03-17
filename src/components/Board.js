@@ -2,10 +2,10 @@ import React, { useState, useEffect  } from "react";
 import Piece from "./Piece";
 import db from '../firebase';
 import { async } from "@firebase/util";
-import { uuid } from "uuidv4"
+import { v4 as uuidv4 } from 'uuid';
 
 function Board() {
-
+  console.log(uuidv4())
   useEffect(() => {
     fetchGames();
   }, [])

@@ -6,7 +6,6 @@ function Piece(props) {
   let piece = ""
   let color = ""
   let moveFunc = undefined
-  let highlight = ""
 
   if (props.pieceType !== "empty") {
     let arr = props.pieceType.split(" ");

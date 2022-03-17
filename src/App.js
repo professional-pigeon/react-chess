@@ -15,11 +15,6 @@ function App() {
     const response = db.collection('boardStates').doc('initial');
     const data = await response.get()
     setBoard(data.data())
-    // data.forEach((doc) => {
-    //   let thing = (doc.id, '=>', doc.data())
-    //   setGames(thing)
-    //   console.log(thing)
-    // });
   }
 
   function isEmpty(obj) {

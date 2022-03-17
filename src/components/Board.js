@@ -7,28 +7,8 @@ import { v4 as uuidv4 } from 'uuid';
 function Board({ board }) {
   const [moves, setMoves] = useState([]);
   const [chosenPiece, setPiece] = useState("empty");
-  // useEffect(() => {
-  //   fetchGames();
-  // }, [])
-  
-  // async function fetchGames() {
-  //   const response = db.collection('games');
-  //   const data = await response.where('id', '==', 199).get()
-  //   data.forEach((doc) => {
-  //     let thing = (doc.id, '=>', doc.data())
-  //     setGames(thing)
-  //     console.log(thing)
-  //   });
-  // }
-  console.log(board)
   let boardState = board
   let grid = [];
-
-  // function moveTake(position, chosenPiece, boardState) {
-  //   let movePiece = boardState[chosenPiece]
-  //   boardState[position] = movePiece
-  //   boardState[chosenPiece] = "empty"
-  // }
 
   for (let i = 1; i < 9; i ++) {
     grid.push([]);

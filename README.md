@@ -35,6 +35,11 @@ snapshot.forEach((doc) => {
   console.log(doc.id, '=>', doc.data());
 });
 
+or if specific
+
+const thing = await db.collection('yada').doc('id sort of')
+const newObject = thing.data()
+
 BLANK BOARD
 
   // let boardState = {

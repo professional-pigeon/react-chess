@@ -62,7 +62,7 @@ const boardState = {
   83: "empty",
   84: "empty",
   85: "empty",
-  86: "empty",
+  86: "Bishop White",
   87: "empty",
   88: "empty",
 }
@@ -71,11 +71,15 @@ describe('kingOne', () => {
     expect(kingOne('43', 'Black', boardState)).toEqual(['52', '53', '54', '42', '44', '32', '33', '34'])
   });
 
-  test('will now allow the king to move past the boundaries of the board check lows', () => {
+  test('will not allow the king to move past the boundaries of the board check lows', () => {
     expect(kingOne('11', 'White', boardState)).toEqual(['21', '22', '12'])
   })
 
-  test('will now allow the king to move past the boundaries of the board check highs', () => {
+  test('will not allow the king to move past the boundaries of the board check highs', () => {
     expect(kingOne('88', 'White', boardState)).toEqual(['87', '77', '78'])
+  })
+
+  test('will let the king take a piece of the opposing color', () => {
+    expect(kingOne('87', 'Black', boardState)).toEqual('86', '88', '76', '77', '78')
   })
 })

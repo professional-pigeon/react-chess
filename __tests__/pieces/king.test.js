@@ -70,4 +70,8 @@ describe('kingOne', () => {
   test('will allow the king to move one into one unoccupied space in any direction', () => {
     expect(kingOne('43', 'Black', boardState)).toEqual(['52', '53', '54', '42', '44', '32', '33', '34'])
   });
+
+  test('will now allow the king to move past the boundaries of the board', () => {
+    expect(kingOne('11', 'White', boardState)).toEqual(['21', '22', '12'])
+  })
 })

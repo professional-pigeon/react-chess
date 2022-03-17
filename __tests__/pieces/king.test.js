@@ -1,7 +1,7 @@
 import { kingOne, kingCheck, kingMoves, kingTakes } from '../../src/helper/King'
 
 const boardState = {
-  11: "empty",
+  11: "Bishop Black",
   12: "empty",
   13: "empty",
   14: "empty",
@@ -79,7 +79,11 @@ describe('kingOne', () => {
     expect(kingOne('88', 'White', boardState)).toEqual(['87', '77', '78'])
   })
 
-  test('will let the king take a piece of the opposing color', () => {
+  test('will let the king take a piece of the opposing color. Test for Black pieces on take', () => {
     expect(kingOne('87', 'Black', boardState)).toEqual(['86', '88', '76', '77', '78'])
+  })
+
+  test('will allow the king to take a piece of the opposing color. Test for White pieces on take', () => {
+    expect(kingOne('12', 'White', boardState)).toEqual(['21', '22', '23', '11', '13'])
   })
 })

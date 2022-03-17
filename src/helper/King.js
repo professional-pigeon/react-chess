@@ -43,7 +43,7 @@ function kingCheckDiagonals(moves, color, board) {
     for (let i = 1; i < 8; i++) {
       let tile = (x + i).toString() + (y + i).toString()
       if (board[tile] !== 'empty' && board[tile] !== undefined) {
-        if (board[tile].includes('Bishop')) {
+        if (board[tile].includes('Bishop') || board[tile].includes('Queen')) {
           if (board[tile].includes(color) === false) {
             console.log('found ya tile')
             cuts.push(move)
@@ -53,7 +53,7 @@ function kingCheckDiagonals(moves, color, board) {
       }
       let tile2 = (x - i).toString() + (y + i).toString()
       if (board[tile2] !== 'empty' && board[tile2] !== undefined) {
-        if (board[tile2].includes('Bishop')) {
+        if (board[tile2].includes('Bishop') || board[tile2].includes('Queen')) {
           if (board[tile2].includes(color) === false) {
             console.log('found ya tile2')
             cuts.push(move)
@@ -63,7 +63,7 @@ function kingCheckDiagonals(moves, color, board) {
       }
       let tile3 = (x - i).toString() + (y - i).toString()
       if (board[tile3] !== 'empty' && board[tile3] !== undefined) {
-        if (board[tile3].includes('Bishop')) {
+        if (board[tile3].includes('Bishop') || board[tile3].includes('Queen')) {
           if (board[tile3].includes(color) === false) {
             console.log('found ya tile3')
             cuts.push(move)
@@ -73,7 +73,7 @@ function kingCheckDiagonals(moves, color, board) {
       }
       let tile4 = (x + i).toString() + (y - i).toString()
       if (board[tile4] !== 'empty' && board[tile4] !== undefined) {
-        if (board[tile4].includes('Bishop')) {
+        if (board[tile4].includes('Bishop') || board[tile4].includes('Queen')) {
           if (board[tile4].includes(color) === false) {
             console.log('found ya tile4')
             cuts.push(move)

@@ -101,6 +101,10 @@ describe('pawnTakes', () => {
   test('pawnTakes will allow a black piece to take a piece (+, -) or (+, +) ahead of it in the opposing color', () => {
     expect(pawnTakes('62', 'Black', boardState)).toEqual(['51', '53']);
   });
+
+  test('pawnTakes will work if the pawn is on an outside column (1 or 8) test for White', () => {
+    expect(pawnTakes('21', "White", boardState)).toEqual([])
+  })
 });
 
 describe('enPassant', () => {

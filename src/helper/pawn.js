@@ -26,18 +26,22 @@ function pawnTakes(pos, color, board) {
   let y = Number(coordinates[1]);
   let moves = [];
   if (color === "White") {
-    if (board[(x + 1).toString() + (y - 1).toString()].includes("Black")) {
-      moves.push((x + 1).toString() + (y - 1).toString());
-    }
-    if (board[(x + 1).toString() + (y + 1).toString()].includes("Black")) {
-      moves.push((x + 1).toString() + (y + 1).toString());
+    if ((y + 1) <= 8 && (y - 1) >= 1) {
+      if (board[(x + 1).toString() + (y - 1).toString()].includes("Black")) {
+        moves.push((x + 1).toString() + (y - 1).toString());
+      }
+      if (board[(x + 1).toString() + (y + 1).toString()].includes("Black")) {
+        moves.push((x + 1).toString() + (y + 1).toString());
+      }
     }
   } else {
-    if (board[(x - 1).toString() + (y - 1).toString()].includes("White")) {
-      moves.push((x - 1).toString() + (y - 1).toString());
-    }
-    if (board[(x - 1).toString() + (y + 1).toString()].includes("White")) {
-      moves.push((x - 1).toString() + (y + 1).toString());
+    if ((y + 1) <= 8 && (y - 1) >= 1) {
+      if (board[(x - 1).toString() + (y - 1).toString()].includes("White")) {
+        moves.push((x - 1).toString() + (y - 1).toString());
+      }
+      if (board[(x - 1).toString() + (y + 1).toString()].includes("White")) {
+        moves.push((x - 1).toString() + (y + 1).toString());
+      }
     }
   }
   return moves;

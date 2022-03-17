@@ -5,16 +5,16 @@ import React, { useState, useEffect  } from "react";
 
 
 function App() {
-  const [games, setGames] = useState({})
+  const [board, setBoard] = useState({})
 
   useEffect(() => {
     fetchGames();
   }, [])
   
   async function fetchGames() {
-    const response = db.collection('games').doc('gameState');
+    const response = db.collection('boardStates').doc('initial');
     const data = await response.get()
-    setGames(data.data())
+    setBoard(data.data())
     // data.forEach((doc) => {
     //   let thing = (doc.id, '=>', doc.data())
     //   setGames(thing)
@@ -24,16 +24,16 @@ function App() {
 
   function isEmpty(obj) {
     return Object.keys(obj).length === 0;
-}
+  }
 
-  if (isEmpty(games)) {
+  if (isEmpty(board)) {
     return (
       <p>loading</p>
     )
   } else {
     return (
       <div className="App">
-        <Board games={games} />
+        <Board board={board} />
       </div>
     );
   }

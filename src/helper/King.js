@@ -117,6 +117,16 @@ function kingCheckOrthogonal(moves, color, board) {
         }
       }
     }
+    for (let i = 1; i <= 8; i++) {
+      let tile = (x - i).toString() + y.toString()
+      console.log(move, tile)
+      if (board[tile] !== "empty" && board[tile] !== undefined) {
+        if (board[tile].includes("Rook") && board[tile].includes(color) === false) {
+          cuts.push(move)
+          break
+        }
+      }
+    }
   })
   let filteredMoves = moves.filter(function(move, index) {
     if(cuts.includes(move) === false) {

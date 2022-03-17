@@ -20,6 +20,11 @@ function kingOne(pos, color, board) {
     if (board[checkX.toString() + checkY.toString()] === "empty") {
       moves.push(checkX.toString() + checkY.toString())
     }
+    if (board[checkX.toString() + checkY.toString()] !== undefined) {
+      if (color === 'Black' && (board[checkX.toString() + checkY.toString()].includes('White'))) {
+        moves.push(checkX.toString() + checkY.toString())
+      }
+    }
   }
   return moves
 }

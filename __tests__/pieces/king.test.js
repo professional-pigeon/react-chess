@@ -80,6 +80,6 @@ describe('kingOne', () => {
   })
 
   test('will let the king take a piece of the opposing color', () => {
-    expect(kingOne('87', 'Black', boardState)).toEqual('86', '88', '76', '77', '78')
+    expect(kingOne('87', 'Black', boardState)).toEqual(['86', '88', '76', '77', '78'])
   })
 })

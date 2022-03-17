@@ -88,8 +88,8 @@ describe('kingOne', () => {
   })
 })
 
-describe('kingCheck', () => {
+describe('kingCheckDiagonals', () => {
   test('will check available moves to see if any moves will put the king into check by a bishop and remove that possible move', () => {
-    expect(kingCheck(kingOne('87', 'White', boardState))).toEqual(['76', '78'])
+    expect(kingCheckDiagonals(kingOne('87', 'White', boardState), 'White', boardState)).toEqual(['76', '78'])
   })
 })

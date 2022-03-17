@@ -1,3 +1,5 @@
+import { bishopMoves } from './Bishop'
+
 const key = {
   1: [1, -1],
   2: [1, 0],
@@ -32,7 +34,10 @@ function kingOne(pos, color, board) {
   return moves
 }
 
-function kingCheck(moves) {
+function kingCheckBishop(moves, color, board) {
+  moves.each(function(move) {
+    bishopMoves(move, '')
+  })
   return moves
 }
 
@@ -42,6 +47,6 @@ function kingMoves() {
 
 export {
   kingOne,
-  kingCheck,
+  kingCheckBishop,
   kingMoves
 }

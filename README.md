@@ -17,3 +17,20 @@ Non state things to do:
 Make board look more like a chess board
 add piece shapes to board
 css cleanup and style choices
+
+ADD DATA: 
+const aTuringRef = db.collection('users').doc('aturing');
+
+await aTuringRef.set({
+  'first': 'Alan',
+  'middle': 'Mathison',
+  'last': 'Turing',
+  'born': 1912
+});
+
+READ DATA
+
+const snapshot = await db.collection('users').get();
+snapshot.forEach((doc) => {
+  console.log(doc.id, '=>', doc.data());
+});

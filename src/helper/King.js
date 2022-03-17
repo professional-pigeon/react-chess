@@ -24,6 +24,9 @@ function kingOne(pos, color, board) {
       if (color === 'Black' && (board[checkX.toString() + checkY.toString()].includes('White'))) {
         moves.push(checkX.toString() + checkY.toString())
       }
+      if (color === 'White' && (board[checkX.toString() + checkY.toString()].includes('Black'))) {
+        moves.push(checkX.toString() + checkY.toString())
+      }
     }
   }
   return moves

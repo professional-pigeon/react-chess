@@ -1,4 +1,4 @@
-import { kingOne, kingCheck, kingMoves } from '../../src/helper/King'
+import { kingOne, kingCheckDiagonals, kingMoves } from '../../src/helper/King'
 
 const boardState = {
   11: "Bishop Black",
@@ -90,6 +90,7 @@ describe('kingOne', () => {
 
 describe('kingCheckDiagonals', () => {
   test('will check available moves to see if any moves will put the king into check by a bishop and remove that possible move', () => {
-    expect(kingCheckDiagonals(kingOne('87', 'White', boardState), 'White', boardState)).toEqual(['76', '78'])
+    let moves = kingOne('87', 'White', boardState)
+    expect(kingCheckDiagonals(moves, 'White', boardState)).toEqual(['76', '78'])
   })
 })

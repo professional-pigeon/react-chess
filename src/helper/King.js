@@ -34,11 +34,61 @@ function kingOne(pos, color, board) {
   return moves
 }
 
-function kingCheckBishop(moves, color, board) {
-  moves.each(function(move) {
-    bishopMoves(move, '')
+function kingCheckDiagonals(moves, color, board) {
+  let cuts = []
+  moves.forEach(function(move) {
+    let coordinates = move.split("")
+    let x = Number(coordinates[0]);
+    let y = Number(coordinates[1]);
+    for (let i = 1; i < 8; i++) {
+      let tile = (x + i).toString() + (y + i).toString()
+      if (board[tile] !== 'empty' && board[tile] !== undefined) {
+        if (board[tile].includes('Bishop')) {
+          if (board[tile].includes(color) === false) {
+            console.log('found ya tile')
+            cuts.push(move)
+            continue
+          }
+        }
+      }
+      let tile2 = (x - i).toString() + (y + i).toString()
+      if (board[tile2] !== 'empty' && board[tile2] !== undefined) {
+        if (board[tile2].includes('Bishop')) {
+          if (board[tile2].includes(color) === false) {
+            console.log('found ya tile2')
+            cuts.push(move)
+            continue
+          }
+        }
+      }
+      let tile3 = (x - i).toString() + (y - i).toString()
+      if (board[tile3] !== 'empty' && board[tile3] !== undefined) {
+        if (board[tile3].includes('Bishop')) {
+          if (board[tile3].includes(color) === false) {
+            console.log('found ya tile3')
+            cuts.push(move)
+            continue
+          }
+        }
+      }
+      let tile4 = (x + i).toString() + (y - i).toString()
+      if (board[tile4] !== 'empty' && board[tile4] !== undefined) {
+        if (board[tile4].includes('Bishop')) {
+          if (board[tile4].includes(color) === false) {
+            console.log('found ya tile4')
+            cuts.push(move)
+            continue
+          }
+        }
+      }
+    }
   })
-  return moves
+  let filteredMoves = moves.filter(function(move, index) {
+    if(cuts.includes(move) === false) {
+      return move
+    }
+  })
+  return filteredMoves
 }
 
 function kingMoves() {
@@ -47,6 +97,6 @@ function kingMoves() {
 
 export {
   kingOne,
-  kingCheckBishop,
+  kingCheckDiagonals,
   kingMoves
 }

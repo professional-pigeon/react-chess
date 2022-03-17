@@ -101,6 +101,10 @@ function kingCheckDiagonals(moves, color, board) {
   return filteredMoves
 }
 
+function kingCheckOrthogonal(moves, color, board) {
+  return "not working"
+}
+
 function kingMoves() {
   return "not working"
 }
@@ -108,5 +112,6 @@ function kingMoves() {
 export {
   kingOne,
   kingCheckDiagonals,
+  kingCheckOrthogonal,
   kingMoves
 }

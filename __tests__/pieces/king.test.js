@@ -313,5 +313,9 @@ describe('kingCheckOrthogonal', () => {
   test('will check in the negative x direction for a rook of the opposite color', () => {
     let moves = kingOne('88', 'White', boardState)
     expect(kingCheckOrthogonal(moves, 'White', boardState)).toEqual(['78'])
+  });
+
+  test('will check in the positive y direction for a rook of the opposite color', () => {
+    let moves = kingOne('61', "Black", boardState).toEqual(['71'])
   })
-})
+});

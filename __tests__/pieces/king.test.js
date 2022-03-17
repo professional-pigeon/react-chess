@@ -57,7 +57,7 @@ const boardState = {
   76: "empty",
   77: "empty",
   78: "empty",
-  81: "empty",
+  81: "Queen White",
   82: "empty",
   83: "empty",
   84: "empty",
@@ -81,16 +81,21 @@ describe('kingOne', () => {
 
   test('will let the king take a piece of the opposing color. Test for Black pieces on take', () => {
     expect(kingOne('87', 'Black', boardState)).toEqual(['86', '88', '76', '77', '78'])
-  })
+  });
 
   test('will allow the king to take a piece of the opposing color. Test for White pieces on take', () => {
     expect(kingOne('12', 'White', boardState)).toEqual(['21', '22', '23', '11', '13'])
-  })
-})
+  });
+});
 
 describe('kingCheckDiagonals', () => {
   test('will check available moves to see if any moves will put the king into check by a bishop and remove that possible move', () => {
     let moves = kingOne('87', 'White', boardState)
     expect(kingCheckDiagonals(moves, 'White', boardState)).toEqual(['76', '78'])
+  });
+
+  test('will check available moves to see if any moves will put the king into check by a queen (diagonally) and remove that move', () => {
+    let moves = kingOne('18', 'Black', boardState)
+    expect(kingCheckDiagonals(moves, 'Black', boardState)).toEqual(['28', '17'])
   })
-})
+});

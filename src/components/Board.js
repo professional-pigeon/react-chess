@@ -2,9 +2,9 @@ import React, { useState, useEffect  } from "react";
 import Piece from "./Piece";
 import db from '../firebase';
 import { async } from "@firebase/util";
+import { uuid } from "uuidv4"
 
 function Board() {
-
 
   useEffect(() => {
     fetchGames();

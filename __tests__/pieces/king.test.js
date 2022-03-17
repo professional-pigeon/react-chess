@@ -71,7 +71,11 @@ describe('kingOne', () => {
     expect(kingOne('43', 'Black', boardState)).toEqual(['52', '53', '54', '42', '44', '32', '33', '34'])
   });
 
-  test('will now allow the king to move past the boundaries of the board', () => {
+  test('will now allow the king to move past the boundaries of the board check lows', () => {
     expect(kingOne('11', 'White', boardState)).toEqual(['21', '22', '12'])
+  })
+
+  test('will now allow the king to move past the boundaries of the board check highs', () => {
+    expect(kingOne('88', 'White', boardState)).toEqual(['87', '77', '78'])
   })
 })

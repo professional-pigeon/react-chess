@@ -105,6 +105,10 @@ describe('pawnTakes', () => {
   test('pawnTakes will work if the pawn is on an outside column (1 or 8) test for White', () => {
     expect(pawnTakes('21', "White", boardState)).toEqual([])
   })
+
+  test('pawnTakes will work if the pawn is on an outside column (1 or 8) test for Black', () => {
+    expect(pawnTakes('78', "Black" , boardState)).toEqual([])
+  })
 });
 
 describe('enPassant', () => {

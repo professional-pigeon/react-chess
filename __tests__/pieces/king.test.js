@@ -323,25 +323,25 @@ describe('kingCheckOrthogonal', () => {
   test('will check in negative y direction for a rook of the opposite color', () => {
     let moves = kingOne('48', 'White', boardState)
     expect(kingCheckOrthogonal(moves, "White", boardState)).toEqual(['57', '37', '38'])
-  })
+  });
 
   test('will check in the positive x direction for a non rook or queen piece and will return move', () => {
     let moves = kingOne('81', 'Black', boardState)
     expect(kingCheckOrthogonal(moves, 'Black', boardState)).toEqual(['82', '71', '72'])
   });
 
-  // test('will check in the negative x direction for a non rook or queen piece and will return move', () => {
-  //   let moves = kingOne('18', 'White', boardState)
-  //   expect(kingCheckOrthogonal(moves, 'White', boardState)).toEqual(['27', '28', '17'])
-  // });
+  test('will check in the negative x direction for a non rook or queen piece and will return move', () => {
+    let moves = kingOne('18', 'White', boardState)
+    expect(kingCheckOrthogonal(moves, 'White', boardState)).toEqual(['27', '28', '17'])
+  });
 
-  // test('will check in the negative x direction for a non rook or queen piece and will return move', () => {
-  //   let moves = kingOne('63', 'Black', boardState)
-  //   expect(kingCheckOrthogonal(moves, 'White', boardState)).toEqual(['72', '73', '74', '64', '52', '54'])
-  // });
+  test('will check in the negative x direction for a non rook or queen piece and will return move', () => {
+    let moves = kingOne('63', 'Black', boardState)
+    expect(kingCheckOrthogonal(moves, 'Black', boardState)).toEqual(['72', '73', '74', '64', '52', '54'])
+  });
 
-  // test('will check in the negative x direction for a non rook or queen piece and will return move', () => {
-  //   let moves = kingOne('46', 'White', boardState)
-  //   expect(kingCheckOrthogonal(moves, 'White', boardState)).toEqual(['27', '28', '17'])
-  // });
+  test('will check in the negative x direction for a non rook or queen piece and will return move', () => {
+    let moves = kingOne('46', 'White', boardState)
+    expect(kingCheckOrthogonal(moves, 'White', boardState)).toEqual(['55', '57', '45', '35', '36', '37'])
+  });
 });

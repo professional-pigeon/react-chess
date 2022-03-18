@@ -115,15 +115,19 @@ function kingCheckOrthogonal(moves, color, board) {
             cuts.push(move)
             break
           }
-        } 
+        } else {
+          break
+        }
       }
     }
     for (let i = 1; i <= 8; i++) {
       let tile = (x - i).toString() + y.toString()
       if (board[tile] !== "empty" && board[tile] !== undefined) {
-        if (board[tile].includes("Rook") && board[tile].includes(color) === false) {
-          cuts.push(move)
-          break
+        if (board[tile].includes("Rook") || board[tile].includes('Queen'))  {
+          if (board[tile].includes(color) === false) {
+            cuts.push(move)
+            break
+          } 
         } else {
           break
         }
@@ -132,9 +136,11 @@ function kingCheckOrthogonal(moves, color, board) {
     for (let i = 1; i <= 8; i++) {
       let tile = x.toString() + (y + i).toString()
       if (board[tile] !== "empty" && board[tile] !== undefined) {
-        if (board[tile].includes("Rook") && board[tile].includes(color) === false) {
-          cuts.push(move)
-          break
+        if (board[tile].includes("Rook") || board[tile].includes("Queen")) {
+          if (board[tile].includes(color) === false) {
+            cuts.push(move)
+            break
+          } 
         } else {
           break
         }
@@ -143,15 +149,18 @@ function kingCheckOrthogonal(moves, color, board) {
     for (let i = 1; i <= 8; i++) {
       let tile = x.toString() + (y - i).toString()
       if (board[tile] !== "empty" && board[tile] !== undefined) {
-        if (board[tile].includes("Rook") && board[tile].includes(color) === false) {
-          cuts.push(move)
-          break
+        if (board[tile].includes("Rook") || board[tile].includes('Queen')) {
+          if (board[tile].includes(color) === false) {
+            cuts.push(move)
+            break
+          } 
         } else {
           break
         }
       }
     }
   })
+  console.log(cuts, "all cuts")
   let filteredMoves = moves.filter(function(move, index) {
     if(cuts.includes(move) === false) {
       return move

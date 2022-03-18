@@ -109,40 +109,44 @@ function kingCheckOrthogonal(moves, color, board) {
     let y = Number(coordinates[1])
     for (let i = 1; i <= 8; i++) {
       let tile = (x + i).toString() + y.toString()
-      console.log(move, tile)
       if (board[tile] !== "empty" && board[tile] !== undefined) {
         if (board[tile].includes("Rook") && board[tile].includes(color) === false) {
           cuts.push(move)
+          break
+        } else {
           break
         }
       }
     }
     for (let i = 1; i <= 8; i++) {
       let tile = (x - i).toString() + y.toString()
-      console.log(move, tile)
       if (board[tile] !== "empty" && board[tile] !== undefined) {
         if (board[tile].includes("Rook") && board[tile].includes(color) === false) {
           cuts.push(move)
+          break
+        } else {
           break
         }
       }
     }
     for (let i = 1; i <= 8; i++) {
       let tile = x.toString() + (y + i).toString()
-      console.log(move, tile)
       if (board[tile] !== "empty" && board[tile] !== undefined) {
         if (board[tile].includes("Rook") && board[tile].includes(color) === false) {
           cuts.push(move)
+          break
+        } else {
           break
         }
       }
     }
     for (let i = 1; i <= 8; i++) {
       let tile = x.toString() + (y - i).toString()
-      console.log(move, tile)
       if (board[tile] !== "empty" && board[tile] !== undefined) {
         if (board[tile].includes("Rook") && board[tile].includes(color) === false) {
           cuts.push(move)
+          break
+        } else {
           break
         }
       }

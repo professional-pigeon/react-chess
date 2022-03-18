@@ -429,6 +429,6 @@ describe('kingCheckKnight', () => {
   const whiteMoves = kingOne("57", "White", boardState);
   const blackMoves = kingOne("52", "Black", boardState);
   test('will check moves to be sure knights can not take that square', () => {
-    expect(kingCheckKnight(whiteMoves, "White", boardState)).toEqual(['68', '54', '46', '48'])
+    expect(kingCheckKnight(whiteMoves, "White", boardState)).toEqual(['67', '56', '46', '48'])
   });
 })

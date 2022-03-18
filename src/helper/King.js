@@ -182,6 +182,20 @@ function kingCheckOrthogonal(moves, color, board) {
 
 function kingCheckKnight(moves, color, board) {
   let cuts = [];
+  moves.forEach(function(move) {
+    let coordinates = move.split("")
+    let x = Number(coordinates[0])
+    let y = Number(coordinates[1])
+    for (let i = 1; i <= 8; i++) {
+      let tile = (x + knightKey[i][0]).toString() + (y + knightKey[i][1]).toString()
+      if (board[tile] !== "empty" && board[tile] !== undefined) {
+        if (board[tile].includes("Knight") && board[tile].includes(color) === false) {
+          cuts.push(move)
+          break
+        }
+      }
+    }
+  })
   let filteredMoves = moves.filter(function(move, index) {
     if(cuts.includes(move) === false) {
       return move

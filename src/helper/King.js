@@ -11,6 +11,17 @@ const key = {
   8:  [-1, 1]
 }
 
+const knightKey = {
+  1: [2, -1],
+  2: [2, 1],
+  3: [-2, -1],
+  4: [-2, 1],
+  5: [1, -2],
+  6: [-1, 2],
+  7: [1, -2],
+  8: [-1, -2]
+}
+
 function kingOne(pos, color, board) {
   let moves = []
   let coordinates = pos.split("")
@@ -176,10 +187,17 @@ function kingCheckKnight(moves, color, board) {
       return move
     }
   })
+  return filteredMoves
 }
 
-function kingMoves() {
-  return "not working"
+function kingMoves(moves, color, board) {
+  let cuts = [];
+  let filteredMoves = moves.filter(function(move, index) {
+    if(cuts.includes(move) === false) {
+      return move
+    }
+  })
+  return filteredMoves
 }
 
 export {

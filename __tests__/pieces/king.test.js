@@ -1,4 +1,4 @@
-import { kingOne, kingCheckDiagonals, kingCheckOrthogonal, kingMoves } from '../../src/helper/King'
+import { kingOne, kingCheckDiagonals, kingCheckOrthogonal, kingCheckKnight, kingMoves } from '../../src/helper/King'
 
 
 describe('kingOne', () => {
@@ -425,10 +425,10 @@ describe('kingCheckKnight', () => {
     87: "empty",
     88: "empty",
     moveHistory: [["yada"]]
-  }
-  const whiteMoves = kingOne("57", "White", boardState)
-  const blackMoves = kingOne("52", "Black", boardState)
+  };
+  const whiteMoves = kingOne("57", "White", boardState);
+  const blackMoves = kingOne("52", "Black", boardState);
   test('will check moves to be sure knights can not take that square', () => {
     expect(kingCheckKnight(whiteMoves, "White", boardState)).toEqual(['68', '54', '46', '48'])
-  })
+  });
 })

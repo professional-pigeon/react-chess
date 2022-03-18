@@ -274,10 +274,10 @@ describe('kingCheckOrthogonal', () => {
     48: "empty",
     51: "empty",
     52: "Rook White",
-    53: "empty",
+    53: "Pawn White",
     54: "empty",
     55: "empty",
-    56: "empty",
+    56: "Pawn Black",
     57: "Rook Black",
     58: "empty",
     61: "empty",
@@ -328,5 +328,20 @@ describe('kingCheckOrthogonal', () => {
   test('will check in the positive x direction for a non rook or queen piece and will return move', () => {
     let moves = kingOne('81', 'Black', boardState)
     expect(kingCheckOrthogonal(moves, 'Black', boardState)).toEqual(['82', '71', '72'])
+  });
+
+  test('will check in the negative x direction for a non rook or queen piece and will return move', () => {
+    let moves = kingOne('18', 'White', boardState)
+    expect(kingCheckOrthogonal(moves, 'White', boardState)).toEqual(['27', '28', '17'])
+  });
+
+  test('will check in the negative x direction for a non rook or queen piece and will return move', () => {
+    let moves = kingOne('63', 'Black', boardState)
+    expect(kingCheckOrthogonal(moves, 'White', boardState)).toEqual(['72', '73', '74', '64', '52', '54'])
+  });
+
+  test('will check in the negative x direction for a non rook or queen piece and will return move', () => {
+    let moves = kingOne('46', 'White', boardState)
+    expect(kingCheckOrthogonal(moves, 'White', boardState)).toEqual(['27', '28', '17'])
   });
 });

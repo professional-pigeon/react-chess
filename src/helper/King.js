@@ -110,12 +110,12 @@ function kingCheckOrthogonal(moves, color, board) {
     for (let i = 1; i <= 8; i++) {
       let tile = (x + i).toString() + y.toString()
       if (board[tile] !== "empty" && board[tile] !== undefined) {
-        if (board[tile].includes("Rook") && board[tile].includes(color) === false) {
-          cuts.push(move)
-          break
-        } else {
-          break
-        }
+        if (board[tile].includes("Rook") || board[tile].includes('Queen')) {
+          if(board[tile].includes(color) === false) {
+            cuts.push(move)
+            break
+          }
+        } 
       }
     }
     for (let i = 1; i <= 8; i++) {

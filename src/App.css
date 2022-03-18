@@ -37,6 +37,16 @@
   }
 }
 
+.board-white {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.board-black {
+  display: flex;
+  flex-direction: column;
+}
+
 .boardRow {
   display: flex;
 }

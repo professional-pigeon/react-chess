@@ -7,6 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 function Board({ board }) {
   const [moves, setMoves] = useState([]);
   const [chosenPiece, setPiece] = useState("empty");
+
   const boardState = {
     11: "empty",
     12: "empty",
@@ -72,6 +73,7 @@ function Board({ board }) {
     86: "empty",
     87: "empty",
     88: "empty",
+    moveHistory: [["yada"]]
   }
   let grid = [];
 
@@ -101,6 +103,7 @@ function Board({ board }) {
     });
     return retArr
   }
+
   
   return (
     <div className="board-white">

@@ -204,7 +204,7 @@ function kingCheckKnight(moves, color, board) {
   return filteredMoves
 }
 
-function kingMoves(moves, color, board) {
+function kingCheckPawn(moves, color, board) {
   let cuts = [];
   let filteredMoves = moves.filter(function(move, index) {
     if(cuts.includes(move) === false) {
@@ -214,10 +214,15 @@ function kingMoves(moves, color, board) {
   return filteredMoves
 }
 
+function kingMoves(moves, color, board) {
+  return "nothing"
+}
+
 export {
   kingOne,
   kingCheckDiagonals,
   kingCheckOrthogonal,
   kingCheckKnight,
+  kingCheckPawn,
   kingMoves
 }

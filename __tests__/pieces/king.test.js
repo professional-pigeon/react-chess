@@ -238,7 +238,7 @@ describe('kingCheckDiagonals', () => {
   })
 });
 
-describe('kingCheckOrthogonal for Rooks', () => {
+describe('kingCheckOrthogonal', () => {
   let boardState = {
     11: "empty",
     12: "empty",
@@ -357,3 +357,78 @@ describe('kingCheckOrthogonal for Rooks', () => {
     expect(kingCheckOrthogonal(moves, 'White', boardState)).toEqual(['55', '57', '45', '35', '36', '37'])
   });
 });
+
+describe('kingCheckKnight', () => {
+  const boardState = {
+    11: "empty",
+    12: "empty",
+    13: "empty",
+    14: "empty",
+    15: "empty",
+    16: "empty",
+    17: "empty",
+    18: "empty",
+    21: "empty",
+    22: "empty",
+    23: "empty",
+    24: "empty",
+    25: "empty",
+    26: "empty",
+    27: "empty",
+    28: "empty",
+    31: "empty",
+    32: "empty",
+    33: "empty",
+    34: "empty",
+    35: "empty",
+    36: "empty",
+    37: "empty",
+    38: "empty",
+    41: "empty",
+    42: "empty",
+    43: "empty",
+    44: "empty",
+    45: "empty",
+    46: "empty",
+    47: "Knight Black",
+    48: "empty",
+    51: "empty",
+    52: "King Black",
+    53: "Knight White",
+    54: "empty",
+    55: "empty",
+    56: "empty",
+    57: "King White",
+    58: "empty",
+    61: "empty",
+    62: "Knight White",
+    63: "empty",
+    64: "empty",
+    65: "empty",
+    66: "Knight Black",
+    67: "empty",
+    68: "empty",
+    71: "empty",
+    72: "empty",
+    73: "empty",
+    74: "empty",
+    75: "empty",
+    76: "empty",
+    77: "empty",
+    78: "empty",
+    81: "empty",
+    82: "empty",
+    83: "Knight White",
+    84: "empty",
+    85: "empty",
+    86: "empty",
+    87: "empty",
+    88: "empty",
+    moveHistory: [["yada"]]
+  }
+  const whiteMoves = kingOne("57", "White", boardState)
+  const blackMoves = kingOne("52", "Black", boardState)
+  test('will check moves to be sure knights can not take that square', () => {
+    expect(kingCheckKnight(whiteMoves, "White", boardState)).toEqual(['68', '54', '46', '48'])
+  })
+})

@@ -431,4 +431,8 @@ describe('kingCheckKnight', () => {
   test('will check moves to be sure knights can not take that square', () => {
     expect(kingCheckKnight(whiteMoves, "White", boardState)).toEqual(['67', '56', '46', '48'])
   });
+
+  test('will confirm black king moves and confirm king will be able to take a knight of the opposite color', () => {
+    expect(kingCheckKnight(blackMoves, "Black", boardState)).toEqual(['63', '51', '53', '42'])
+  })
 })

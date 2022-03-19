@@ -254,6 +254,31 @@ function kingCheckPawn(moves, color, board) {
   return filteredMoves
 }
 
+function kingCheckKing(moves, color, board) {
+  let cuts = []
+  moves.forEach(function(move) {
+    let coordinates = move.split("")
+    let x = Number(coordinates[0])
+    let y = Number(coordinates[1])
+    for (let i = 1; i <= 8; i++) {
+      let checkX = x + key[i][0]
+      let checkY = y + key[i][1]
+      if (board[checkX.toString() + checkY.toString()] !== undefined) {
+        if (board[checkX.toString() + checkY.toString()].includes('King') && board[checkX.toString() + checkY.toString()].includes(color) === false) {
+        cuts.push(move)
+      
+        }
+      }
+    }
+  })
+  let filteredMoves = moves.filter(function(move, index) {
+    if(cuts.includes(move) === false) {
+      return move
+    }
+  })
+  return filteredMoves
+}
+
 function kingMoves(moves, color, board) {
   return "nothing"
 }
@@ -264,5 +289,6 @@ export {
   kingCheckOrthogonal,
   kingCheckKnight,
   kingCheckPawn,
+  kingCheckKing,
   kingMoves
 }

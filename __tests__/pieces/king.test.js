@@ -509,5 +509,8 @@ describe('kingCheckPawn', () => {
   let blackMoves = kingOne('52', 'Black', boardState)
   test('kingCheckPawn will look for moves that are takeable by a pawn of the opposite color', () => {
     expect(kingCheckPawn(whiteMoves, "White", boardState)).toEqual(['66', '68', '47', '48'])
-  })
+  });
+  test('kingCheckPawn will look for moves that are takeable by a pawn of the opposite color check for black pieces', () => {
+    expect(kingCheckPawn(blackMoves, "Black", boardState)).toEqual(['61', '41', '42', '43'])
+  });
 })

@@ -230,12 +230,19 @@ function kingCheckPawn(moves, color, board) {
     if (color === "Black") {
       let left2 = (x - 1).toString() + (y - 1).toString()
       let right2 = (x - 1).toString() + (y + 1).toString()
-      if (board[left2] !== undefined || board[right2] !== undefined) {
-        if (board[left2].includes("Pawn") || board[right2].includes("Pawn")) {
-          if (board[left2].includes(color) === false || board[right2].includes(color === false)) {
+      if (board[left2] !== undefined) {
+        if (board[left2].includes("Pawn")) {
+          if (board[left2].includes(color) === false) {
             cuts.push(move)
           }
         } 
+      }
+      if (board[right2] !== undefined) {
+        if (board[right2].includes("Pawn")) {
+          if (board[right2].includes(color) === false) {
+            cuts.push(move)
+          }
+        }
       }
     }
   })

@@ -12,7 +12,7 @@ function App() {
   }, [])
   
   async function fetchGames() {
-    const response = db.collection('boardStates').doc('initial');
+    const response = db.collection('boardStates').doc('test');
     const data = await response.get()
     setBoard(data.data())
   }

@@ -3,7 +3,7 @@ import { bishopMoves } from "./Bishop";
 import knightMoves from "./Knight";
 import queenMoves from "./Queen";
 import { pawnMoves } from "./Pawn";
-import kingMoves from './King';
+import { kingMoves } from './King';
 
 const pieceMoves = {
   Bishop: bishopMoves,

@@ -171,7 +171,6 @@ function kingCheckOrthogonal(moves, color, board) {
       }
     }
   })
-  console.log(cuts, "all cuts")
   let filteredMoves = moves.filter(function(move, index) {
     if(cuts.includes(move) === false) {
       return move
@@ -206,6 +205,40 @@ function kingCheckKnight(moves, color, board) {
 
 function kingCheckPawn(moves, color, board) {
   let cuts = [];
+  moves.forEach(function(move) {
+    let coordinates = move.split("")
+    let x = Number(coordinates[0])
+    let y = Number(coordinates[1])
+    if (color === "White") {
+      let left = (x + 1).toString() + (y - 1).toString()
+      let right = (x + 1).toString() + (y + 1).toString()
+      if (board[left] !== undefined) { 
+        if (board[left].includes("Pawn")) {
+          if (board[left].includes(color) === false) {
+            cuts.push(move)
+          }
+        } 
+      }
+      if (board[right] !== undefined) {
+        if (board[right].includes("Pawn")) {
+          if (board[right].includes(color) === false) {
+            cuts.push(move)
+          }
+        }
+      }
+    }
+    if (color === "Black") {
+      let left2 = (x - 1).toString() + (y - 1).toString()
+      let right2 = (x - 1).toString() + (y + 1).toString()
+      if (board[left2] !== undefined || board[right2] !== undefined) {
+        if (board[left2].includes("Pawn") || board[right2].includes("Pawn")) {
+          if (board[left2].includes(color) === false || board[right2].includes(color === false)) {
+            cuts.push(move)
+          }
+        } 
+      }
+    }
+  })
   let filteredMoves = moves.filter(function(move, index) {
     if(cuts.includes(move) === false) {
       return move

@@ -3,15 +3,11 @@ import { bishopMoves } from "./Bishop";
 import knightMoves from "./Knight";
 import queenMoves from "./Queen";
 import { pawnMoves } from "./Pawn";
-
-function kingPlaceholder(str, thing, thing2) {
-  console.log(str, thing, thing2)
-  return str
-}
+import kingMoves from './King';
 
 const pieceMoves = {
   Bishop: bishopMoves,
-  King: kingPlaceholder,
+  King: kingMoves,
   Knight: knightMoves,
   Pawn: pawnMoves,
   Queen: queenMoves,

@@ -279,8 +279,24 @@ function kingCheckKing(moves, color, board) {
   return filteredMoves
 }
 
-function kingMoves(moves, color, board) {
-  return "nothing"
+function kingMoves(position, color, board) {
+  let moves = kingOne(position, color, board)
+  if (moves.length < 0) {
+  moves = kingCheckDiagonals(moves, color, board)
+  }
+  if (moves.length < 0) {
+  moves = kingCheckOrthogonal(moves, color, board)
+  }
+  if (moves.length < 0) {
+  moves = kingCheckKnight(moves, color, board)
+  }
+  if (moves.length < 0) {
+  moves = kingCheckPawn(moves, color, board)
+  }
+  if (moves.length < 0) {
+  moves = kingCheckKing(moves, color, board)
+  }
+  return moves
 }
 
 export {

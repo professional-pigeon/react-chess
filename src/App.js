@@ -9,7 +9,7 @@ function App() {
 
   useEffect(() => {
     fetchGames();
-  }, [])
+  }, [board])
   
   async function fetchGames() {
     const response = db.collection('boardStates').doc('test');
@@ -21,6 +21,14 @@ function App() {
     return Object.keys(obj).length === 0;
   }
 
+  function changeData(board) {
+    board['24'] = 'empty'
+    board['44'] = 'Pawn White'
+    let data = board
+    const res = db.collection('boardStates').doc('test')
+    res.set(data)
+  }
+
   if (isEmpty(board)) {
     return (
       <p>loading</p>
@@ -28,7 +36,7 @@ function App() {
   } else {
     return (
       <div className="App">
-        <Board board={board} />
+        <Board board={board} changeData={changeData} />
       </div>
     );
   }

@@ -3,18 +3,12 @@ import Piece from "./Piece";
 import db from '../firebase';
 import { v4 as uuidv4 } from 'uuid';
 
-function Board({ board }) {
+function Board({ board, changeData }) {
   const [moves, setMoves] = useState([]);
   const [chosenPiece, setPiece] = useState("empty");
   let boardState = board
 
-  function changeData(boardState) {
-    boardState['22'] = 'empty'
-    boardState['52'] = 'Pawn White'
-    let data = boardState
-    const res = db.collection('boardStates').doc('test')
-    res.set(data)
-  }
+
 
 
 
@@ -50,7 +44,7 @@ function Board({ board }) {
   return (
     <div className="board-white">
       {print(grid)}
-      <button onClick={() => changeData(boardState)}>click me</button>
+      <button onClick={() => changeData(board)}>click me</button>
     </div>
   )
 }

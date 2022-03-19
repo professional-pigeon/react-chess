@@ -587,5 +587,8 @@ describe('kingCheckKing', () => {
   let blackMoves = kingOne('55', "Black", boardState)
   test('king should know when a move would put it into check by another king, test for black', () => {
     expect(kingCheckKing(blackMoves, "Black", boardState)).toEqual(['65', '66', '56'])
-  })
+  });
+  test('king should know when a move would put it into check by another king, test for black', () => {
+    expect(kingCheckKing(whiteMoves, "White", boardState)).toEqual(['52', '42', '43'])
+  });
 })

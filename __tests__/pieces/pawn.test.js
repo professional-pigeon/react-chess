@@ -66,7 +66,7 @@ let boardState = {
   86: "empty",
   87: "empty",
   88: "empty",
-  moveHistory: [ { piece: "Pawn Black", move: [[7, 5], [5, 5]] }]
+  moveHistory: [ { piece: "Pawn Black", move: ["75", "55"] }]
 }
 
 
@@ -117,7 +117,7 @@ describe('enPassant', () => {
   })
 
   test('enPassant will allow you take an pawn that has moved adjacent to you after moving twice: confirm for Black pieces', () => {
-    boardState["moveHistory"] = [{ piece: "Pawn White", move: [[2, 1], [4, 1]] } ]
+    boardState["moveHistory"] = [{ piece: "Pawn White", move: ["21", "41"] } ]
     boardState["41"] = "Pawn White"
     expect(enPassant("42", "Black", boardState)).toEqual(["31"])
   })

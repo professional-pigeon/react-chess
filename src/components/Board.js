@@ -7,10 +7,7 @@ function Board({ board, changeData }) {
   const [moves, setMoves] = useState([]);
   const [chosenPiece, setPiece] = useState("empty");
   let boardState = board
-
-
-
-
+  console.log(chosenPiece, moves)
 
   let grid = [];
   for (let i = 1; i < 9; i ++) {
@@ -27,7 +24,7 @@ function Board({ board, changeData }) {
       } else {
       }
       grid[i - 1].push(
-        <div className="tile" id={highlight} key={boardKey}><Piece posMoves={moves} chosenPiece={chosenPiece} boardState={boardState} position={boardKey} pieceType={boardState[boardKey]} setMoves={setMoves} setPiece={setPiece}/></div>
+        <div className="tile" id={highlight} key={boardKey}><Piece changeData={changeData} posMoves={moves} chosenPiece={chosenPiece} boardState={boardState} position={boardKey} pieceType={boardState[boardKey]} setMoves={setMoves} setPiece={setPiece} /></div>
       )
     }
   }
@@ -44,7 +41,6 @@ function Board({ board, changeData }) {
   return (
     <div className="board-white">
       {print(grid)}
-      <button onClick={() => changeData(board)}>click me</button>
     </div>
   )
 }

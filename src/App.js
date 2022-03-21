@@ -9,10 +9,10 @@ function App() {
 
   useEffect(() => {
     fetchGames();
-  }, [board])
+  }, [])
   
   async function fetchGames() {
-    const response = db.collection('boardStates').doc('test');
+    const response = db.collection('boardStates').doc('initial');
     const data = await response.get()
     setBoard(data.data())
   }
@@ -21,9 +21,9 @@ function App() {
     return Object.keys(obj).length === 0;
   }
 
-  function changeData(board) {
-    board['24'] = 'empty'
-    board['44'] = 'Pawn White'
+  function changeData(current, movePos, pieceType, board) {
+    board[current] = 'empty'
+    board[movePos] = pieceType
     let data = board
     const res = db.collection('boardStates').doc('test')
     res.set(data)

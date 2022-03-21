@@ -6,6 +6,8 @@ function Piece(props) {
   let piece = ""
   let color = ""
   let moveFunc = undefined
+  // changeData(chosenPiece, this.tile.movePos, board[chosenPiece], board)
+  // pieceType = "yada color"
 
   if (props.pieceType !== "empty") {
     let arr = props.pieceType.split(" ");
@@ -18,12 +20,20 @@ function Piece(props) {
     props.setMoves(moveFunc(pos, color, board))
     props.setPiece(pos)
   }
-
-  return (
-    <div className={piece + " " + color} id={"piece-size"} onClick={() => clickFunctions(props.position, color, props.boardState)}>
-      {piecePortraits[props.pieceType]}
-    </div>
-  )
+  if(props.posMoves.includes(props.position)) {
+    console.log("i exist")
+    return (
+      <div className={piece + " " + color} id={"piece-size"} onClick={() => console.log("you clicked me")}>
+        {piecePortraits[props.pieceType]}
+      </div>
+    )
+  } else {
+    return (
+      <div className={piece + " " + color} id={"piece-size"} onClick={() => clickFunctions(props.position, color, props.boardState)}>
+        {piecePortraits[props.pieceType]}
+      </div>
+    )
+  }
 }
 
 Piece.propTypes = {
@@ -34,6 +44,7 @@ Piece.propTypes = {
   setMoves: PropTypes.func,
   setPiece: PropTypes.func,
   boardState: PropTypes.object,
+  changeData: PropTypes.func
 }
 
 export default Piece

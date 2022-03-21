@@ -11,7 +11,6 @@ function App() {
 
   useEffect(() => {
     fetchGames();
-    console.log("yea")
   }, [gameID])
   
   async function fetchGames() {

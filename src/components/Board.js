@@ -4,8 +4,14 @@ import Piece from "./Piece";
 function Board({ board, changeData }) {
   const [moves, setMoves] = useState([]);
   const [chosenPiece, setPiece] = useState("empty");
+  const [turn, setTurn] = useState("White")
   let boardState = board
   let grid = [];
+  if ((board.moveHistory.length + 2) % 2 === 0) {
+    setTurn("White")
+  } else {
+    setTurn("Black")
+  }
   for (let i = 1; i < 9; i ++) {
     grid.push([]);
     for (let j = 1; j < 9; j ++) {

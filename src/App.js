@@ -23,9 +23,12 @@ function App() {
   }
 
   function changeData(current, movePos, pieceType, board) {
-    console.log(current, movePos, pieceType)
     board[current] = 'empty'
     board[movePos] = pieceType
+    board.moveHistory.push({
+      piece: pieceType,
+      move: [movePos, current]
+    })
     let data = board
     const res = db.collection('boardStates').doc('test')
     res.set(data)

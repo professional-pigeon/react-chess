@@ -1,12 +1,12 @@
 import React, { useState, useEffect  } from "react";
 import Piece from "./Piece";
-import db from '../firebase';
 import { v4 as uuidv4 } from 'uuid';
 
 function Board({ board, changeData }) {
   const [moves, setMoves] = useState([]);
   const [chosenPiece, setPiece] = useState("empty");
   let boardState = board
+  console.log(boardState.moveHistory)
   let grid = [];
   for (let i = 1; i < 9; i ++) {
     grid.push([]);

@@ -31,8 +31,12 @@ function Piece(props) {
   }
 
   function clickFunctionsSet(pos, color, board) {
+    if (props.turn === color) {
     props.setMoves(moveFunc(pos, color, board))
     props.setPiece(pos)
+    } else {
+      console.log("not your turn")
+    }
   }
 
   function clickFunctionsChange(init, newPos, board) {

@@ -3,16 +3,15 @@ import Board from './components/Board';
 import db from './firebase';
 import React, { useState, useEffect  } from "react";
 import { v4 as uuidv4 } from 'uuid';
-import Welcome from "./components/Welcome";
 
 
 function App() {
   const [board, setBoard] = useState({})
   const [gameID, setGameID] = useState("")
-  console.log(gameID)
 
   useEffect(() => {
     fetchGames();
+    console.log("yea")
   }, [gameID])
   
   async function fetchGames() {
@@ -42,7 +41,6 @@ function App() {
     const data = await initial.get()
     let board = data.data()
     board["id"] = uuidv4()
-    console.log(board)
     const res = db.collection('games').doc(board.id)
     await res.set(board)
     setGameID(board.id)
@@ -51,8 +49,7 @@ function App() {
   if (isEmpty(board)) {
     return (
       <div>
-      <Welcome setGameID={setGameID} />
-      <button onClick={() => newGame()}>Click me</button>
+        <button onClick={() => newGame()}>Click me</button>
       </div>
     )
   } else {

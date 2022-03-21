@@ -9,10 +9,11 @@ function App() {
 
   useEffect(() => {
     fetchGames();
+    console.log("when am I being called")
   }, [])
   
   async function fetchGames() {
-    const response = db.collection('boardStates').doc('initial');
+    const response = db.collection('boardStates').doc('test');
     const data = await response.get()
     setBoard(data.data())
   }
@@ -22,6 +23,7 @@ function App() {
   }
 
   function changeData(current, movePos, pieceType, board) {
+    console.log(current, movePos, pieceType)
     board[current] = 'empty'
     board[movePos] = pieceType
     let data = board

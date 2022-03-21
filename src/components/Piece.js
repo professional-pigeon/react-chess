@@ -3,9 +3,23 @@ import piecePortraits from "../helper/PiecePortraits"
 import PropTypes from "prop-types";
 
 function Piece(props) {
+  let moves = props.moves
+  let boardKey = props.position
   let piece = ""
   let color = ""
   let moveFunc = undefined
+  let highlight = 'none'
+
+  if (moves.length > 0) {
+    if (moves.includes(boardKey) && props.boardState[boardKey] !== "empty") {
+      highlight = "takes";
+    } else if (moves.includes(boardKey)) {
+      highlight = "highlight";
+    } else if (props.chosenPiece === boardKey) {
+      highlight = "chosen";
+    } else {
+    }
+  }
   // changeData(chosenPiece, this.tile.movePos, board[chosenPiece], board)
   // pieceType = "yada color"
 
@@ -16,21 +30,29 @@ function Piece(props) {
     moveFunc = pieceMoves[piece];
   }
 
-  function clickFunctions(pos, color, board) {
+  function clickFunctionsSet(pos, color, board) {
     props.setMoves(moveFunc(pos, color, board))
     props.setPiece(pos)
   }
-  if(props.posMoves.includes(props.position)) {
-    console.log("i exist")
+
+  function clickFunctionsChange(init, newPos, board) {
+    props.changeData(init, newPos, board[init], board)
+    props.setMoves([])
+    props.setPiece("empty")
+  }
+
+  if(props.moves.includes(props.position)) {
     return (
-      <div className={piece + " " + color} id={"piece-size"} onClick={() => console.log("you clicked me")}>
-        {piecePortraits[props.pieceType]}
+      <div className="tile" id={highlight} onClick={() => clickFunctionsChange(props.chosenPiece, boardKey, props.boardState)}>
+          {piecePortraits[props.pieceType]}
       </div>
     )
   } else {
     return (
-      <div className={piece + " " + color} id={"piece-size"} onClick={() => clickFunctions(props.position, color, props.boardState)}>
-        {piecePortraits[props.pieceType]}
+      <div className="tile" id={highlight} key={boardKey}>
+        <div className={piece + " " + color} id={"piece-size"} onClick={() => clickFunctionsSet(props.position, color, props.boardState)}>
+          {piecePortraits[props.pieceType]}
+        </div>
       </div>
     )
   }
@@ -39,7 +61,7 @@ function Piece(props) {
 Piece.propTypes = {
   pieceType: PropTypes.string,
   chosenPiece: PropTypes.string,
-  posMoves: PropTypes.array,
+  moves: PropTypes.array,
   position: PropTypes.string,
   setMoves: PropTypes.func,
   setPiece: PropTypes.func,

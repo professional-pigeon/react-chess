@@ -3,7 +3,7 @@ import Board from './components/Board';
 import db from './firebase';
 import React, { useState, useEffect  } from "react";
 import { v4 as uuidv4 } from 'uuid';
-
+import Welcome from "./components/Welcome";
 
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
       move: [movePos, current]
     })
     let data = board
-    const res = db.collection('boardStates').doc('test')
+    const res = db.collection('games').doc(gameID)
     res.set(data)
   }
 
@@ -50,13 +50,15 @@ function App() {
 
   if (isEmpty(board)) {
     return (
+      <div>
+      <Welcome setGameID={setGameID} />
       <button onClick={() => newGame()}>Click me</button>
+      </div>
     )
   } else {
     return (
       <div className="App">
         <Board board={board} changeData={changeData} />
-        <button onClick={() => newGame()}>Click me</button>
       </div>
     );
   }

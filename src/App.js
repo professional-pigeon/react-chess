@@ -8,14 +8,15 @@ import { v4 as uuidv4 } from 'uuid';
 
 function App() {
   const [board, setBoard] = useState({})
+  const [gameID, setGameID] = useState("")
+  console.log(gameID)
 
   useEffect(() => {
     fetchGames();
-    console.log("when am I being called")
-  }, [])
+  }, [gameID])
   
   async function fetchGames() {
-    const response = db.collection('boardStates').doc('test');
+    const response = db.collection('games').doc(gameID);
     const data = await response.get()
     setBoard(data.data())
   }
@@ -44,11 +45,12 @@ function App() {
     console.log(board)
     const res = db.collection('games').doc(board.id)
     await res.set(board)
+    setGameID(board.id)
   }
 
   if (isEmpty(board)) {
     return (
-      <p>loading</p>
+      <button onClick={() => newGame()}>Click me</button>
     )
   } else {
     return (

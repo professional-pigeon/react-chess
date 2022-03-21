@@ -5,7 +5,6 @@ function Board({ board, changeData }) {
   const [moves, setMoves] = useState([]);
   const [chosenPiece, setPiece] = useState("empty");
   let boardState = board
-  console.log(boardState.moveHistory)
   let grid = [];
   for (let i = 1; i < 9; i ++) {
     grid.push([]);

@@ -77,7 +77,7 @@ function enPassant(pos, color, board) {
         if ((newX - prevX) === 2) {
           moves.push((x + 1).toString() + (y + 1).toString());
         }
-        if ((nex - prevX) === -2) {
+        if ((newX - prevX) === -2) {
           moves.push((x - 1).toString() + (y + 1).toString());
         }
       }

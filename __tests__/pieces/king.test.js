@@ -1,4 +1,4 @@
-import { kingOne, kingCastle, kingCheckDiagonals, kingCheckOrthogonal, kingCheckKnight, kingCheckPawn, kingCheckKing, kingMoves } from '../../src/helper/King'
+import { kingOne, canKingCastle, kingCastle, kingCheckDiagonals, kingCheckOrthogonal, kingCheckKnight, kingCheckPawn, kingCheckKing, kingMoves } from '../../src/helper/King'
 
 
 describe('kingOne', () => {
@@ -591,4 +591,10 @@ describe('kingCheckKing', () => {
   test('king should know when a move would put it into check by another king, test for black', () => {
     expect(kingCheckKing(whiteMoves, "White", boardState)).toEqual(['52', '42', '43'])
   });
+})
+
+describe('canKingCastle', () => {
+  test('canKingCastle will return true if king is on its starting location', () => {
+    
+  })
 })

@@ -40,6 +40,7 @@ function Piece(props) {
   }
 
   function clickFunctionsChange(init, newPos, board) {
+    // somewhere in here or in change data you need to check for enPassant 
     props.changeData(init, newPos, board[init], board)
     props.setMoves([])
     props.setPiece("empty")

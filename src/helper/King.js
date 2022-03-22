@@ -287,6 +287,9 @@ function kingCastle(position, color, board) {
   return "nothing"
 }
 
+function canKingCastle(position, color, board) {
+  return "nothing"
+}
 function kingMoves(position, color, board) {
   let moves = kingOne(position, color, board)
   if (moves.length > 0) {
@@ -309,6 +312,7 @@ function kingMoves(position, color, board) {
 
 export {
   kingOne,
+  canKingCastle,
   kingCastle,
   kingCheckDiagonals,
   kingCheckOrthogonal,

@@ -292,6 +292,9 @@ function canKingCastle(position, color, board) {
   if (color === "White" && position === "15") {
     bool = true
   }
+  if (color === "Black" && position === "84") {
+    bool = true
+  }
   return bool
 }
 function kingMoves(position, color, board) {

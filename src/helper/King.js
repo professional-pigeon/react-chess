@@ -372,8 +372,9 @@ function rooksToCheck(color, board) {
       }
     }
     if (board["85"] === 'empty' && board["86"] === 'empty' && board["87"] === 'empty') {
-      if (board["88"] === "Rook White")
-      validRooks.push("88")
+      if (board["88"] === "Rook Black") {
+        validRooks.push("88")
+      }
     }
   }
   return validRooks

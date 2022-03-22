@@ -12,18 +12,18 @@ function Welcome({ setGameID, newGame }) {
     let all = []
     const games = await db.collection('games').get()
     games.forEach((game) => {
-      all.push(game.id)
+      let info = game.data()
+      all.push({ id: info.id, name: info.name })
     })
     setGames(all)
   }
 
   if(games.length > 0) {
-    console.log(games)
     return (
     <div>
       <p>list of games to go here it has loaded</p>
       <ul>
-      {games.map(game => <li key={game}><button onClick={() => setGameID(game)}>{game}</button></li>)}
+      {games.map(game => <li key={game.id}><button onClick={() => setGameID(game.id)}>{game.name}</button></li>)}
       </ul>
       <NewGameForm setGameID={setGameID} newGame={newGame}/>
     </div>

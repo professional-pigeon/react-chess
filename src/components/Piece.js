@@ -48,7 +48,9 @@ function Piece(props) {
   if(props.moves.includes(props.position)) {
     return (
       <div className="tile" id={highlight} onClick={() => clickFunctionsChange(props.chosenPiece, boardKey, props.boardState)}>
+        <div className={piece + " " + color} id={"piece-size"}>
           {piecePortraits[props.pieceType]}
+        </div>
       </div>
     )
   } else {

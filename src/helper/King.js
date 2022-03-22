@@ -294,6 +294,11 @@ function canKingCastle(position, color, board) {
   }
   if (color === "Black" && position === "84") {
     bool = true
+    board.moveHistory.forEach((data) => {
+      if (data.piece.includes("King Black")) {
+        bool = false
+      }
+    })
   }
   return bool
 }

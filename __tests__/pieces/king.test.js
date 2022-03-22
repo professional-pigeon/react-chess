@@ -1,4 +1,4 @@
-import { kingOne, canKingCastle, kingCastle, kingCheckDiagonals, kingCheckOrthogonal, kingCheckKnight, kingCheckPawn, kingCheckKing, kingMoves } from '../../src/helper/King'
+import { kingOne, hasKingMoved, hasRookMoved, kingCastle, kingCheckDiagonals, kingCheckOrthogonal, kingCheckKnight, kingCheckPawn, kingCheckKing, kingMoves } from '../../src/helper/King'
 
 
 describe('kingOne', () => {
@@ -593,7 +593,7 @@ describe('kingCheckKing', () => {
   });
 })
 
-describe('canKingCastle', () => {
+describe('hasKingMoved', () => {
   let castleBoard = {
     11: "Rook White",
     12: "empty",
@@ -661,20 +661,25 @@ describe('canKingCastle', () => {
     88: "Rook Black",
     moveHistory: [{ piece: "Rook White", move: [ "38", "18" ]}, { piece: "Rook White", move: [ "18", "38" ]}]
   }
-  test('canKingCastle will return true if king is on its starting location check for white', () => {
-    expect(canKingCastle("15", "White", castleBoard)).toEqual(true)
+  test('hasKingMoved will return true if king is on its starting location check for white', () => {
+    expect(hasKingMoved("15", "White", castleBoard)).toEqual(true)
   });
 
-  test('canKingCastle will return true if king is on its starting location check for black', () => {
-    expect(canKingCastle("84", "Black", castleBoard)).toEqual(true)
+  test('hasKingMoved will return true if king is on its starting location check for black', () => {
+    expect(hasKingMoved("84", "Black", castleBoard)).toEqual(true)
   });
 
-  test('canKingCastle will return false if king is not on its starting location', () => {
-    expect(canKingCastle("16", "White", castleBoard)).toEqual(false)
+  test('hasKingMoved will return false if king is not on its starting location', () => {
+    expect(hasKingMoved("16", "White", castleBoard)).toEqual(false)
   })
 
-  test('canKingCastle will return false if king has moved before', () => {
+  test('hasKingMoved will return false if king has moved before', () => {
     castleBoard.moveHistory.push({ piece: "King Black", move: [ "83", "84" ]}, { piece: "King Black", move: [ "84", "83" ]})
-    expect(canKingCastle("84", "Black", castleBoard)).toEqual(false)
+    expect(hasKingMoved("84", "Black", castleBoard)).toEqual(false)
+  })
+
+  test('hasKingMoved will return true if a rook is on the farthest tile on same row', () => {
+    castleBoard.moveHistory = []
+    expect(hasKingMoved("84", "Black", castleBoard)).toEqual(true)
   })
 });

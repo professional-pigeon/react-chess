@@ -287,10 +287,15 @@ function kingCastle(position, color, board) {
   return "nothing"
 }
 
-function canKingCastle(position, color, board) {
+function hasKingMoved(position, color, board) {
   let bool = false
   if (color === "White" && position === "15") {
     bool = true
+    board.moveHistory.forEach((data) => {
+      if (data.piece.includes("King White")) {
+        bool = false
+      }
+    })
   }
   if (color === "Black" && position === "84") {
     bool = true
@@ -300,8 +305,12 @@ function canKingCastle(position, color, board) {
       }
     })
   }
+  if (bool === true) {
+    board.moveHistory
+  }
   return bool
 }
+
 function kingMoves(position, color, board) {
   let moves = kingOne(position, color, board)
   if (moves.length > 0) {
@@ -324,7 +333,8 @@ function kingMoves(position, color, board) {
 
 export {
   kingOne,
-  canKingCastle,
+  hasKingMoved,
+  hasRookMoved,
   kingCastle,
   kingCheckDiagonals,
   kingCheckOrthogonal,

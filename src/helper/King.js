@@ -288,7 +288,11 @@ function kingCastle(position, color, board) {
 }
 
 function canKingCastle(position, color, board) {
-  return "nothing"
+  let bool = false
+  if (color === "White" && position === "15") {
+    bool = true
+  }
+  return bool
 }
 function kingMoves(position, color, board) {
   let moves = kingOne(position, color, board)

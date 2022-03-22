@@ -661,7 +661,7 @@ describe('canKingCastle', () => {
     88: "Rook Black",
     moveHistory: [{ piece: "Rook White", move: [ "38", "18" ]}, { piece: "Rook White", move: [ "18", "38" ]}, { piece: "King Black", move: [ "83", "84" ]}, { piece: "King Black", move: [ "84", "83" ]}]
   }
-  test('canKingCastle will return false if king is not on its starting location', () => {
+  test('canKingCastle will return true if king is on its starting location', () => {
     expect(canKingCastle("15", "White", castleBoard)).toEqual(true)
   });
 });

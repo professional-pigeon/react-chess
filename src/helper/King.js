@@ -380,6 +380,23 @@ function rooksToCheck(color, board) {
   return validRooks
 }
 
+function castleTileCheck(position, color, board) {
+  let bool = false
+  let coordinates = position.split("")
+  let y = position[0]
+  let moves = []
+  if (color === "White") {
+    if (y < 5) {
+      moves = ["12", "13", "14"]
+    }
+    let check = tileCheckerKingMoves(moves, "White", board)
+    if (moves.length === check.length) {
+      bool = true
+    }
+  }
+  return bool
+}
+
 function castle(position, color, board) {
   let bool = hasKingMoved(position, color, board)
   let rookMoved = false
@@ -406,12 +423,33 @@ function kingMoves(position, color, board) {
   return moves
 }
 
+function tileCheckerKingMoves(tiles, color, board) {
+  let moves = tiles
+  if (moves.length > 0) {
+    moves = kingCheckDiagonals(moves, color, board)
+  }
+  if (moves.length > 0) {
+    moves = kingCheckOrthogonal(moves, color, board)
+  }
+  if (moves.length > 0) {
+    moves = kingCheckKnight(moves, color, board)
+  }
+  if (moves.length > 0) {
+    moves = kingCheckPawn(moves, color, board)
+  }
+  if (moves.length > 0) {
+    moves = kingCheckKing(moves, color, board)
+  }
+  return moves
+}
+
 export {
   kingOne,
   hasKingMoved,
   hasRookMoved,
   rooksToCheck,
   castle,
+  castleTileCheck,
   kingCastle,
   kingCheckDiagonals,
   kingCheckOrthogonal,

@@ -388,10 +388,33 @@ function castleTileCheck(position, color, board) {
   if (color === "White") {
     if (y < 5) {
       moves = ["12", "13", "14"]
+      let check = tileCheckerKingMoves(moves, "White", board)
+      if (moves.length === check.length) {
+        bool = true
+      }
     }
-    let check = tileCheckerKingMoves(moves, "White", board)
-    if (moves.length === check.length) {
-      bool = true
+    if (y > 5) {
+      moves = ["16", "17"]
+      let check = tileCheckerKingMoves(moves, "White", board)
+      if (moves.length === check.length) {
+        bool = true
+      }
+    }
+  }
+  if (color === "Black") {
+    if (y < 5) {
+      moves = ["82", "83", "84"]
+      let check = tileCheckerKingMoves(moves, "Black", board)
+      if (moves.length === check.length) {
+        bool = true
+      }
+    }
+    if (y > 5) {
+      moves = ["86", "87"]
+      let check = tileCheckerKingMoves(moves, "Black", board)
+      if (moves.length === check.length) {
+        bool = true
+      }
     }
   }
   return bool

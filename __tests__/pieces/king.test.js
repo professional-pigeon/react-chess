@@ -909,5 +909,8 @@ describe('castleTileCheck', () => {
   }
   test('castleTileCheck will need to check the tiles between the king and the rook to confirm they are not under attack by an opponents piece, should return true if able to move into them', () => {
     expect(castleTileCheck("11", "White", castleBoard)).toEqual(true)
+    expect(castleTileCheck("18", "White", castleBoard)).toEqual(true)
+    expect(castleTileCheck("81", "Black", castleBoard)).toEqual(true)
+    expect(castleTileCheck("88", "Black", castleBoard)).toEqual(true)
   })    
 });

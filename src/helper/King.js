@@ -352,6 +352,7 @@ function kingMoves(position, color, board) {
 export {
   kingOne,
   hasKingMoved,
+  hasRookMoved,
   castle,
   kingCastle,
   kingCheckDiagonals,

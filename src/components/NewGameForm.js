@@ -1,6 +1,5 @@
 function NewGameForm({ setGameID, newGame }) {
 
-
   return (
   <form onSubmit={newGame}>
     <label>Name new game:

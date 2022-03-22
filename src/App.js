@@ -39,12 +39,12 @@ function App() {
   async function newGame(event) {
     event.preventDefault()
     let name = event.target.name.value
-    console.log(name)
     const initial = db.collection('boardStates').doc('initial')
     const data = await initial.get()
     let board = data.data()
     board["id"] = uuidv4()
     board["name"] = name
+    board["time"] = Date.now()
     const res = db.collection('games').doc(board.id)
     await res.set(board)
     setGameID(board.id)

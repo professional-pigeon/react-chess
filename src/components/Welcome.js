@@ -13,6 +13,7 @@ function Welcome({ setGameID, newGame }) {
     const games = await db.collection('games').get()
     games.forEach((game) => {
       let info = game.data()
+      console.log(info)
       all.push({ id: info.id, name: info.name })
     })
     setGames(all)

@@ -109,3 +109,8 @@ BLANK BOARD
   //   88: "Rook Black",
   //   moveHistory: []
   // };
+
+  Need to fix enPassant to take piece correctly
+  need to add ability for pawn to switch piece type when making it to final rank
+  need to add ability for pieces to put king into check
+  add Castle!

@@ -352,17 +352,36 @@ function hasRookMoved(position, color, board) {
   return bool
 }
 
+function rooksToCheck(color, board) {
+  let validRooks = []
+  if (color === "White") {
+    if (board["14"] === 'empty' && board["13"] === 'empty' && board["12"] === 'empty') {
+      if (board["11"] === "Rook White") {
+        validRooks.push("11")
+      }
+    }
+    if (board["16"] === 'empty' && board["17"] === 'empty') {
+      if (board["18"] === "Rook White")
+      validRooks.push("18")
+    }
+  }
+  if (color === "Black") {
+    if (board["82"] === 'empty' && board["83"] === 'empty') {
+      if (board["81"] === "Rook Black") {
+        validRooks.push("81")
+      }
+    }
+    if (board["85"] === 'empty' && board["86"] === 'empty' && board["87"] === 'empty') {
+      if (board["88"] === "Rook White")
+      validRooks.push("88")
+    }
+  }
+  return validRooks
+}
+
 function castle(position, color, board) {
   let bool = hasKingMoved(position, color, board)
   let rookMoved = false
-  if (bool && color === "White") {
-    rookMoved = hasRookMoved("11", "White", board)
-    rookMoved = hasRookMoved("18", "White", board)
-  }
-  if (bool && color === "Black") {
-    rookMoved = hasRookMoved("81", "Black", board)
-    rookMoved = hasRookMoved("88", "Black", board)
-  }
   return ""
 }
 
@@ -390,6 +409,7 @@ export {
   kingOne,
   hasKingMoved,
   hasRookMoved,
+  rooksToCheck,
   castle,
   kingCastle,
   kingCheckDiagonals,

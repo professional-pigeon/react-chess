@@ -1,4 +1,4 @@
-import { kingOne, kingCheckDiagonals, kingCheckOrthogonal, kingCheckKnight, kingCheckPawn, kingCheckKing, kingMoves } from '../../src/helper/King'
+import { kingOne, kingCastle, kingCheckDiagonals, kingCheckOrthogonal, kingCheckKnight, kingCheckPawn, kingCheckKing, kingMoves } from '../../src/helper/King'
 
 
 describe('kingOne', () => {

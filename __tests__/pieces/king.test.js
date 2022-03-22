@@ -758,4 +758,9 @@ describe('hasRookMoved', () => {
     expect(hasRookMoved("81", "Black", castleBoard)).toEqual(true)
     expect(hasRookMoved("88", "Black", castleBoard)).toEqual(true)
   })
+
+  test('hasRookMoved should return false if the rook has moved before', () => {
+    castleBoard.moveHistory = [{ piece: "Rook White", move: ["38", "18"]}, { piece: "Rook White", move: ["18", "38"]}]
+    expect(hasRookMoved("18", "White", castleBoard)).toEqual(false)
+  })    
 });

@@ -316,17 +316,37 @@ function hasRookMoved(position, color, board) {
   if (color === "White") {
     if (position === "11") {
       bool = true
+      board.moveHistory.forEach((info) => {
+        if (info.move.includes("11")) {
+          bool = false
+        }
+      })
     }
     if (position === "18") {
       bool = true
+      board.moveHistory.forEach((info) => {
+        if (info.move.includes("18")) {
+          bool = false
+        }
+      })
     }
   }
   if (color === "Black") {
     if (position === "81") {
       bool = true
+      board.moveHistory.forEach((info) => {
+        if (info.move.includes("81")) {
+          bool = false
+        }
+      })
     }
     if (position === "88") {
       bool = true
+      board.moveHistory.forEach((info) => {
+        if (info.move.includes("88")) {
+          bool = false
+        }
+      })
     }
   }
   return bool

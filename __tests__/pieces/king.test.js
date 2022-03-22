@@ -757,6 +757,5 @@ describe('hasRookMoved', () => {
     expect(hasRookMoved("18", "White", castleBoard)).toEqual(true)
     expect(hasRookMoved("81", "Black", castleBoard)).toEqual(true)
     expect(hasRookMoved("88", "Black", castleBoard)).toEqual(true)
-
   })
 });

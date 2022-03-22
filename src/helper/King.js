@@ -312,7 +312,24 @@ function hasKingMoved(position, color, board) {
 }
 
 function hasRookMoved(position, color, board) {
-  return ""
+  let bool = ""
+  if (color === "White") {
+    if (position === "11") {
+      bool = true
+    }
+    if (position === "18") {
+      bool = true
+    }
+  }
+  if (color === "Black") {
+    if (position === "81") {
+      bool = true
+    }
+    if (position === "88") {
+      bool = true
+    }
+  }
+  return bool
 }
 
 function castle(position, color, board) {

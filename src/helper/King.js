@@ -311,6 +311,24 @@ function hasKingMoved(position, color, board) {
   return bool
 }
 
+function hasRookMoved(position, color, board) {
+  return ""
+}
+
+function castle(position, color, board) {
+  let bool = hasKingMoved(position, color, board)
+  let rookMoved = false
+  if (bool && color === "White") {
+    rookMoved = hasRookMoved("11", "White", board)
+    rookMoved = hasRookMoved("18", "White", board)
+  }
+  if (bool && color === "Black") {
+    rookMoved = hasRookMoved("81", "Black", board)
+    rookMoved = hasRookMoved("88", "Black", board)
+  }
+  return ""
+}
+
 function kingMoves(position, color, board) {
   let moves = kingOne(position, color, board)
   if (moves.length > 0) {
@@ -334,7 +352,7 @@ function kingMoves(position, color, board) {
 export {
   kingOne,
   hasKingMoved,
-  hasRookMoved,
+  castle,
   kingCastle,
   kingCheckDiagonals,
   kingCheckOrthogonal,

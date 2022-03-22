@@ -280,6 +280,10 @@ function kingCheckKing(moves, color, board) {
 }
 
 function kingCastle(position, color, board) {
+  // Should tell you if king has moved: board.moveHistory.forEach((obj) => { if obj.piece includes (King Color) break})
+  // should tell you if rook has moved: if board.moveHistory.forEach(obj) => { if obj.piece includes (Rook Color) && obj.move.includes(start position of rook your checking)}
+  // needs to check every other tile in between to see if it is under attack by another piece... so like all these king check functions.
+  // then returns the moves of both King and the Rook
   return "nothing"
 }
 

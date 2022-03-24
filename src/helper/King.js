@@ -284,7 +284,15 @@ function kingCastle(position, color, board) {
   // should tell you if rook has moved: if board.moveHistory.forEach(obj) => { if obj.piece includes (Rook Color) && obj.move.includes(start position of rook your checking)}
   // needs to check every other tile in between to see if it is under attack by another piece... so like all these king check functions.
   // then returns the moves of both King and the Rook
-  
+  let bool = hasKingMoved(position, color, board)
+  let rooks = rooksToCheck(color, board)
+  if (bool === false) {
+    rooks.forEach((rook) => {
+      if (hasRookMoved(rook, color, board) === false) {
+
+      }
+    })
+  }
   return "nothing"
 }
 
@@ -309,45 +317,58 @@ function hasKingMoved(position, color, board) {
   return bool
 }
 
-function hasRookMoved(position, color, board) {
-  let bool = ""
-  if (color === "White") {
-    if (position === "11") {
-      bool = true
-      board.moveHistory.forEach((info) => {
-        if (info.move.includes("11")) {
-          bool = false
+function hasRookMoved(positions, color, board) {
+  let acceptableRooks = []
+  positions.forEach((position) => {
+    if (color === "White") {
+      let bool = true
+      if (position === "11") {
+        board.moveHistory.forEach((info) => {
+          if (info.move.includes("11")) {
+            bool = false
+          }
+        })
+        if (bool) {
+          acceptableRooks.push("11")
         }
-      })
-    }
-    if (position === "18") {
-      bool = true
-      board.moveHistory.forEach((info) => {
-        if (info.move.includes("18")) {
-          bool = false
+      }
+      if (position === "18") {
+        board.moveHistory.forEach((info) => {
+          if (info.move.includes("18")) {
+            bool = false
+          }
+        })
+        if (bool) {
+          acceptableRooks.push("18")
         }
-      })
+      }
     }
-  }
-  if (color === "Black") {
-    if (position === "81") {
-      bool = true
-      board.moveHistory.forEach((info) => {
-        if (info.move.includes("81")) {
-          bool = false
+    if (color === "Black") {
+      let bool = true
+      if (position === "81") {
+        board.moveHistory.forEach((info) => {
+          if (info.move.includes("81")) {
+            bool = false
+          }
+        })
+        if (bool) {
+          acceptableRooks.push("81")
         }
-      })
-    }
-    if (position === "88") {
-      bool = true
-      board.moveHistory.forEach((info) => {
-        if (info.move.includes("88")) {
-          bool = false
+      }
+      if (position === "88") {
+        board.moveHistory.forEach((info) => {
+          if (info.move.includes("88")) {
+            bool = false
+          }
+        })
+        if (bool) {
+          acceptableRooks.push("88")
         }
-      })
+      }
     }
-  }
-  return bool
+  })
+  return acceptableRooks
+
 }
 
 function rooksToCheck(color, board) {

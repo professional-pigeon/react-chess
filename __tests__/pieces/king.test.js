@@ -914,3 +914,9 @@ describe('castleTileCheck', () => {
     expect(castleTileCheck("88", "Black", castleBoard)).toEqual(true)
   })    
 });
+
+describe("kingCastle", () => {
+  test('kingCastle will return the Rook and King moves for a valid move', () => {
+    expect(kingCastle("18", "White", castleBoard)).toEqual(["Castle", "Rook 16", "King 17"])
+  })
+})

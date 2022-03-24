@@ -2,8 +2,9 @@ import React, { useState, useEffect  } from "react";
 import Piece from "./Piece";
 
 function Board({ board, changeData }) {
-  const [moves, setMoves] = useState([]);
+  const [moves, setMoves] = useState(["enPassant"]);
   const [chosenPiece, setPiece] = useState("empty");
+  const [uniqueMoves, setUniqueMoves] = useState([])
   let boardState = board
   let grid = [];
   let turn = ""

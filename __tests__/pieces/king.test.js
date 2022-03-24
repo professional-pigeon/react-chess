@@ -910,7 +910,15 @@ describe('castleTileCheck', () => {
     expect(castleTileCheck("18", "White", castleBoard)).toEqual(true)
     expect(castleTileCheck("81", "Black", castleBoard)).toEqual(true)
     expect(castleTileCheck("88", "Black", castleBoard)).toEqual(true)
-  })    
+  })
+  test('kingCastle will return the Rooks available to move after checking kingmoves, rooksmoves, and tiles inbetween to confirm they are not in check', () => {
+    castleBoard["22"] = "Bishop Black"
+    expect(castleTileCheck("11", "White", castleBoard)).toEqual(false)
+  })
+  test('kingCastle will return the Rooks available to move after checking kingmoves, rooksmoves, and tiles inbetween to confirm they are not in check', () => {
+    castleBoard["27"] = "Rook Black"
+    expect(castleTileCheck("11", "White", castleBoard)).toEqual(false)
+  })
 });
 
 describe("kingCastle", () => {
@@ -987,4 +995,9 @@ describe("kingCastle", () => {
   test('kingCastle will return the Rooks available to move after checking kingmoves, rooksmoves, and tiles inbetween to confirm they are not in check', () => {
     expect(kingCastle("84", "Black", castleBoard)).toEqual(["81", "88"])
   })
+  test('kingCastle will return the Rooks available to move after checking kingmoves, rooksmoves, and tiles inbetween to confirm they are not in check', () => {
+    castleBoard["22"] = "Bishop Black"
+    expect(kingCastle("15", "White", castleBoard)).toEqual(["18"])
+  })
+
 })

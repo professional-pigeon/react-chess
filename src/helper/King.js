@@ -311,11 +311,9 @@ function hasKingMoved(position, color, board) {
     })
   }
   if (position !== "15" && color === "White") {
-    console.log("I think it's getting here")
     bool = true
   }
   if (position !== "84" && color === "Black") {
-    console.log("I think it's getting here")
     bool = true
   }
   return bool
@@ -406,19 +404,22 @@ function rooksToCheck(color, board) {
 function castleTileCheck(position, color, board) {
   let bool = false
   let coordinates = position.split("")
-  let y = position[0]
-  let moves = []
+  let y = coordinates[1]
+  console.log(y)
   if (color === "White") {
     if (y < 5) {
-      moves = ["12", "13", "14"]
+      let moves = ["12", "13", "14"]
       let check = tileCheckerKingMoves(moves, "White", board)
+      console.log(moves, check, "y < 5")
       if (moves.length === check.length) {
         bool = true
       }
     }
     if (y > 5) {
-      moves = ["16", "17"]
+      let moves = ["16", "17"]
       let check = tileCheckerKingMoves(moves, "White", board)
+      console.log(moves, check, "y > 5")
+
       if (moves.length === check.length) {
         bool = true
       }
@@ -426,14 +427,14 @@ function castleTileCheck(position, color, board) {
   }
   if (color === "Black") {
     if (y < 5) {
-      moves = ["82", "83", "84"]
+      let moves = ["82", "83", "84"]
       let check = tileCheckerKingMoves(moves, "Black", board)
       if (moves.length === check.length) {
         bool = true
       }
     }
     if (y > 5) {
-      moves = ["86", "87"]
+      let moves = ["86", "87"]
       let check = tileCheckerKingMoves(moves, "Black", board)
       if (moves.length === check.length) {
         bool = true

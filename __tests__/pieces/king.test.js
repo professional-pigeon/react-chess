@@ -999,5 +999,9 @@ describe("kingCastle", () => {
     castleBoard["22"] = "Bishop Black"
     expect(kingCastle("15", "White", castleBoard)).toEqual(["18"])
   })
+  test('kingCastle will return the Rooks available to move after checking kingmoves, rooksmoves, and tiles inbetween to confirm they are not in check', () => {
+    castleBoard["72"] = "Queen White"
+    expect(kingCastle("84", "Black", castleBoard)).toEqual(["88"])
+  })
 
 })

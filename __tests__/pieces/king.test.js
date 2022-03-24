@@ -1,4 +1,4 @@
-import { kingOne, hasKingMoved, hasRookMoved, rooksToCheck, castle, castleTileCheck, kingCheckDiagonals, kingCheckOrthogonal, kingCheckKnight, kingCheckPawn, kingCheckKing, kingMoves } from '../../src/helper/King'
+import { kingOne, hasKingMoved, hasRookMoved, rooksToCheck, kingCastle, castleTileCheck, kingCheckDiagonals, kingCheckOrthogonal, kingCheckKnight, kingCheckPawn, kingCheckKing, kingMoves } from '../../src/helper/King'
 
 
 describe('kingOne', () => {
@@ -983,5 +983,8 @@ describe("kingCastle", () => {
   }
   test('kingCastle will return the Rooks available to move after checking kingmoves, rooksmoves, and tiles inbetween to confirm they are not in check', () => {
     expect(kingCastle("15", "White", castleBoard)).toEqual(["11", "18"])
+  })
+  test('kingCastle will return the Rooks available to move after checking kingmoves, rooksmoves, and tiles inbetween to confirm they are not in check', () => {
+    expect(kingCastle("84", "Black", castleBoard)).toEqual(["81", "88"])
   })
 })

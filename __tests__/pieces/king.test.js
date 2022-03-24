@@ -757,15 +757,15 @@ describe('hasRookMoved', () => {
 
   })
 
-  // test('hasRookMoved should return true if there is a rook at the starting rook position check Black', () => {
-  //   expect(hasRookMoved(["81", "88"], "Black", castleBoard)).toEqual(["81", "88"])
-  // })
+  test('hasRookMoved should return true if there is a rook at the starting rook position check Black', () => {
+    expect(hasRookMoved(["81", "88"], "Black", castleBoard)).toEqual(["81", "88"])
+  })
 
 
-  // test('hasRookMoved should return false if the rook has moved before', () => {
-  //   castleBoard.moveHistory = [{ piece: "Rook White", move: ["38", "18"]}, { piece: "Rook White", move: ["18", "38"]}]
-  //   expect(hasRookMoved(["18"], "White", castleBoard)).toEqual(false)
-  // })    
+  test('hasRookMoved should return false if the rook has moved before', () => {
+    castleBoard.moveHistory = [{ piece: "Rook White", move: ["38", "18"]}, { piece: "Rook White", move: ["18", "38"]}]
+    expect(hasRookMoved(["11", "18"], "White", castleBoard)).toEqual(["11"])
+  })    
 });
 
 describe('rooksToCheck', () => {

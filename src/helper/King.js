@@ -444,9 +444,11 @@ function castleTileCheck(position, color, board) {
   return bool
 }
 
-function castle(position, color, board) {
-  let bool = hasKingMoved(position, color, board)
-  let rookMoved = false
+function castleMovePositions(validMoves, color, board) {
+  let arr = []
+  validMoves.forEach((move) => {
+
+  })
   return ""
 }
 
@@ -495,7 +497,7 @@ export {
   hasKingMoved,
   hasRookMoved,
   rooksToCheck,
-  castle,
+  castleMovePositions,
   castleTileCheck,
   kingCastle,
   kingCheckDiagonals,

@@ -310,7 +310,12 @@ function hasKingMoved(position, color, board) {
       }
     })
   }
-  if (position !== "15" || position !== "84") {
+  if (position !== "15" && color === "White") {
+    console.log("I think it's getting here")
+    bool = true
+  }
+  if (position !== "84" && color === "Black") {
+    console.log("I think it's getting here")
     bool = true
   }
   return bool

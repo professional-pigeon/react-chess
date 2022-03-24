@@ -297,20 +297,21 @@ function kingCastle(position, color, board) {
 function hasKingMoved(position, color, board) {
   let bool = false
   if (color === "White" && position === "15") {
-    bool = true
     board.moveHistory.forEach((data) => {
       if (data.piece.includes("King White")) {
-        bool = false
+        bool = true
       }
     })
   }
   if (color === "Black" && position === "84") {
-    bool = true
     board.moveHistory.forEach((data) => {
       if (data.piece.includes("King Black")) {
-        bool = false
+        bool = true
       }
     })
+  }
+  if (position !== "15" || position !== "84") {
+    bool = true
   }
   return bool
 }

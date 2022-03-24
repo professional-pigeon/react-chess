@@ -661,25 +661,20 @@ describe('hasKingMoved', () => {
     88: "Rook Black",
     moveHistory: [{ piece: "Rook White", move: [ "38", "18" ]}, { piece: "Rook White", move: [ "18", "38" ]}]
   }
-  test('hasKingMoved will return true if king is on its starting location check for white', () => {
-    expect(hasKingMoved("15", "White", castleBoard)).toEqual(true)
+  test('hasKingMoved will return false if king is on its starting location check for white', () => {
+    expect(hasKingMoved("15", "White", castleBoard)).toEqual(false)
   });
 
-  test('hasKingMoved will return true if king is on its starting location check for black', () => {
-    expect(hasKingMoved("84", "Black", castleBoard)).toEqual(true)
-  });
-
-  test('hasKingMoved will return false if king is not on its starting location', () => {
-    expect(hasKingMoved("16", "White", castleBoard)).toEqual(false)
-  })
-
-  test('hasKingMoved will return false if king has moved before', () => {
-    castleBoard.moveHistory.push({ piece: "King Black", move: [ "83", "84" ]}, { piece: "King Black", move: [ "84", "83" ]})
+  test('hasKingMoved will return falsenif king is on its starting location check for black', () => {
     expect(hasKingMoved("84", "Black", castleBoard)).toEqual(false)
+  });
+
+  test('hasKingMoved will return true if king is not on its starting location', () => {
+    expect(hasKingMoved("16", "White", castleBoard)).toEqual(true)
   })
 
-  test('hasKingMoved will return true if a rook is on the farthest tile on same row', () => {
-    castleBoard.moveHistory = []
+  test('hasKingMoved will return true if king has moved before', () => {
+    castleBoard.moveHistory.push({ piece: "King Black", move: [ "83", "84" ]}, { piece: "King Black", move: [ "84", "83" ]})
     expect(hasKingMoved("84", "Black", castleBoard)).toEqual(true)
   })
 });

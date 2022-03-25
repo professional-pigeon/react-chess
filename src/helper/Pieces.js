@@ -3,7 +3,7 @@ import { bishopMoves } from "./Bishop";
 import knightMoves from "./Knight";
 import queenMoves from "./Queen";
 import { pawnMoves } from "./Pawn";
-import { kingMoves } from './King';
+import { castleReturn, kingMoves } from './King';
 
 const pieceMoves = {
   Bishop: bishopMoves,
@@ -12,6 +12,7 @@ const pieceMoves = {
   Pawn: pawnMoves,
   Queen: queenMoves,
   Rook: rookMoves,
+  Castle: castleReturn
 }
 
 export default pieceMoves

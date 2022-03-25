@@ -405,12 +405,10 @@ function castleTileCheck(position, color, board) {
   let bool = false
   let coordinates = position.split("")
   let y = coordinates[1]
-  console.log(y)
   if (color === "White") {
     if (y < 5) {
       let moves = ["12", "13", "14"]
       let check = tileCheckerKingMoves(moves, "White", board)
-      console.log(moves, check, "y < 5")
       if (moves.length === check.length) {
         bool = true
       }
@@ -418,8 +416,6 @@ function castleTileCheck(position, color, board) {
     if (y > 5) {
       let moves = ["16", "17"]
       let check = tileCheckerKingMoves(moves, "White", board)
-      console.log(moves, check, "y > 5")
-
       if (moves.length === check.length) {
         bool = true
       }
@@ -444,20 +440,39 @@ function castleTileCheck(position, color, board) {
   return bool
 }
 
+function castleReturn(validMoves) {
+  let obj = ""
+  validMoves.forEach((move) => {
+    if (move === "11") {
+      obj = { move: "Castle", rook: "14", king: "13"}
+    }
+    if (move === "18") {
+      obj = { move: "Castle", rook: "16", king: "17"}
+    }
+    if (move === "81") {
+      obj = { move: "Castle", rook: "83", king: "82"}
+    }
+    if (move === "88") {
+      obj = { move: "Castle", rook: "85", king: "86"}
+    }
+  })
+  return obj
+}
+
 function castleMovePositions(validMoves) {
   let arr = []
   validMoves.forEach((move) => {
     if (move === "11") {
-      arr.push({ move: "Castle", rook: "14", king: "13"})
+      arr.push("Castle 11")
     }
     if (move === "18") {
-      arr.push({ move: "Castle", rook: "16", king: "17"})
+      arr.push("Castle 18")
     }
     if (move === "81") {
-      arr.push({ move: "Castle", rook: "83", king: "82"})
+      arr.push("Castle 81")
     }
     if (move === "88") {
-      arr.push({ move: "Castle", rook: "85", king: "86"})
+      arr.push("Castle 88")
     }
   })
   return arr
@@ -480,7 +495,8 @@ function kingMoves(position, color, board) {
   if (moves.length > 0) {
     moves = kingCheckKing(moves, color, board)
   }
-  return moves
+  moves.push(castleMovePositions(kingCastle(position, color, board)))
+  return moves.flat()
 }
 
 function tileCheckerKingMoves(tiles, color, board) {
@@ -516,5 +532,6 @@ export {
   kingCheckKnight,
   kingCheckPawn,
   kingCheckKing,
+  castleReturn,
   kingMoves
 }

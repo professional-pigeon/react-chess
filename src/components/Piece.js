@@ -13,15 +13,13 @@ function Piece(props) {
   if (moves.length > 0) {
     if (moves.includes(boardKey) && props.boardState[boardKey] !== "empty") {
       highlight = "takes";
-    } else if (moves.includes(boardKey)) {
+    } else if (moves.includes(boardKey) || moves.includes("Castle " + boardKey)) {
       highlight = "highlight";
     } else if (props.chosenPiece === boardKey) {
       highlight = "chosen";
     } else {
     }
   }
-  // changeData(chosenPiece, this.tile.movePos, board[chosenPiece], board)
-  // pieceType = "yada color"
 
   if (props.pieceType !== "empty") {
     let arr = props.pieceType.split(" ");
@@ -34,8 +32,6 @@ function Piece(props) {
     if (props.turn === color) {
     props.setMoves(moveFunc(pos, color, board))
     props.setPiece(pos)
-    } else {
-      console.log("not your turn")
     }
   }
 
@@ -46,9 +42,26 @@ function Piece(props) {
     props.setPiece("empty")
   }
 
+  function clickFunctionsCastle(init, rook, board) {
+    let data = pieceMoves.Castle([rook])
+    console.log(init, data, data.king)
+    props.changeData(init, data.king, board[init], board)
+    props.changeData(rook, data.rook, board[rook], board)
+    props.setMoves([])
+    props.setPiece("empty")
+  }
+
   if(props.moves.includes(props.position)) {
     return (
       <div className="tile" id={highlight} onClick={() => clickFunctionsChange(props.chosenPiece, boardKey, props.boardState)}>
+        <div className={piece + " " + color} id={"piece-size"}>
+          {piecePortraits[props.pieceType]}
+        </div>
+      </div>
+    )
+  } else if (props.moves.includes("Castle " + boardKey)) {
+    return (
+      <div className="tile" id={highlight} onClick={() => clickFunctionsCastle(props.chosenPiece, boardKey, props.boardState)}>
         <div className={piece + " " + color} id={"piece-size"}>
           {piecePortraits[props.pieceType]}
         </div>

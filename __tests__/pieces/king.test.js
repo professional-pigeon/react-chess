@@ -1087,4 +1087,7 @@ describe("castleMovePositions", () => {
   test('castleMovePositions will take the valid moves from kings castle and translate them into readable moves for the board', () => {
     expect(castleMovePositions(["11"])).toEqual([{ move: "Castle", rook: "14", king: "13"}])
   })
+  test('castleMovePositions will take the valid moves from kings castle and translate them into readable moves for the board', () => {
+    expect(castleMovePositions(["81"])).toEqual([{ move: "Castle", rook: "83", king: "82"}])
+  })
 })

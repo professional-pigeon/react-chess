@@ -456,6 +456,9 @@ function castleMovePositions(validMoves) {
     if (move === "81") {
       arr.push({ move: "Castle", rook: "83", king: "82"})
     }
+    if (move === "88") {
+      arr.push({ move: "Castle", rook: "85", king: "86"})
+    }
   })
   return arr
 }

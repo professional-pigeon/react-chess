@@ -1,5 +1,5 @@
 import pieceMoves from "../helper/Pieces";
-import piecePortraits from "../helper/PiecePortraits"
+import piecePortraits from "../helper/PiecePortraits";
 import PropTypes from "prop-types";
 
 function Piece(props) {

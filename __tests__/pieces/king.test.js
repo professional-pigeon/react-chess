@@ -1,4 +1,4 @@
-import { kingOne, hasKingMoved, hasRookMoved, rooksToCheck, kingCastle, castleTileCheck, kingCheckDiagonals, kingCheckOrthogonal, kingCheckKnight, kingCheckPawn, kingCheckKing, kingMoves } from '../../src/helper/King'
+import { kingOne, hasKingMoved, hasRookMoved, rooksToCheck, castleMovePositions, kingCastle, castleTileCheck, kingCheckDiagonals, kingCheckOrthogonal, kingCheckKnight, kingCheckPawn, kingCheckKing, kingMoves, castleMovePositions } from '../../src/helper/King'
 
 
 describe('kingOne', () => {
@@ -1016,7 +1016,7 @@ describe("kingCastle", () => {
 describe("castleMovePositions", () => {
   let castleBoard = {
     11: "Rook White",
-    12: "empty",
+    12: "Knight White",
     13: "empty",
     14: "empty",
     15: "King White",
@@ -1082,6 +1082,7 @@ describe("castleMovePositions", () => {
     moveHistory: []
   }
   test('castleMovePositions will take the valid moves from kings castle and translate them into readable moves for the board', () => {
-
+    let moves = kingCastle("15", "White", castleBoard)
+    expect(castleMovePositions(moves, color)).toEqual([{ move: "Castle", rook: "16", king: "17"}])
   })
 })

@@ -447,6 +447,9 @@ function castleTileCheck(position, color, board) {
 function castleMovePositions(validMoves) {
   let arr = []
   validMoves.forEach((move) => {
+    if (move === "11") {
+      arr.push({ move: "Castle", rook: "14", king: "13"})
+    }
     if (move === "18") {
       arr.push({ move: "Castle", rook: "16", king: "17"})
     }

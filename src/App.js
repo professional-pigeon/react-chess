@@ -38,9 +38,9 @@ function App() {
   
   function doubleCall(currentPosArr, moveArr, piecesArr, board) {
     board[currentPosArr[0]] = 'empty'
-    board[moveArr[0]] = pieces[0]
-    board[current[1]] = 'empty'
-    board[movePos[1]] = pieces[1]
+    board[moveArr[0]] = piecesArr[0]
+    board[currentPosArr[1]] = 'empty'
+    board[moveArr[1]] = piecesArr[1]
     board.moveHistory.push({
       piece: piecesArr[0],
       move: [moveArr[0], currentPosArr[0]],

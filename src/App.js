@@ -35,6 +35,23 @@ function App() {
     const res = db.collection('games').doc(gameID)
     res.set(data)
   }
+  
+  function doubleCall(currentPosArr, moveArr, piecesArr, board) {
+    board[currentPosArr[0]] = 'empty'
+    board[moveArr[0]] = pieces[0]
+    board[current[1]] = 'empty'
+    board[movePos[1]] = pieces[1]
+    board.moveHistory.push({
+      piece: piecesArr[0],
+      move: [moveArr[0], currentPosArr[0]],
+      piece2: piecesArr[1],
+      move2: [moveArr[1], currentPosArr[1]]
+    })
+    let data = board
+    const res = db.collection('games').doc(gameID)
+    res.set(data)
+
+  }
 
   async function newGame(event) {
     event.preventDefault()
@@ -59,7 +76,7 @@ function App() {
   } else {
     return (
       <div className="App">
-        <Board board={board} changeData={changeData} />
+        <Board board={board} changeData={changeData} doubleCall={doubleCall} />
       </div>
     );
   }

@@ -1,10 +1,10 @@
 import React, { useState, useEffect  } from "react";
 import Piece from "./Piece";
 
-function Board({ board, changeData }) {
+function Board({ board, changeData, doubleCall }) {
   const [moves, setMoves] = useState(["enPassant"]);
   const [chosenPiece, setPiece] = useState("empty");
-  const [uniqueMoves, setUniqueMoves] = useState([])
+
   let boardState = board
   let grid = [];
   let turn = ""
@@ -18,7 +18,7 @@ function Board({ board, changeData }) {
     for (let j = 1; j < 9; j ++) {
       let boardKey = i.toString() + j.toString()
       grid[i - 1].push(
-        <Piece key={boardKey} turn={turn} changeData={changeData} moves={moves} chosenPiece={chosenPiece} boardState={boardState} position={boardKey} pieceType={boardState[boardKey]} setMoves={setMoves} setPiece={setPiece} />
+        <Piece key={boardKey} doubleCall={doubleCall} turn={turn} changeData={changeData} moves={moves} chosenPiece={chosenPiece} boardState={boardState} position={boardKey} pieceType={boardState[boardKey]} setMoves={setMoves} setPiece={setPiece} />
       )
     }
   }

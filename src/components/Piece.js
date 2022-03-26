@@ -44,9 +44,7 @@ function Piece(props) {
 
   function clickFunctionsCastle(init, rook, board) {
     let data = pieceMoves.Castle([rook])
-    console.log(init, data, data.king)
-    props.changeData(init, data.king, board[init], board)
-    props.changeData(rook, data.rook, board[rook], board)
+    props.doubleCall([init, rook], [data.king, data.rook], [board[init], board[rook]], board)
     props.setMoves([])
     props.setPiece("empty")
   }

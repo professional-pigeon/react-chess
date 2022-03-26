@@ -1082,15 +1082,15 @@ describe("castleMovePositions", () => {
     moveHistory: []
   }
   test('castleMovePositions will take the valid moves from kings castle and translate them into readable moves for the board', () => {
-    expect(castleMovePositions(["18"])).toEqual([{ move: "Castle", rook: "16", king: "17"}])
+    expect(castleMovePositions(["18"])).toEqual(["Castle 18"])
   })
   test('castleMovePositions will take the valid moves from kings castle and translate them into readable moves for the board', () => {
-    expect(castleMovePositions(["11"])).toEqual([{ move: "Castle", rook: "14", king: "13"}])
+    expect(castleMovePositions(["11"])).toEqual(["Castle 11"])
   })
   test('castleMovePositions will take the valid moves from kings castle and translate them into readable moves for the board', () => {
-    expect(castleMovePositions(["81"])).toEqual([{ move: "Castle", rook: "83", king: "82"}])
+    expect(castleMovePositions(["81"])).toEqual(["Castle 81"])
   })
   test('castleMovePositions will take the valid moves from kings castle and translate them into readable moves for the board', () => {
-    expect(castleMovePositions(["88"])).toEqual([{ move: "Castle", rook: "85", king: "86"}])
+    expect(castleMovePositions(["88"])).toEqual(["Castle 88"])
   })
 })

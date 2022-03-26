@@ -99,4 +99,17 @@ function pawnMoves(pos, color, board) {
   return arr.flat()
 }
 
-export { pawnForward, pawnTakes, enPassant, switchPiece, pawnMoves }
+function enPassantTranslator(pos, color) {
+  let coordinates = pos.split("")
+  let x = Number(coordinates[0])
+  if (color === "White") {
+    let space = (x + 1).toString() + coordinates[1]
+    return {piece: "empty", tile: space}
+  }
+  if (color === "Black") {
+    let space = (x - 1).toString() + coordinates[1]
+    return {piece: "empty", tile: space}
+  }  
+}
+
+export { pawnForward, pawnTakes, enPassant, enPassantTranslator, switchPiece, pawnMoves }

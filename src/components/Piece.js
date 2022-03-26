@@ -13,7 +13,7 @@ function Piece(props) {
   if (moves.length > 0) {
     if (moves.includes(boardKey) && props.boardState[boardKey] !== "empty") {
       highlight = "takes";
-    } else if (moves.includes(boardKey) || moves.includes("Castle " + boardKey)) {
+    } else if (moves.includes(boardKey) || moves.includes("Castle " + boardKey) || moves.includes("Enpassant " + boardKey)) {
       highlight = "highlight";
     } else if (props.chosenPiece === boardKey) {
       highlight = "chosen";

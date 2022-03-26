@@ -61,27 +61,26 @@ function enPassant(pos, color, board) {
     let newY = Number(newPos[1])
     let prevPos = lastMove[1].split("")
     let prevX = Number(prevPos[0])
-    let prevY = Number(prevPos[1])
     if (newY === (y - 1)) {
       if (board[left].includes('Pawn') && board[left].includes(color) === false) {
         if ((newX - prevX) === -2) {
-          moves.push((x + 1).toString() + (y - 1).toString());
+          moves.push("Enpassant " + (x + 1).toString() + (y - 1).toString());
         }
-        if ((newX - prevX) === 2) {
-          moves.push((x - 1).toString() + (y - 1).toString());
+        if ((newX - prevX) === 2) { 
+          moves.push("Enpassant " + (x - 1).toString() + (y - 1).toString());
         }
       }
     }
     if (newY === (y + 1)) {
-      console.log("here again", newY)
       if (board[right].includes('Pawn') && board[right].includes(color) === false) {
         if ((newX - prevX) === -2) {
-          moves.push((x + 1).toString() + (y + 1).toString());
+          moves.push("Enpassant " + (x + 1).toString() + (y + 1).toString());
         }
         if ((newX - prevX) === 2) {
-          moves.push((x - 1).toString() + (y + 1).toString());
+          //works on board
+          moves.push("Enpassant " + (x - 1).toString() + (y + 1).toString());
         }
-      }
+      } // 4 - 2 === 2 and one other direction 5 - 7 === -2
     }
   }
   return moves;

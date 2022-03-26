@@ -144,7 +144,7 @@ describe('enPassant', () => {
     45: "empty",
     46: "empty",
     47: "empty",
-    48: "empty",
+    48: "Pawn White",
     51: "empty",
     52: "empty",
     53: "empty",
@@ -177,15 +177,23 @@ describe('enPassant', () => {
     86: "empty",
     87: "empty",
     88: "empty",
-    moveHistory: [ { piece: "Pawn Black", move: ["75", "55"] }]
+    moveHistory: [ { piece: "Pawn Black", move: ["55", "75"] }]
   }
   test('enPassant will allow you take an pawn that has moved adjacent to you after moving twice', () => {
     expect(enPassant("56", "White", boardPassant)).toEqual(["Enpassant 65"])
   })
 
+  test('enPassant will allow you take an pawn that has moved adjacent to you after moving twice', () => {
+    expect(enPassant("54", "White", boardPassant)).toEqual(["Enpassant 65"])
+  })
+
   test('enPassant will allow you take an pawn that has moved adjacent to you after moving twice: confirm for Black pieces', () => {
-    boardPassant["moveHistory"] = [{ piece: "Pawn White", move: ["21", "41"] } ]
+    boardPassant["moveHistory"] = [{ piece: "Pawn White", move: ["41", "21"] } ]
     expect(enPassant("42", "Black", boardPassant)).toEqual(["Enpassant 31"])
+  })
+  test('enPassant will allow you take an pawn that has moved adjacent to you after moving twice: confirm for Black pieces', () => {
+    boardPassant["moveHistory"] = [{ piece: "Pawn White", move: ["48", "28"] } ]
+    expect(enPassant("47", "Black", boardPassant)).toEqual(["Enpassant 38"])
   })
 })
 

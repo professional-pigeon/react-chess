@@ -36,7 +36,6 @@ function Piece(props) {
   }
 
   function clickFunctionsChange(init, newPos, board) {
-    // somewhere in here or in change data you need to check for enPassant 
     props.changeData(init, newPos, board[init], board)
     props.setMoves([])
     props.setPiece("empty")
@@ -45,6 +44,14 @@ function Piece(props) {
   function clickFunctionsCastle(init, rook, board) {
     let data = pieceMoves.Castle([rook])
     props.doubleCall([init, rook], [data.king, data.rook], [board[init], board[rook]], board)
+    props.setMoves([])
+    props.setPiece("empty")
+  }
+
+  function clickFunctionsEnPassant(init, newPos, board) {
+    let pieceSplit = board[init].split(" ")
+    let data = pieceMoves.Enpassant(newPos, pieceSplit[1])
+    props.doubleCall([init, data.tile], [newPos, data.tile], [board[init], "empty"], board)
     props.setMoves([])
     props.setPiece("empty")
   }
@@ -60,6 +67,14 @@ function Piece(props) {
   } else if (props.moves.includes("Castle " + boardKey)) {
     return (
       <div className="tile" id={highlight} onClick={() => clickFunctionsCastle(props.chosenPiece, boardKey, props.boardState)}>
+        <div className={piece + " " + color} id={"piece-size"}>
+          {piecePortraits[props.pieceType]}
+        </div>
+      </div>
+    )
+  } else if (props.moves.includes("Enpassant " + boardKey)) {
+    return (
+      <div className="tile" id={highlight} onClick={() => clickFunctionsEnPassant(props.chosenPiece, boardKey, props.boardState)}>
         <div className={piece + " " + color} id={"piece-size"}>
           {piecePortraits[props.pieceType]}
         </div>

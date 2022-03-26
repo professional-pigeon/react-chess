@@ -36,11 +36,12 @@ function App() {
     res.set(data)
   }
   
-  function doubleCall(currentPosArr, moveArr, piecesArr, board) {
+  function doubleCall(currentPosArr, moveArr, piecesArr, board) { // tile tile, tile tile, piece piece
     board[currentPosArr[0]] = 'empty'
     board[moveArr[0]] = piecesArr[0]
     board[currentPosArr[1]] = 'empty'
     board[moveArr[1]] = piecesArr[1]
+    console.log(currentPosArr, moveArr, piecesArr)
     board.moveHistory.push({
       piece: piecesArr[0],
       move: [moveArr[0], currentPosArr[0]],

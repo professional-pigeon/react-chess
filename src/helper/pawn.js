@@ -100,14 +100,15 @@ function pawnMoves(pos, color, board) {
 }
 
 function enPassantTranslator(pos, color) {
+  // 33
   let coordinates = pos.split("")
   let x = Number(coordinates[0])
   if (color === "White") {
-    let space = (x + 1).toString() + coordinates[1]
+    let space = (x - 1).toString() + coordinates[1]
     return {piece: "empty", tile: space}
   }
   if (color === "Black") {
-    let space = (x - 1).toString() + coordinates[1]
+    let space = (x + 1).toString() + coordinates[1]
     return {piece: "empty", tile: space}
   }  
 }

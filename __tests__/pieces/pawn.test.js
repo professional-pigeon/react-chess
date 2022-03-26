@@ -180,12 +180,12 @@ describe('enPassant', () => {
     moveHistory: [ { piece: "Pawn Black", move: ["75", "55"] }]
   }
   test('enPassant will allow you take an pawn that has moved adjacent to you after moving twice', () => {
-    expect(enPassant("56", "White", boardPassant)).toEqual(["65"])
+    expect(enPassant("56", "White", boardPassant)).toEqual(["Enpassant 65"])
   })
 
   test('enPassant will allow you take an pawn that has moved adjacent to you after moving twice: confirm for Black pieces', () => {
     boardPassant["moveHistory"] = [{ piece: "Pawn White", move: ["21", "41"] } ]
-    expect(enPassant("42", "Black", boardPassant)).toEqual(["31"])
+    expect(enPassant("42", "Black", boardPassant)).toEqual(["Enpassant 31"])
   })
 })
 
